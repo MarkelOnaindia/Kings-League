@@ -1,3 +1,5 @@
+/*DROPs de las tablas*/
+
 DROP TABLE Equipo CASCADE CONSTRAINTS;
 DROP TABLE Jugador CASCADE CONSTRAINTS;
 DROP TABLE Staff CASCADE CONSTRAINTS;
@@ -12,7 +14,7 @@ DROP TABLE ContratoEntrena CASCADE CONSTRAINTS;
 DROP TABLE ContratoStaff CASCADE CONSTRAINTS;
 DROP TABLE ContratoJugador CASCADE CONSTRAINTS;
 
-
+/*Tabla de equipos*/
 CREATE TABLE Equipo (
  	ID_EQUIPO	INTEGER GENERATED ALWAYS AS IDENTITY
 					START WITH 1
@@ -26,6 +28,7 @@ CREATE TABLE Equipo (
 		CONSTRAINT EQU_PRESUPUESTO_CK CHECK(PRESUPUESTO <= 200000000)
 );
 
+/*Tabla de jugadores*/
 CREATE TABLE Jugador (
     ID_JUG		INTEGER GENERATED ALWAYS AS IDENTITY
 					START WITH 1
@@ -47,6 +50,7 @@ CREATE TABLE Jugador (
     CORREO	    Varchar2(50)
 );
 
+/*Tabla del staff*/
 CREATE TABLE Staff (
 	ID_STAFF	INTEGER GENERATED ALWAYS AS IDENTITY
                         START WITH 1
@@ -62,6 +66,7 @@ CREATE TABLE Staff (
     ROL		        Varchar2(15)
 );
 
+/*Tabla del entrenador*/
 CREATE TABLE Entrenador (
 	ID_ENT 	    INTEGER GENERATED ALWAYS AS IDENTITY
                         START WITH 1
@@ -76,6 +81,7 @@ CREATE TABLE Entrenador (
     CORREO	        Varchar2(50)
 );
 
+/*Tabla del propietario*/
 CREATE TABLE Propietario (
 	ID_PRO 	    INTEGER GENERATED ALWAYS AS IDENTITY
                         START WITH 1
@@ -90,7 +96,7 @@ CREATE TABLE Propietario (
     CORREO	        Varchar2(50)
 );
 
-
+/*Tabla de la temporada*/
 CREATE TABLE Temporada (
 	ID_TEMP		INTEGER GENERATED ALWAYS AS IDENTITY
 					START WITH 1
@@ -101,6 +107,7 @@ CREATE TABLE Temporada (
     ESTADO	    Varchar2(10) CHECK (ESTADO IN ('Abierto','Cerrado'))
 );
 
+/*Tabla de partidos*/
 CREATE TABLE Partido (
 	ID_PARTIDO	INTEGER GENERATED ALWAYS AS IDENTITY
                     START WITH 1
@@ -112,6 +119,7 @@ CREATE TABLE Partido (
     GOLES_EQ2	Number(2)
 );
 
+/*Tabla de la jornada*/
 CREATE TABLE Jornada (
 	ID_JOR		INTEGER GENERATED ALWAYS AS IDENTITY
                     START WITH 1
@@ -122,6 +130,7 @@ CREATE TABLE Jornada (
     TIPO        Varchar2(15) CHECK (TIPO IN ('FaseRegular','PlayOffs'))
 );
 
+/*Tabla del usuario*/
 CREATE TABLE Usuario (
     ID_USUARIO	    INTEGER GENERATED ALWAYS AS IDENTITY
                         START WITH 1
@@ -135,6 +144,7 @@ CREATE TABLE Usuario (
     ADMIN		    Varchar2(2) CHECK (ADMIN IN ('SI','NO'))
 );
 
+/*Contratos*/
 CREATE TABLE ContratoDueno (
     ID_CONDU    INTEGER GENERATED ALWAYS AS IDENTITY
                     START WITH 1
