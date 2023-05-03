@@ -5,14 +5,15 @@ DROP TABLE Jugador CASCADE CONSTRAINTS;
 DROP TABLE Staff CASCADE CONSTRAINTS;
 DROP TABLE Entrenador CASCADE CONSTRAINTS;
 DROP TABLE Propietario CASCADE CONSTRAINTS;
-DROP TABLE Temporada;
-DROP TABLE Partido;
-DROP TABLE Jornada;
+DROP TABLE Temporada CASCADE CONSTRAINTS;
+DROP TABLE Partido CASCADE CONSTRAINTS;
+DROP TABLE Jornada CASCADE CONSTRAINTS;
 DROP TABLE Usuario;
 DROP TABLE ContratoDueno CASCADE CONSTRAINTS;
 DROP TABLE ContratoEntrena CASCADE CONSTRAINTS;
 DROP TABLE ContratoStaff CASCADE CONSTRAINTS;
 DROP TABLE ContratoJugador CASCADE CONSTRAINTS;
+DROP TABLE CAL_XML_Resultado;
 
 /*Tabla de equipos*/
 CREATE TABLE Equipo (
@@ -107,18 +108,6 @@ CREATE TABLE Temporada (
     ESTADO	    Varchar2(10) CHECK (ESTADO IN ('Abierto','Cerrado'))
 );
 
-/*Tabla de partidos*/
-CREATE TABLE Partido (
-	ID_PARTIDO	INTEGER GENERATED ALWAYS AS IDENTITY
-                    START WITH 1
-                    INCREMENT BY 1
-                    NOCACHE
-                    PRIMARY KEY,
-    HORA		Timestamp,
-    GOLES_EQ1	Number(2),
-    GOLES_EQ2	Number(2)
-);
-
 /*Tabla de la jornada*/
 CREATE TABLE Jornada (
 	ID_JOR		INTEGER GENERATED ALWAYS AS IDENTITY
@@ -126,8 +115,26 @@ CREATE TABLE Jornada (
                     INCREMENT BY 1
                     NOCACHE
                     PRIMARY KEY,
+    ID_TEMP      Number(5),
     NUMERO	    Number(2),
-    TIPO        Varchar2(15) CHECK (TIPO IN ('FaseRegular','PlayOffs'))
+    TIPO        Varchar2(15) CHECK (TIPO IN ('FaseRegular','PlayOffs')),
+    CONSTRAINT ID_TEMP_FK FOREIGN KEY(ID_TEMP)
+            REFERENCES Temporada (ID_TEMP)
+);
+
+/*Tabla de partidos*/
+CREATE TABLE Partido (
+	ID_PARTIDO	INTEGER GENERATED ALWAYS AS IDENTITY
+                    START WITH 1
+                    INCREMENT BY 1
+                    NOCACHE
+                    PRIMARY KEY,
+    ID_JOR      Number(5),
+    HORA		Timestamp,
+    GOLES_EQ1	Number(2),
+    GOLES_EQ2	Number(2),
+    CONSTRAINT ID_JOR_FK FOREIGN KEY(ID_JOR)
+            REFERENCES Jornada (ID_JOR)
 );
 
 /*Tabla del usuario*/
@@ -213,4 +220,15 @@ CREATE TABLE ContratoJugador (
             REFERENCES Jugador (ID_JUG),
         CONSTRAINT CONJU_ID_EQUIPO_FK FOREIGN KEY(ID_EQUIPO)
             REFERENCES Equipo (ID_EQUIPO)
+);
+
+/*XML*/
+CREATE TABLE CAL_XML_Resultado(
+    ID_XML  INTEGER GENERATED ALWAYS AS IDENTITY
+                    START WITH 1
+                    INCREMENT BY 1
+                    NOCACHE
+                    PRIMARY KEY,
+    result CLOB,
+    TIPO			Varchar2(10) CHECK (TIPO IN('TodasJornadas','UltimaJornada','Clasificacion'))
 );
