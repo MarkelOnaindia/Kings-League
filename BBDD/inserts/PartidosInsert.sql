@@ -1,3 +1,5 @@
+/*Kings League equipo 2*/
+/*Insercion del Partido*/
 /*Partidos 16:00*/
 INSERT INTO Partido VALUES (DEFAULT,1, '2023-05-07 16:00', 3, 1);
 INSERT INTO Partido VALUES (DEFAULT,2, '2023-05-14 16:00', 5, 2);
