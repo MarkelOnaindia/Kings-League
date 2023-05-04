@@ -13,3 +13,10 @@ Orden de ejecucion de los scripts:
 12 ContratoJugadorInsert.sql
 13 ContratoEntrenaInsert.sql
 14 ContratoDuenoInsert.sql
+15 Kings_League_view.sql
+16 procedimiento_infoequipos.sql
+17 procedimiento_anonimo_infoequipos.sql
+18 procedimiento_infojugadores
+19 procedimiento_anonimo_infojugadores
+21 Kings_League_cabecera.sql
+22 Kings_League_cuerpo.sql
