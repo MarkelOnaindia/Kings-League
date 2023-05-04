@@ -1,3 +1,5 @@
+/*Kings League equipo 2*/
+/*Insercion del ContratoStaff*/
 INSERT INTO ContratoStaff VALUES (DEFAULT, 1, 1, 2500, '01-01-2023', '31-12-2023');
 INSERT INTO ContratoStaff VALUES (DEFAULT, 2, 2, 2200, '01-01-2023', '31-12-2023');
 INSERT INTO ContratoStaff VALUES (DEFAULT, 3, 3, 2700, '01-01-2023', '31-12-2023');
