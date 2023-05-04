@@ -1,4 +1,5 @@
-/*Jornada*/
+/*Kings League equipo 2*/
+/*Insercion del Jornada*/
 INSERT INTO Jornada VALUES (DEFAULT,1, 1, 'FaseRegular');
 INSERT INTO Jornada VALUES (DEFAULT,1, 2, 'FaseRegular');
 INSERT INTO Jornada VALUES (DEFAULT,1, 3, 'FaseRegular');
