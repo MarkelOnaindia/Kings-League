@@ -1,4 +1,5 @@
-/*Insercion de jugadores pertenecientes al equipo 1*/
+/*Kings League equipo 2*/
+/*Insercion del ContratoJugador*/
     /*Habituales*/
     INSERT INTO ContratoJugador VALUES (DEFAULT,1,1,10000000,TO_DATE('12/09/2022', 'DD/MM/YYYY'),TO_DATE('10/10/2022', 'DD/MM/YYYY'),1000000,1);
     INSERT INTO ContratoJugador VALUES (DEFAULT,2,1,15000000,TO_DATE('12/09/2022', 'DD/MM/YYYY'),TO_DATE('10/10/2022', 'DD/MM/YYYY'),2000000,2);
@@ -103,7 +104,6 @@
     
     /*Wild Cards*/
     INSERT INTO ContratoJugador VALUES (DEFAULT,136,7,10500000,TO_DATE('12/09/2022', 'DD/MM/YYYY'),TO_DATE('10/10/2022', 'DD/MM/YYYY'),3000000,9);
-    INSERT INTO ContratoJugador VALUES (DEFAULT,137,7,22500000,TO_DATE('12/09/2022', 'DD/MM/YYYY'),TO_DATE('10/10/2022', 'DD/MM/YYYY'),2000000,10);
 
 
 
