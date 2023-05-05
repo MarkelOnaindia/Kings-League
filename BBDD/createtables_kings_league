@@ -110,6 +110,7 @@ CREATE TABLE Jornada (
                     PRIMARY KEY,
     ID_TEMP      Number(5),
     NUMERO	    Number(2),
+    Dia         Varchar2(11),
     TIPO        Varchar2(15) CHECK (TIPO IN ('FaseRegular','PlayOffs')),
     CONSTRAINT ID_TEMP_FK FOREIGN KEY(ID_TEMP)
             REFERENCES Temporada (ID_TEMP)
