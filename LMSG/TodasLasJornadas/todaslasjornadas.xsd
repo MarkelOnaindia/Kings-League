@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="tabla_jornada" type="tabla_jornadaType"/>
+  <xs:complexType name="jornadaType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="ID_JOR"/>
+      <xs:element type="xs:string" name="ID_TEMP"/>
+      <xs:element type="xs:string" name="NUMERO"/>
+      <xs:element type="xs:string" name="Dia"/>
+      <xs:element type="xs:string" name="TIPO"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tabla_jornadaType">
+    <xs:sequence>
+      <xs:element type="jornadaType" name="jornada"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

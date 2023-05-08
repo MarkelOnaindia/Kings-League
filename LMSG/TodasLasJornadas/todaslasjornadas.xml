@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tabla_jornada [
+        <!ELEMENT tabla_jornada (jornada)*>
+        <!ATTLIST tabla_jornada
+                xmlns:xsi CDATA #REQUIRED
+                xsi:noNamespaceSchemaLocation CDATA #REQUIRED>
+        <!ELEMENT jornada (ID_JOR|ID_TEMP|NUMERO|Dia|TIPO)*>
+        <!ELEMENT ID_JOR (#PCDATA)>
+        <!ELEMENT ID_TEMP (#PCDATA)>
+        <!ELEMENT NUMERO (#PCDATA)>
+        <!ELEMENT Dia (#PCDATA)>
+        <!ELEMENT TIPO (#PCDATA)>
+        ]>
+<tabla_jornada xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="todaslasjornadas.xsd">
+  <jornada>
+    <ID_JOR></ID_JOR>
+    <ID_TEMP></ID_TEMP>
+    <NUMERO></NUMERO>
+    <Dia></Dia>
+    <TIPO></TIPO>
+  </jornada>
+</tabla_jornada>
