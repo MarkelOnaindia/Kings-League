@@ -1,18 +1,17 @@
 /*Kings League equipo 2*/
 /*View clasificacion*/
 CREATE OR REPLACE VIEW clasificacion AS
-SELECT
-    ROW_NUMBER() OVER (ORDER BY COUNT(*) DESC) AS Posicion,
-    e.NOMBRE,
-    COUNT(*) AS Numero_Victorias,
-    SUM(CASE WHEN p.GOLES_EQ1 > p.GOLES_EQ2 AND p.ID_GANADOR = e.ID_EQUIPO THEN p.GOLES_EQ1
-             WHEN p.GOLES_EQ2 > p.GOLES_EQ1 AND p.ID_GANADOR = e.ID_EQUIPO THEN p.GOLES_EQ2
-             ELSE 0 END) AS Goles_Anotados
-FROM
-    Equipo e
-    JOIN Partido p ON e.ID_EQUIPO = p.ID_GANADOR
-GROUP BY
-    e.NOMBRE
+SELECT 
+       ROW_NUMBER() OVER (ORDER BY COUNT(CASE WHEN p.ID_Ganador = e.ID_EQUIPO THEN 1 END) DESC) AS Posicion,
+       e.NOMBRE AS Nombre_Equipo, 
+       COUNT(CASE WHEN p.ID_Ganador = e.ID_EQUIPO THEN 1 END) AS Victorias, 
+       SUM(CASE WHEN p.ID_Ganador = e.ID_EQUIPO THEN p.GOLES_EQ1 ELSE p.GOLES_EQ2 END) AS Goles_a_favor,
+       SUM(CASE WHEN p.ID_Ganador = e.ID_EQUIPO THEN p.GOLES_EQ2 ELSE p.GOLES_EQ1 END) AS Goles_en_contra,
+       SUM(CASE WHEN p.ID_Ganador = e.ID_EQUIPO THEN p.GOLES_EQ1 ELSE p.GOLES_EQ2 END) - SUM(CASE WHEN p.ID_Ganador = e.ID_EQUIPO THEN p.GOLES_EQ2 ELSE p.GOLES_EQ1 END) AS Diferencia_goles
+FROM Equipo e
+JOIN Partido p ON (e.ID_EQUIPO = p.ID_Ganador OR e.ID_EQUIPO = p.ID_Perdedor)
+GROUP BY e.ID_EQUIPO, e.NOMBRE
 ORDER BY
-    Numero_Victorias DESC, 
-    Goles_Anotados DESC;
+    Victorias DESC, 
+    Diferencia_goles DESC;
+    
