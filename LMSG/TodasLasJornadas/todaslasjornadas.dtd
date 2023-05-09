@@ -1,5 +1,4 @@
-<!DOCTYPE tabla_jornada [
-        <!ELEMENT tabla_jornada (jornada)*>
+<!ELEMENT tabla_jornada (jornada)*>
         <!ATTLIST tabla_jornada
                 xmlns:xsi CDATA #REQUIRED
                 xsi:noNamespaceSchemaLocation CDATA #REQUIRED>
@@ -17,4 +16,4 @@
         <!ELEMENT GOLES_EQ1 (#PCDATA)>
         <!ELEMENT GOLES_EQ2 (#PCDATA)>
         <!ELEMENT ID_Ganador (#PCDATA)>
-        ]>
+    

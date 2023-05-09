@@ -1,4 +1,3 @@
-<!DOCTYPE jornada [
         <!ELEMENT jornada (ID_JOR|ID_TEMP|Dia|TIPO|Partido)*>
         <!ATTLIST jornada
                 NUMERO CDATA #REQUIRED
@@ -15,4 +14,4 @@
         <!ELEMENT GOLES_EQ1 (#PCDATA)>
         <!ELEMENT GOLES_EQ2 (#PCDATA)>
         <!ELEMENT ID_Ganador (#PCDATA)>
-        ]>
+  
