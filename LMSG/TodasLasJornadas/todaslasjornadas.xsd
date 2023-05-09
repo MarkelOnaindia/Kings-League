@@ -3,73 +3,18 @@
   <xs:element name="tabla_jornada" type="tabla_jornadaType"/>
   <xs:complexType name="PartidoType">
     <xs:sequence>
-      <xs:element name="HORA">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="16:00"/>
-            <xs:enumeration value="17:00"/>
-            <xs:enumeration value="18:00"/>
-            <xs:enumeration value="19:00"/>
-            <xs:enumeration value="20:00"/>
-            <xs:enumeration value="21:00"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="GOLES_EQ1">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="3"/>
-            <xs:enumeration value="4"/>
-            <xs:enumeration value="1"/>
-            <xs:enumeration value="5"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="GOLES_EQ2">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="4"/>
-            <xs:enumeration value="2"/>
-            <xs:enumeration value="6"/>
-            <xs:enumeration value="5"/>
-            <xs:enumeration value="3"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="ID_Ganador">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="5"/>
-            <xs:enumeration value="2"/>
-            <xs:enumeration value="10"/>
-            <xs:enumeration value="12"/>
-            <xs:enumeration value="7"/>
-            <xs:enumeration value="1"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
+      <xs:element name="HORA" type="xs:string"/>
+      <xs:element name="GOLES_EQ1" type="xs:string"/>
+      <xs:element name="GOLES_EQ2" type="xs:string"/>
+      <xs:element name="ID_Ganador" type="xs:string"/>
     </xs:sequence>
     <xs:attribute type="xs:string" name="ID_PARTIDO" use="optional"/>
   </xs:complexType>
   <xs:complexType name="jornadaType">
     <xs:sequence>
-      <xs:element name="ID_JOR">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="1"/>
-            <xs:enumeration value="2"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
+      <xs:element name="ID_JOR" type="xs:string"/>
       <xs:element type="xs:string" name="ID_TEMP"/>
-      <xs:element name="Dia">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="01/01/2024"/>
-            <xs:enumeration value="08/01/2024"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
+      <xs:element name="Dia" type="xs:string"/>
       <xs:element type="xs:string" name="TIPO"/>
       <xs:element type="PartidoType" name="Partido" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
