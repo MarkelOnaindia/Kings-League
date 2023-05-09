@@ -126,9 +126,12 @@ CREATE TABLE Partido (
     GOLES_EQ1	Number(2),
     GOLES_EQ2	Number(2),
     ID_Ganador  Number(5),
+    ID_Perdedor  Number(5),
     CONSTRAINT ID_JOR_FK FOREIGN KEY(ID_JOR)
             REFERENCES Jornada (ID_JOR),
     CONSTRAINT EQU_GANA_FK FOREIGN KEY (ID_GANADOR) 
+            REFERENCES EQUIPO(ID_EQUIPO),
+    CONSTRAINT EQU_PIERDE_FK FOREIGN KEY (ID_Perdedor) 
             REFERENCES EQUIPO(ID_EQUIPO)
 );
 
