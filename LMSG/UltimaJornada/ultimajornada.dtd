@@ -1,0 +1,18 @@
+<!DOCTYPE jornada [
+        <!ELEMENT jornada (ID_JOR|ID_TEMP|Dia|TIPO|Partido)*>
+        <!ATTLIST jornada
+                NUMERO CDATA #REQUIRED
+                xmlns:xsi CDATA #REQUIRED
+                xsi:noNamespaceSchemaLocation CDATA #REQUIRED>
+        <!ELEMENT ID_JOR (#PCDATA)>
+        <!ELEMENT ID_TEMP (#PCDATA)>
+        <!ELEMENT Dia (#PCDATA)>
+        <!ELEMENT TIPO (#PCDATA)>
+        <!ELEMENT Partido (HORA|GOLES_EQ1|GOLES_EQ2|ID_Ganador)*>
+        <!ATTLIST Partido
+                ID_PARTIDO CDATA #REQUIRED>
+        <!ELEMENT HORA (#PCDATA)>
+        <!ELEMENT GOLES_EQ1 (#PCDATA)>
+        <!ELEMENT GOLES_EQ2 (#PCDATA)>
+        <!ELEMENT ID_Ganador (#PCDATA)>
+        ]>

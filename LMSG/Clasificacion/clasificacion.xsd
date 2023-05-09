@@ -1,10 +1,71 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="clasificacion.xml">
-  <xs:element name="root">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="element" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Clasificaciones" type="ClasificacionesType"/>
+  <xs:complexType name="ClasificacionType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="POSICION"/>
+      <xs:element type="xs:string" name="NOMBRE_EQUIPO"/>
+      <xs:element name="VICTORIAS">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="8"/>
+            <xs:enumeration value="7"/>
+            <xs:enumeration value="6"/>
+            <xs:enumeration value="5"/>
+            <xs:enumeration value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="GOLES_A_FAVOR">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="32"/>
+            <xs:enumeration value="34"/>
+            <xs:enumeration value="37"/>
+            <xs:enumeration value="27"/>
+            <xs:enumeration value="24"/>
+            <xs:enumeration value="29"/>
+            <xs:enumeration value="35"/>
+            <xs:enumeration value="33"/>
+            <xs:enumeration value="31"/>
+            <xs:enumeration value="23"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="GOLES_EN_CONTRA">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="32"/>
+            <xs:enumeration value="31"/>
+            <xs:enumeration value="30"/>
+            <xs:enumeration value="29"/>
+            <xs:enumeration value="34"/>
+            <xs:enumeration value="33"/>
+            <xs:enumeration value="28"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="DIFERENCIA_GOLES">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="3"/>
+            <xs:enumeration value="7"/>
+            <xs:enumeration value="-2"/>
+            <xs:enumeration value="-10"/>
+            <xs:enumeration value="-4"/>
+            <xs:enumeration value="5"/>
+            <xs:enumeration value="4"/>
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="-6"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ClasificacionesType">
+    <xs:sequence>
+      <xs:element type="ClasificacionType" name="Clasificacion" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>

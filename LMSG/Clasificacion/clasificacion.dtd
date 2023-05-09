@@ -1,0 +1,10 @@
+<!DOCTYPE Clasificaciones [
+        <!ELEMENT Clasificaciones (Clasificacion)*>
+        <!ELEMENT Clasificacion (POSICION|NOMBRE_EQUIPO|VICTORIAS|GOLES_A_FAVOR|GOLES_EN_CONTRA|DIFERENCIA_GOLES)*>
+        <!ELEMENT POSICION (#PCDATA)>
+        <!ELEMENT NOMBRE_EQUIPO (#PCDATA)>
+        <!ELEMENT VICTORIAS (#PCDATA)>
+        <!ELEMENT GOLES_A_FAVOR (#PCDATA)>
+        <!ELEMENT GOLES_EN_CONTRA (#PCDATA)>
+        <!ELEMENT DIFERENCIA_GOLES (#PCDATA)>
+        ]>
