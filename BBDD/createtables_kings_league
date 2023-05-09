@@ -223,6 +223,6 @@ CREATE TABLE CAL_XML_Resultado(
                     NOCACHE
                     PRIMARY KEY,
     result CLOB,
-    TIPO			Varchar2(10) CHECK (TIPO IN('TodasJornadas','UltimaJornada','Clasificacion'))
+    TIPO			Varchar2(30) CHECK (TIPO IN('TodasJornadas','UltimaJornada','Clasificacion'))
 );
 
