@@ -1,23 +1,100 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE tabla_jornada [
-        <!ELEMENT tabla_jornada (jornada)*>
-        <!ATTLIST tabla_jornada
-                xmlns:xsi CDATA #REQUIRED
-                xsi:noNamespaceSchemaLocation CDATA #REQUIRED>
-        <!ELEMENT jornada (ID_JOR|ID_TEMP|NUMERO|Dia|TIPO)*>
-        <!ELEMENT ID_JOR (#PCDATA)>
-        <!ELEMENT ID_TEMP (#PCDATA)>
-        <!ELEMENT NUMERO (#PCDATA)>
-        <!ELEMENT Dia (#PCDATA)>
-        <!ELEMENT TIPO (#PCDATA)>
-        ]>
+<!DOCTYPE tabla_jornada SYSTEM "todaslasjornadas.dtd">
 <tabla_jornada xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xsi:noNamespaceSchemaLocation="todaslasjornadas.xsd">
-  <jornada>
-    <ID_JOR></ID_JOR>
-    <ID_TEMP></ID_TEMP>
-    <NUMERO></NUMERO>
-    <Dia></Dia>
-    <TIPO></TIPO>
+  <jornada NUMERO="1">
+    <ID_JOR>1</ID_JOR>
+    <ID_TEMP>1</ID_TEMP>
+    <Dia>01/01/2024</Dia>
+    <TIPO>FaseRegular</TIPO>
+       <Partido ID_PARTIDO="1">       
+            <HORA>16:00</HORA>
+            <GOLES_EQ1>3</GOLES_EQ1>
+            <GOLES_EQ2>4</GOLES_EQ2>
+            <ID_Ganador>5</ID_Ganador>
+       </Partido> 
+       
+       <Partido ID_PARTIDO="2">       
+            <HORA>17:00</HORA>
+            <GOLES_EQ1>4</GOLES_EQ1>
+            <GOLES_EQ2>2</GOLES_EQ2>
+            <ID_Ganador>2</ID_Ganador>
+       </Partido> 
+       
+       <Partido ID_PARTIDO="3">       
+            <HORA>18:00</HORA>
+            <GOLES_EQ1>3</GOLES_EQ1>
+            <GOLES_EQ2>6</GOLES_EQ2>
+            <ID_Ganador>10</ID_Ganador>
+       </Partido> 
+       
+       <Partido ID_PARTIDO="4">       
+            <HORA>19:00</HORA>
+            <GOLES_EQ1>1</GOLES_EQ1>
+            <GOLES_EQ2>5</GOLES_EQ2>
+            <ID_Ganador>12</ID_Ganador>
+       </Partido> 
+       
+       <Partido ID_PARTIDO="5">       
+            <HORA>20:00</HORA>
+            <GOLES_EQ1>5</GOLES_EQ1>
+            <GOLES_EQ2>3</GOLES_EQ2>
+            <ID_Ganador>7</ID_Ganador>
+       </Partido> 
+       
+       <Partido ID_PARTIDO="6">       
+            <HORA>21:00</HORA>
+            <GOLES_EQ1>3</GOLES_EQ1>
+            <GOLES_EQ2>5</GOLES_EQ2>
+            <ID_Ganador>1</ID_Ganador>
+       </Partido> 
+  </jornada>
+  
+  <jornada NUMERO="2">
+    <ID_JOR>2</ID_JOR>
+    <ID_TEMP>1</ID_TEMP>
+    <Dia>08/01/2024</Dia>
+    <TIPO>FaseRegular</TIPO>
+       <Partido ID_PARTIDO="7">       
+            <HORA>16:00</HORA>
+            <GOLES_EQ1>3</GOLES_EQ1>
+            <GOLES_EQ2>4</GOLES_EQ2>
+            <ID_Ganador>5</ID_Ganador>
+       </Partido> 
+       
+       <Partido ID_PARTIDO="8">       
+            <HORA>17:00</HORA>
+            <GOLES_EQ1>4</GOLES_EQ1>
+            <GOLES_EQ2>2</GOLES_EQ2>
+            <ID_Ganador>2</ID_Ganador>
+       </Partido> 
+       
+       <Partido ID_PARTIDO="9">       
+            <HORA>18:00</HORA>
+            <GOLES_EQ1>3</GOLES_EQ1>
+            <GOLES_EQ2>6</GOLES_EQ2>
+            <ID_Ganador>10</ID_Ganador>
+       </Partido> 
+       
+       <Partido ID_PARTIDO="10">       
+            <HORA>19:00</HORA>
+            <GOLES_EQ1>1</GOLES_EQ1>
+            <GOLES_EQ2>5</GOLES_EQ2>
+            <ID_Ganador>12</ID_Ganador>
+       </Partido> 
+       
+       <Partido ID_PARTIDO="11">       
+            <HORA>20:00</HORA>
+            <GOLES_EQ1>5</GOLES_EQ1>
+            <GOLES_EQ2>3</GOLES_EQ2>
+            <ID_Ganador>7</ID_Ganador>
+       </Partido> 
+       
+       <Partido ID_PARTIDO="12">       
+            <HORA>21:00</HORA>
+            <GOLES_EQ1>3</GOLES_EQ1>
+            <GOLES_EQ2>5</GOLES_EQ2>
+            <ID_Ganador>1</ID_Ganador>
+       </Partido> 
   </jornada>
 </tabla_jornada>
