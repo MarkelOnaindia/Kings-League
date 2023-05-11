@@ -1,0 +1,22 @@
+Orden de ejecucion de los scripts:
+1 createtables_kings_league
+2 staffInsert.sql
+3 propietarioInsert.sql
+4 jugadorInsert.sql
+5 equiposInsert.sql
+6 entrenadorInsert.sql
+7 TemporadaInsert.sql
+8 JornadaInsert.sql
+9 PartidosInsert.sql
+10 ContratoStaffInsert.sql
+11 ContratoJugadorInsert.sql
+12 ContratoEntrenaInsert.sql
+13 ContratoDuenoInsert.sql
+14 todos los triggers sin ningun orden especifico
+15 Kings_League_view.sql
+16 procedimiento_infoequipos.sql
+17 procedimiento_anonimo_infoequipos.sql
+18 procedimiento_infojugadores
+19 procedimiento_anonimo_infojugadores
+21 Kings_League_cabecera.sql
+22 Kings_League_cuerpo.sql
