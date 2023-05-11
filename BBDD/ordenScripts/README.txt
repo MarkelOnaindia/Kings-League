@@ -1,0 +1,1 @@
+Debe descargarse el repositorio entero en la carpta \ del ordenador. Se modificará el nombre de la carpeta a Kings-League y se ejecutará el script perteneciente a esta carpeta, de tal maneta que todos los scripts se ejecuten
