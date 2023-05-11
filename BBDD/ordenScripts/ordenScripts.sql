@@ -2,50 +2,60 @@
 /*Scripts de orden de scripts*/
 
     /*Creacion de tablas*/
-    @$HOME\Desktop\Kings-League\BBDD\createtables_kings_league.sql
+    @\Kings-League\BBDD\creates\createtables_kings_league.sql
     
     /*Inserciones*/
         /*Usuarios*/
-        @home/desktop/Kings-League/inserts/usuarioInsert.sql
+        @\Kings-League\BBDD\inserts\usuarioInsert.sql
         /*Staff*/
-        @home/desktop/Kings-League/inserts/staffInsert.sql
+        @\Kings-League\BBDD\inserts\staffInsert.sql
         /*Propietarios*/
-        @home/desktop/Kings-League/inserts/propietarioInsert.sql
+        @\Kings-League\BBDD\inserts\propietarioInsert.sql
         /*Jugadores*/
-        @home/desktop/Kings-League/inserts/jugadorInsert.sql
+        @\Kings-League\BBDD\inserts\jugadorInsert.sql
         /*Equipos*/
-        @home/desktop/Kings-League/inserts/equipoInsert.sql
+        @\Kings-League\BBDD\inserts\equipoInsert.sql
         /*Entrenador*/
-        @home/desktop/Kings-League/inserts/entrenadorInsert.sql
+        @\Kings-League\BBDD\inserts\entrenadorInsert.sql
         /*Temporada*/
-        @home/desktop/Kings-League/inserts/temporadaInsert.sql
+        @\Kings-League\BBDD\inserts\temporadaInsert.sql
         /*Jornada*/
-        @home/desktop/Kings-League/inserts/jornadaInsert.sql
+        @\Kings-League\BBDD\inserts\jornadaInsert.sql
         /*Partido*/
-        @home/desktop/Kings-League/inserts/partidoInsert.sql
+        @\Kings-League\BBDD\inserts\partidoInsert.sql
         /*Contrato Staff*/
-        @home/desktop/Kings-League/inserts/contratoStaffInsert.sql
+        @\Kings-League\BBDD\inserts\contratoStaffInsert.sql
         /*Contrato Jugador*/
-        @home/desktop/Kings-League/inserts/contratoJugadorInsert.sql
+        @\Kings-League\BBDD\inserts\contratoJugadorInsert.sql
         /*Contrato Entrenador*/
-        @home/desktop/Kings-League/inserts/contratoEntrenadorInsert.sql
+        @\Kings-League\BBDD\inserts\contratoEntrenaInsert.sql
         /*Contrato Entrenador*/
-        @home/desktop/Kings-League/inserts/contratoDuenoInsert.sql
+        @\Kings-League\BBDD\inserts\contratoDuenoInsert.sql
     
     /*Creacion de triggers*/
         /*Maximo de jugadores*/
-        @"$HOME/Desktop/Kings-League/triggers/maxJugador/maxJugadores.sql"
+        @\Kings-League\BBDD\triggers\maxJugador\maxJugadores.sql
         /*Evitar empates*/
-        @home/desktop/Kings-League/triggers/noEmpates/noEmpate.sql
+        @\Kings-League\BBDD\triggers\noEmpates\noEmpate.sql
         /*Equipos repetidos jornada*/
-        @home/desktop/Kings-League/triggers/equiposRepetidos/equiposRepetidoJornada.sql
+        @\Kings-League\BBDD\triggers\equiposRepetidos\equiposRepetidoJornada.sql
         /*Minimo de jugadores*/
-        @home/desktop/Kings-League/triggers/minJugador/minJugador.sql
+        @\Kings-League\BBDD\triggers\minJugador\minJugador.sql
         /*Dos triggers del calendario*/
             /*Jugadores*/
-            @home/desktop/Kings-League/triggers/triggerCalendario/triggerCalendarioJugador.sql
+            @\Kings-League\BBDD\triggers\triggerCalendario\triggerCalendarioJugador.sql
             /*Equipos*/
-            @home/desktop/Kings-League/triggers/triggerCalendario/triggerCalendarioEquipo.sql
+            @\Kings-League\BBDD\triggers\triggerCalendario\triggerCalendarioEquipo.sql
         /*Presupuesto maximo*/
-        @home/desktop/Kings-League/triggers/presupuestoMax/presupuestoMax.sql
+        @\Kings-League\BBDD\triggers\presupuestoMax\presupuestoMax.sql
         
+    /*Creacion de views*/
+        /*Clasificacion*/
+        @\Kings-League\BBDD\views\clasificacion.sql
+        @\Kings-League\BBDD\views\infoEquipos.sql
+        
+    /*Procedimientos almacenados*/
+        /*Informe de equipo*/
+        @"\Kings-League\BBDD\procedimientos almacenados\procedimiento infoequipos\procedimiento_infoequipos";
+        /*Informe jugador*/
+        @"\Kings-League\BBDD\procedimientos almacenados\procedimiento infojugadores\procedimiento_infojugadores";
