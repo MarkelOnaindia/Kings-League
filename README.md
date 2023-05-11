@@ -1,2 +1,4 @@
 # Kings-League
-Proyecto intermodular sobre la kings league de: Markel Onaindia, Ibai Bernardo, Julen Corpas, Ibai Saenz de Buruaga y Erik Fernandez
+
+EL REPOSITORIO DEBERÁ DESCARGARSE EN LA RAÍZ DEL ORDENADOR, ADEMÁS, SE LE MODIFICARÁ EL NOMBRE A EXACTAMENTE "Kings-League".
+EL SCRIPT QUE EJECUTARÁ TODOS LOS SCRIPTS DE MANERA ORDENADA Y AUTOMATICÁ SE ENCUENTRA EN LA CARPETA BBDD/ORDENSCRIPTS
