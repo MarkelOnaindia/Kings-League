@@ -10,6 +10,8 @@ SELECT
        SUM(CASE WHEN p.ID_Ganador = e.ID_EQUIPO THEN p.GOLES_EQ1 ELSE p.GOLES_EQ2 END) - SUM(CASE WHEN p.ID_Ganador = e.ID_EQUIPO THEN p.GOLES_EQ2 ELSE p.GOLES_EQ1 END) AS Diferencia_goles
 FROM Equipo e
 JOIN Partido p ON (e.ID_EQUIPO = p.ID_Ganador OR e.ID_EQUIPO = p.ID_Perdedor)
+JOIN Jornada j ON j.id_jor = p.id_jor
+WHERE upper(j.tipo) = 'FASEREGULAR'
 GROUP BY e.ID_EQUIPO, e.NOMBRE
 ORDER BY
     Victorias DESC, 
