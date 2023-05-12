@@ -6,6 +6,10 @@ FOR EACH ROW
 DECLARE
     v_count NUMBER;
 BEGIN
+    IF :NEW.ID_JOR = 13 THEN
+        RETURN; -- Si es la jornada número 13, se ignora la validación
+    END IF;
+
     SELECT COUNT(*) INTO v_count
     FROM Partido
     WHERE ID_JOR = :NEW.ID_JOR
