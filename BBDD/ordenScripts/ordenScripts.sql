@@ -53,7 +53,8 @@
         /*Clasificacion*/
         @\Kings-League\BBDD\views\clasificacion.sql
         @\Kings-League\BBDD\views\infoEquipos.sql
-        
+        @\Kings-League\BBDD\views\ultimaJornada.sql
+
     /*Procedimientos almacenados*/
         /*Informe de equipo*/
         @"\Kings-League\BBDD\procedimientos almacenados\procedimiento infoequipos\procedimiento_infoequipos";
