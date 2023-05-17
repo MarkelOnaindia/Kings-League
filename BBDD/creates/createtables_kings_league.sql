@@ -157,8 +157,8 @@ CREATE TABLE ContratoDueno (
     ID_PRO      Number(5),
     ID_EQUIPO   Number(5),
     Sueldo      Number(10),
-    Fecha_ini   DATE,
-    Fecha_fin   DATE,
+    Fecha_ini   Varchar2(12),
+    Fecha_fin   Varchar2(12),
         CONSTRAINT CONDU_ID_PRO_FK FOREIGN KEY(ID_PRO)
             REFERENCES Propietario (ID_PRO),
         CONSTRAINT CONDU_ID_EQUIPO_FK FOREIGN KEY(ID_EQUIPO)
@@ -174,8 +174,8 @@ CREATE TABLE ContratoEntrena (
     ID_ENT      Number(5),
     ID_EQUIPO   Number(5),
     Sueldo      Number(10),
-    Fecha_ini   DATE,
-    Fecha_fin   DATE,
+    Fecha_ini   Varchar2(12),
+    Fecha_fin   Varchar2(12),
         CONSTRAINT CONEN_ID_ENT_FK FOREIGN KEY(ID_ENT)
             REFERENCES Entrenador (ID_ENT),
         CONSTRAINT CONEN_ID_EQUIPO_FK FOREIGN KEY(ID_EQUIPO)
@@ -191,8 +191,8 @@ CREATE TABLE ContratoStaff (
     ID_STAFF    Number(5),
     ID_EQUIPO   Number(5),
     Sueldo      Number(10),
-    Fecha_ini   DATE,
-    Fecha_fin   DATE,
+    Fecha_ini   Varchar2(12),
+    Fecha_fin   Varchar2(12),
         CONSTRAINT CONST_ID_STAFF_FK FOREIGN KEY(ID_STAFF)
             REFERENCES Staff (ID_STAFF),
         CONSTRAINT CONST_ID_EQUIPO_FK FOREIGN KEY(ID_EQUIPO)
@@ -209,8 +209,8 @@ CREATE TABLE ContratoJugador (
     ID_EQUIPO   Number(5),
     Sueldo      Number(10) CONSTRAINT CONJU_SUE_CK CHECK
                             (Sueldo IN (10000000, 15000000, 10500000, 22500000)),
-    Fecha_ini   DATE,
-    Fecha_fin   DATE,
+    Fecha_ini   Varchar2(12),
+    Fecha_fin   Varchar2(12),
     Clausula    Number(10),
     Dorsal      Number(2),
         CONSTRAINT CONJU_ID_JUG_FK FOREIGN KEY(ID_JUG)
