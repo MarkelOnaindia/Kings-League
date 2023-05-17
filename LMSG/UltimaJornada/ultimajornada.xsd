@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="jornada" type="jornadaType"/>
-  <xs:complexType name="PartidoType">
-    <xs:sequence>
-      <xs:element name="HORA" type="xs:string"/>
-      <xs:element name="GOLES_EQ1" type="xs:string"/>
-      <xs:element name="GOLES_EQ2" type="xs:string"/>
-      <xs:element name="ID_Ganador" type="xs:string"/>
+  <xs:element name="tabla_jornada" type="tabla_jornadaType"/>
+  <xs:complexType name="ID_JORNADA">
+  <xs:sequence>
+      <xs:element type="jornadaType" name="jornada" maxOccurs="13"/>
     </xs:sequence>
-    <xs:attribute type="xs:string" name="ID_PARTIDO" use="optional"/>
-  </xs:complexType>
+    </xs:complexType>
+
   <xs:complexType name="jornadaType">
     <xs:sequence>
-      <xs:element type="xs:string" name="ID_JOR"/>
-      <xs:element type="xs:string" name="ID_TEMP"/>
-      <xs:element type="xs:string" name="Dia"/>
-      <xs:element type="xs:string" name="TIPO"/>
-      <xs:element type="PartidoType" name="Partido" maxOccurs="unbounded" minOccurs="0"/>
+    <xs:element type="ID_split" name="Split"/>
+      <xs:element name="tipo_jor" type="xs:string"/>
+      <xs:element name="partido" type="ID_PARTIDO" maxOccurs="1"/>
+      <xs:element type="PartidoType" name="Partido" maxOccurs="1" minOccurs="0"/>
     </xs:sequence>
-    <xs:attribute type="xs:string" name="NUMERO"/>
+    <xs:attribute type="xs:string" name="NUMERO" use="required"/>
   </xs:complexType>
+    
+    <xs:complexType name="ID_PARTIDO">
+ <xs:sequence>
+ <xs:element name="FECHA_PARTIDO" type="xs:string"/>
+ <xs:element name="HORA" type="xs:string"/>
+        <xs:element name="EQ1" type="xs:string"/>
+        <xs:element name="GOLES_EQ1" type="xs:int" minOccurs="0"/>
+        <xs:element name="EQ2" type="xs:string"/>
+        <xs:element name="GOLES_EQ2" type="xs:int" minOccurs="0"/>
+        <xs:element name="ID_Ganador" type="xs:int" minOccurs="0"/>
+      </xs:sequence>
+    <xs:attribute type="xs:int" name="ID_PARTIDO" use="required"/>
+  </xs:complexType>
+  
 </xs:schema>
