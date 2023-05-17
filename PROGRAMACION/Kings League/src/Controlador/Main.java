@@ -11,10 +11,7 @@ import Modelo.Propietario.*;
 import Modelo.Staff.*;
 import Modelo.Temporada.*;
 import Modelo.Usuario.*;
-import Vista.Admin.Cruds.ContratoDueno.vActualizarContratoDueno;
-import Vista.Admin.Cruds.ContratoDueno.vBorrarContratoDueno;
-import Vista.Admin.Cruds.ContratoDueno.vContratoDueno;
-import Vista.Admin.Cruds.ContratoDueno.vInsertarContratoDueno;
+import Vista.Admin.Cruds.ContratoDueno.*;
 import Vista.Admin.Cruds.ContratoEntrenador.vContratoEntrena;
 import Vista.Admin.Cruds.ContratoJugador.vContratoJugador;
 import Vista.Admin.Cruds.ContratoStaff.vContratoStaff;
@@ -274,14 +271,14 @@ public class Main {
     }
 
         public static String npIDCondu(String ID_CONDU){
-            int idCondu = Integer.parseInt(ID_CONDU);
+            int idCondu = Main.stringAInt(ID_CONDU);
             cd = new ContratoDueno(idCondu);
             String np = TContratoDueno.npIDCONDU(cd);
             return np;
         }
 
         public static String neIDCondu(String ID_CONDU){
-            int idCondu = Integer.parseInt(ID_CONDU);
+            int idCondu = Main.stringAInt(ID_CONDU);
             cd = new ContratoDueno(idCondu);
             String ne = TContratoDueno.neIDCONDU(cd);
             return ne;
@@ -318,7 +315,7 @@ public class Main {
             }
 
             public static void crearVentanaConsultarContratoDueno(){
-                vConsultarContratoDueno = new vBorrarContratoDueno();
+                vConsultarContratoDueno = new vConsultarContratoDueno();
                 vConsultarContratoDueno.setLocationRelativeTo(null);
                 vConsultarContratoDueno.pack();
                 vConsultarContratoDueno.setVisible(true);
@@ -620,6 +617,7 @@ public class Main {
 
                 return cd1;
             }
+
         //Creación de las Ventanas del ContratoEntrena
         public static void crearVentanaContratoEntrena(){
                 vCRUD.setVisible(false);
