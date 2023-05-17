@@ -91,7 +91,7 @@ public class TContratoDueno {
             while (rs.next())
             {
                 cd1 = new ContratoDueno();
-                cd1.setIdCondu(rs.getInt("ID_EQUIPO"));
+                cd1.setIdCondu(rs.getInt("ID_CONDU"));
                 lContratoDueno.add(cd1);
             }
             BaseDatos.cerrarConexion();

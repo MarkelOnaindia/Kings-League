@@ -8,7 +8,15 @@ import java.awt.event.ActionListener;
 
 public class vPartido {
     private JPanel pPrincipal;
+    private JPanel panelAbajo;
+    private JPanel panelArriba;
     private JButton volverButton;
+    private JPanel panelCentrado;
+    private JPanel panelInicio;
+    private JButton insertarButton;
+    private JButton borrarButton;
+    private JButton consultarButton;
+    private JButton actualizarButton;
 
     //Getter
     public JPanel getpPrincipal() {
