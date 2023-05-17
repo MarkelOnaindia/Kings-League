@@ -21,11 +21,10 @@ public class vInsertarContratoDueno {
     private JButton volverButton;
     private JTextField tfNombrePropietario;
     private JTextField tfNombreEquipo;
-    private JPanel panelAbajo;
-    private JPanel panelArriba;
     private JPanel panelCentrado;
     private JPanel panelInicio;
-    private JLabel logo;
+    private JPanel panelArriba;
+    private JPanel panelAbajo;
 
 
     //Getter

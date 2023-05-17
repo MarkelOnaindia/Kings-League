@@ -12,6 +12,9 @@ public class vBorrarContratoDueno extends JDialog {
     private JComboBox cbIDDueno;
     private JTextField tfPropietario;
     private JTextField tfEquipo;
+    private JPanel pPrincipal;
+    private JPanel panelAbajo;
+    private JPanel panelArriba;
 
 
     //Todo
@@ -80,5 +83,9 @@ public class vBorrarContratoDueno extends JDialog {
         vBorrarContratoDueno dialog = new vBorrarContratoDueno();
         dialog.pack();
         dialog.setVisible(true);
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 }

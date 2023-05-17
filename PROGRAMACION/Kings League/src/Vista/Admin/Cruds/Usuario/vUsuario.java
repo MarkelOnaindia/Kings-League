@@ -37,7 +37,7 @@ public class vUsuario {
         volverButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main.vUsuario.setVisible(false);
+                Main.vHomeUsuario.setVisible(false);
                 Main.vCRUD.setVisible(true);
             }
         });
