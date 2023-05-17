@@ -1,38 +1,146 @@
 CREATE OR REPLACE PACKAGE BODY calendario AS
-  PROCEDURE generar_temporada(id_temp IN NUMBER, tipo IN VARCHAR2, estado IN VARCHAR2) IS
-    id_temp NUMBER;
+  PROCEDURE generar_calendario AS
+  
+  C_ID_GANADOR PARTIDO.ID_GANADOR%TYPE;
+  C_ID_PERDEDOR PARTIDO.ID_PERDEDOR%TYPE;
+  C_ID_PARTIDO PARTIDO.ID_PARTIDO%TYPE; 
+  C_HORA_PARTIDO VARCHAR2(5):= '16:00';
+  C_DIA_JORNADA DATE:= TO_DATE('01/01/2024','DD/MM/YYYY');
+  C_ID_JORNADA JORNADA.ID_JOR%TYPE;
+  C_ID_TEMPORADA NUMBER;
+  C_ENFRENTAMIENTO NUMBER;
+  C_PARTIDOS_CREADOS NUMBER;
+  C_ID_EQUIPO EQUIPO.ID_EQUIPO%TYPE;
+  
   BEGIN
-    -- Insertar la temporada en la tabla de temporadas
-    INSERT INTO temporada (id, tipo, estado)
-    VALUES (temporadas_seq.nextval, tipo, estado)
-    RETURNING id INTO id_temp;
-
-    -- Generar las jornadas y partidos de la temporada
-    -- ...
-
-  END generar_temporada;
-
-  PROCEDURE generar_jornada(id_jor IN NUMBER, id_temp IN NUMBER, numero IN NUMBER) IS
-    id_jor NUMBER;
-  BEGIN
-    -- Insertar la jornada en la tabla de jornadas
-    INSERT INTO jornadas (id, numero, id_temp)
-    VALUES (jornadas_seq.nextval, numero, id_temp)
-    RETURNING id INTO id_jor;
-
-    -- Generar los partidos de la jornada
-    -- ...
-
-  END generar_jornada;
-
-  PROCEDURE generar_partido(id_jor IN NUMBER, id_partido IN NUMBER,
-                            goles_eq1 IN VARCHAR2, goles_eq2 IN VARCHAR2, hora IN DATE) IS
-  BEGIN
-    -- Insertar el partido en la tabla de partidos
-    INSERT INTO partidos (id, goles_eq1, goles_eq2, id_jor, hora)
-    VALUES (partidos_seq.nextval, goles_eq1, goles_eq2, id_jor, hora)
-    RETURNING id INTO id_partido;
-
-
-  END generar_partido;
+  
+  --GENERAR TEMPORADAS
+  INSERT INTO TEMPORADA(TIPO,ESTADO)
+  VALUES('VERANO','ABIERTO');
+  
+  SELECT ID_TEMP INTO C_ID_TEMPORADA
+  FROM TEMPORADA
+  WHERE ROWNUM = 1
+  ORDER BY ID_TEMP DESC;
+  
+  --GENERAR JORNADAS
+  FOR NUM_JOR IN 1..11 LOOP
+  
+  
+  INSERT INTO  JORNADA(ID_TEMP,DIA,TIPO)
+  VALUES(C_ID_TEMPORADA,C_DIA_JORNADA,'FaseRegular');
+  C_DIA_JORNADA:= C_DIA_JORNADA +7;
+  END LOOP;
+  
+  --CREACION DE LOS PARTIDOS  PARA LAS JORNADAS
+  
+  SELECT MIN(ID_JOR) INTO C_ID_JORNADA
+  FROM JORNADA
+  WHERE ID_TEMP = C_ID_TEMPORADA;
+  C_ENFRENTAMIENTO:=1;
+  FOR 
+   ID_GANADOR IN(SELECT * FROM PARTIDO) 
+   LOOP
+   SELECT MIN(ID_JOR) INTO C_ID_JORNADA
+   FROM JORNADA
+   WHERE ID_TEMP= C_ID_TEMPORADA;
+   
+   FOR ID_PERDEDOR IN (SELECT * FROM PARTIDO) 
+   LOOP
+ /*IF C_ID_GANADOR != C_ID_PERDEDOR THEN*/
+   SELECT COUNT(ID_PARTIDO) INTO C_PARTIDOS_CREADOS
+   FROM PARTIDO
+   WHERE(ID_PARTIDO IN (SELECT ID_PARTIDO
+                    FROM PARTIDO 
+                    WHERE  ID_EQUIPO= PARTIDO.ID_GANADOR
+                    AND ID_PARTIDO IN (SELECT ID_PARTIDO
+                                       FROM PARTIDO
+                                       WHERE ID_JOR=C_ID_JORNADA)))
+                                       
+    OR(ID_PARTIDO IN(SELECT ID_PARTIDO
+                     FROM PARTIDO
+                     WHERE ID_EQUIPO=PARTIDO.ID_PERDEDOR
+                     AND ID_PARTIDO IN(SELECT ID_PARTIDO
+                                       FROM PARTIDO
+                                       WHERE ID_JOR=C_ID_JORNADA)));
+   
+   
+   
+   IF C_PARTIDOS_CREADOS != 0 THEN
+            
+            IF C_ID_GANADOR  <> C_ID_PERDEDOR THEN
+                
+                SELECT COUNT(ID_PARTIDO) INTO C_PARTIDOS_CREADOS
+                FROM PARTIDO
+   WHERE(ID_PARTIDO IN(SELECT ID_GANADOR
+                       FROM PARTIDO
+                       WHERE ID_EQUIPO=PARTIDO.ID_GANADOR
+                       AND ID_PARTIDO IN(SELECT ID_PARTIDO
+                                         FROM PARTIDO
+                                         WHERE ID_EQUIPO=PARTIDO.ID_GANADOR)))
+                                         
+    OR (ID_PARTIDO IN (SELECT ID_PERDEDOR
+                       FROM PARTIDO
+                       WHERE ID_EQUIPO=PARTIDO.ID_PERDEDOR
+                       AND ID_PARTIDO IN (SELECT ID_PARTIDO
+                                          FROM PARTIDO
+                                          WHERE ID_EQUIPO=PARTIDO.ID_PERDEDOR)))
+                                          
+    OR (ID_PARTIDO IN (SELECT ID_PARTIDO
+                             FROM PARTIDO
+                             WHERE ID_EQUIPO = PARTIDO.ID_GANADOR
+                             AND ID_PARTIDO IN (SELECT ID_PARTIDO
+                                               FROM PARTIDO
+                                               WHERE ID_JOR = C_ID_JORNADA)));
+   
+   
+   IF C_PARTIDOS_CREADOS = 0 THEN
+   C_ID_GANADOR := ID_EQUIPO1;
+   C_ID_PERDEDOR := ID_EQUIPO2;
+   
+   INSERT INTO PARTIDO(HORA, ID_JOR) VALUES
+   (C_HORA_PARTIDO,C_ID_JORNADA);
+   
+    SELECT ID_PARTIDO INTO C_ID_PARTIDO
+   FROM PARTIDO
+   WHERE ROWNUM=1
+   ORDER BY ID_PARTIDO DESC;
+   
+   INSERT INTO PARTIDO (ID_GANADOR,ID_PARTIDO)
+   VALUES (C_ID_GANADOR,C_ID_PARTIDO);
+   
+   INSERT INTO PARTIDO(ID_PERDEDOR,ID_PARTIDO)
+   VALUES (C_ID_PERDEDOR,C_ID_PARTIDO);
+   
+   C_ENFRENTAMIENTO :=0;
+   IF C_ENFRENTAMIENTO =0 THEN
+   C_ID_JORNADA := C_ID_JORNADA +1;
+   C_ENFRENTAMIENTO:= 1;
+   
+   
+   END IF;
+   END IF;  
+   END IF;
+   
+   ELSE
+   C_ID_JORNADA :=C_ID_JORNADA +1;
+    
+   END IF;
+   END LOOP;
+   END LOOP; 
+  
+   
+   
+  
+  END generar_calendario;
+  
+  PROCEDURE ver_enfrentamientos(C_CURSOR OUT SYS_REFCURSOR) AS
+  BEGIN 
+  OPEN C_CURSOR FOR 
+  SELECT * FROM PARTIDO
+  ORDER BY ID_JOR,ID_GANADOR;
+  
+  END ver_enfrentamientos;
+  
+  
 END calendario;
