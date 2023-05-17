@@ -1,100 +1,68 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tabla_jornada SYSTEM "todaslasjornadas.dtd">
-<tabla_jornada xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-               xsi:noNamespaceSchemaLocation="todaslasjornadas.xsd">
+<tabla_jornada xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="todaslasjornadas.xsd">
   <jornada NUMERO="1">
-    <ID_JOR>1</ID_JOR>
-    <ID_TEMP>1</ID_TEMP>
-    <Dia>01/01/2024</Dia>
-    <TIPO>FaseRegular</TIPO>
-       <Partido ID_PARTIDO="1">       
-            <HORA>16:00</HORA>
-            <GOLES_EQ1>3</GOLES_EQ1>
+    <ID_split>Invierno</ID_split>
+    <tipo_jor>FaseRegular</tipo_jor>
+    
+       <Partido ID_PARTIDO="1">
+       <FECHA_PARTIDO> 05/10/2023</FECHA_PARTIDO>
+       <HORA>16:00</HORA>
+       <EQ1>XBUYER</EQ1>
+      <GOLES_EQ1>3</GOLES_EQ1>
+      <EQ2>SAIYANS-FC</EQ2>
             <GOLES_EQ2>4</GOLES_EQ2>
             <ID_Ganador>5</ID_Ganador>
        </Partido> 
        
-       <Partido ID_PARTIDO="2">       
-            <HORA>17:00</HORA>
-            <GOLES_EQ1>4</GOLES_EQ1>
+       <Partido ID_PARTIDO="2">
+       <FECHA_PARTIDO> 05/10/2023</FECHA_PARTIDO>
+       <HORA>17:00</HORA>
+        <EQ1>EL BARRIO</EQ1>
+      <GOLES_EQ1>4</GOLES_EQ1>
+      <EQ2>JIJANTES FC</EQ2>
             <GOLES_EQ2>2</GOLES_EQ2>
             <ID_Ganador>2</ID_Ganador>
        </Partido> 
        
-       <Partido ID_PARTIDO="3">       
-            <HORA>18:00</HORA>
-            <GOLES_EQ1>3</GOLES_EQ1>
+       <Partido ID_PARTIDO="3">
+       <FECHA_PARTIDO> 05/10/2023</FECHA_PARTIDO>
+       <HORA>18:00</HORA>
+       <EQ1>ULTIMATE MOSTOLES</EQ1>
+      <GOLES_EQ1>3</GOLES_EQ1>
+      <EQ2>ANIQUILADORES-FC</EQ2>
             <GOLES_EQ2>6</GOLES_EQ2>
             <ID_Ganador>10</ID_Ganador>
        </Partido> 
        
-       <Partido ID_PARTIDO="4">       
-            <HORA>19:00</HORA>
-            <GOLES_EQ1>1</GOLES_EQ1>
+       <Partido ID_PARTIDO="4">
+       <FECHA_PARTIDO> 05/10/2023</FECHA_PARTIDO>
+       <HORA>19:00</HORA>
+       <EQ1>KUNISPORTS</EQ1>
+      <GOLES_EQ1>1</GOLES_EQ1>
+      <EQ2>RAYO-BARCELONA</EQ2>
             <GOLES_EQ2>5</GOLES_EQ2>
             <ID_Ganador>12</ID_Ganador>
        </Partido> 
        
-       <Partido ID_PARTIDO="5">       
-            <HORA>20:00</HORA>
-            <GOLES_EQ1>5</GOLES_EQ1>
+       <Partido ID_PARTIDO="5">
+       <FECHA_PARTIDO> 05/10/2023</FECHA_PARTIDO>
+       <HORA>20:00</HORA>
+       <EQ1>PIO-FC</EQ1>
+      <GOLES_EQ1>5</GOLES_EQ1>
+      <EQ2>1K-FC</EQ2>
             <GOLES_EQ2>3</GOLES_EQ2>
             <ID_Ganador>7</ID_Ganador>
        </Partido> 
        
-       <Partido ID_PARTIDO="6">       
-            <HORA>21:00</HORA>
-            <GOLES_EQ1>3</GOLES_EQ1>
+       <Partido ID_PARTIDO="6">
+       <FECHA_PARTIDO> 05/10/2023</FECHA_PARTIDO>
+       <HORA>21:00</HORA>
+       <EQ1>PORCINOS-FC</EQ1>
+      <GOLES_EQ1>3</GOLES_EQ1>
+      <EQ2>LOS-TRONCOS-FC</EQ2>
             <GOLES_EQ2>5</GOLES_EQ2>
             <ID_Ganador>1</ID_Ganador>
-       </Partido> 
-  </jornada>
-  
-  <jornada NUMERO="2">
-    <ID_JOR>2</ID_JOR>
-    <ID_TEMP>1</ID_TEMP>
-    <Dia>08/01/2024</Dia>
-    <TIPO>FaseRegular</TIPO>
-       <Partido ID_PARTIDO="7">       
-            <HORA>16:00</HORA>
-            <GOLES_EQ1>3</GOLES_EQ1>
-            <GOLES_EQ2>4</GOLES_EQ2>
-            <ID_Ganador>5</ID_Ganador>
-       </Partido> 
-       
-       <Partido ID_PARTIDO="8">       
-            <HORA>17:00</HORA>
-            <GOLES_EQ1>4</GOLES_EQ1>
-            <GOLES_EQ2>2</GOLES_EQ2>
-            <ID_Ganador>2</ID_Ganador>
-       </Partido> 
-       
-       <Partido ID_PARTIDO="9">       
-            <HORA>18:00</HORA>
-            <GOLES_EQ1>3</GOLES_EQ1>
-            <GOLES_EQ2>6</GOLES_EQ2>
-            <ID_Ganador>10</ID_Ganador>
-       </Partido> 
-       
-       <Partido ID_PARTIDO="10">       
-            <HORA>19:00</HORA>
-            <GOLES_EQ1>1</GOLES_EQ1>
-            <GOLES_EQ2>5</GOLES_EQ2>
-            <ID_Ganador>12</ID_Ganador>
-       </Partido> 
-       
-       <Partido ID_PARTIDO="11">       
-            <HORA>20:00</HORA>
-            <GOLES_EQ1>5</GOLES_EQ1>
-            <GOLES_EQ2>3</GOLES_EQ2>
-            <ID_Ganador>7</ID_Ganador>
-       </Partido> 
-       
-       <Partido ID_PARTIDO="12">       
-            <HORA>21:00</HORA>
-            <GOLES_EQ1>3</GOLES_EQ1>
-            <GOLES_EQ2>5</GOLES_EQ2>
-            <ID_Ganador>1</ID_Ganador>
-       </Partido> 
+  </Partido>
   </jornada>
 </tabla_jornada>

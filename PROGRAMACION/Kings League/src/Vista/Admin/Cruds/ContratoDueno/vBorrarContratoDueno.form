@@ -167,8 +167,12 @@
               <grid row="3" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+<<<<<<< HEAD
+              <foreground color="-3704941"/>
+=======
               <background color="-10076854"/>
               <foreground color="-4"/>
+>>>>>>> main
             </properties>
           </component>
           <component id="ad8af" class="javax.swing.JTextField" binding="tfPropietario">
@@ -180,7 +184,11 @@
             <properties>
               <background color="-10076854"/>
               <editable value="false"/>
+<<<<<<< HEAD
+              <foreground color="-3704941"/>
+=======
               <foreground color="-4"/>
+>>>>>>> main
             </properties>
           </component>
           <component id="a2fa4" class="javax.swing.JTextField" binding="tfEquipo">
@@ -192,6 +200,9 @@
             <properties>
               <background color="-10076854"/>
               <editable value="false"/>
+<<<<<<< HEAD
+              <foreground color="-3704941"/>
+=======
               <foreground color="-4"/>
             </properties>
           </component>
@@ -261,6 +272,7 @@
             <properties>
               <icon value="Imagenes/kingsx150.png"/>
               <text value=""/>
+>>>>>>> main
             </properties>
           </component>
         </children>
