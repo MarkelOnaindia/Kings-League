@@ -1,10 +1,12 @@
 package Modelo.Entrenadores;
 
 import Modelo.BaseDatos;
+import Modelo.Propietario.Propietario;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.IdentityHashMap;
 
 public class TEntrenador {
@@ -72,5 +74,25 @@ public class TEntrenador {
             entrena = null;
         BaseDatos.cerrarConexion();
         return entrena;
+    }
+
+
+    public static String nombreEntrenador(Entrenador pr) {
+        BaseDatos.abrirConexion();
+        PreparedStatement ps = null;
+        try {
+            ps = BaseDatos.getCon().prepareStatement("SELECT NOMBRE FROM ENTRENADOR WHERE ID_ENT = ?");
+            ps.setString(1, String.valueOf(pr.getIdEnt()));
+            ResultSet rs = ps.executeQuery();
+            String p1 = null;
+            if (rs.next()) {
+                p1 = rs.getString("NOMBRE");
+            }
+            BaseDatos.cerrarConexion();
+
+            return p1;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

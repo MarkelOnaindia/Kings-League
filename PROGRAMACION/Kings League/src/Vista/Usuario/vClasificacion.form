@@ -556,7 +556,7 @@
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="POS"/>
+                  <text value="Posicion"/>
                 </properties>
               </component>
               <component id="dcddf" class="javax.swing.JLabel">
@@ -668,7 +668,7 @@
                   <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="PTS"/>
+                  <text value="Puntos"/>
                 </properties>
               </component>
               <component id="6a819" class="javax.swing.JLabel">
@@ -676,7 +676,7 @@
                   <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="PJ"/>
+                  <text value="Partidos jugados"/>
                 </properties>
               </component>
               <component id="36c60" class="javax.swing.JLabel" binding="partidosequipo1">
@@ -780,7 +780,7 @@
                   <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="DG"/>
+                  <text value="Diferencia de goles"/>
                 </properties>
               </component>
               <component id="1e338" class="javax.swing.JLabel" binding="diferenciaEquipo1">

@@ -41,5 +41,29 @@ public class vContratoEntrena {
                 Main.vCRUD.setVisible(true);
             }
         });
+        insertarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaInsertarContratoEntrenador();
+            }
+        });
+        borrarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaInsertarContratoDueno();
+            }
+        });
+        consultarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaConsultarContratoDueno();
+            }
+        });
+        actualizarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaActualizarContratoDueno();
+            }
+        });
     }
 }

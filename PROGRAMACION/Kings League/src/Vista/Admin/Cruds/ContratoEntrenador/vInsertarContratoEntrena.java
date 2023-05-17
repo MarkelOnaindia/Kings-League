@@ -1,4 +1,4 @@
-package Vista.Admin.Cruds.ContratoDueno;
+package Vista.Admin.Cruds.ContratoEntrenador;
 
 import Controlador.Main;
 
@@ -10,23 +10,21 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.text.ParseException;
 
-public class vInsertarContratoDueno {
-    private JPanel pPrincipal;
-    private JComboBox cbPropietario;
+public class vInsertarContratoEntrena {
+    private JPanel panelAbajo;
+    private JPanel panelArriba;
+    private JPanel panelCentrado;
+    private JPanel panelInicio;
+    private JComboBox cbEntrena;
+    private JTextField tfNombreEntrenador;
     private JComboBox cbEquipo;
+    private JTextField tfNombreEquipo;
     private JFormattedTextField ftSueldo;
     private JFormattedTextField ftFechaInicio;
     private JFormattedTextField ftFechaFin;
-    private JButton insertarButton;
     private JButton volverButton;
-    private JTextField tfNombrePropietario;
-    private JTextField tfNombreEquipo;
-    private JPanel panelCentrado;
-    private JPanel panelInicio;
-    private JPanel panelArriba;
-    private JPanel panelAbajo;
-
-
+    private JButton insertarButton;
+    private JPanel pPrincipal;
     //Getter
     public JPanel getpPrincipal() {
         return pPrincipal;
@@ -35,16 +33,16 @@ public class vInsertarContratoDueno {
     //Main
     public static void main(String[] args) {
         JFrame frame = new JFrame("vInsertarContratoDueno");
-        frame.setContentPane(new vInsertarContratoDueno().pPrincipal);
+        frame.setContentPane(new vInsertarContratoEntrena().pPrincipal);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
     }
 
     //Todo
-    public vInsertarContratoDueno() {
+    public vInsertarContratoEntrena() {
         Main.llenarCBEquipo(cbEquipo);
-        Main.llenarCBPropietario(cbPropietario);
+        Main.llenarCBContratoEntrenador(cbEntrena);
         volverButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -56,18 +54,18 @@ public class vInsertarContratoDueno {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    Main.crearContratoDueno(cbPropietario.getSelectedItem().toString(),cbEquipo.getSelectedItem().toString(),ftSueldo.getText(),ftFechaInicio.getText(),ftFechaFin.getText());
+                    Main.crearContratoEntrenador(cbEntrena.getSelectedItem().toString(),cbEquipo.getSelectedItem().toString(),ftSueldo.getText(),ftFechaInicio.getText(),ftFechaFin.getText());
                     JOptionPane.showMessageDialog(null,"Insercion Exitosa");
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
                 }
             }
         });
-        cbPropietario.addItemListener(new ItemListener() {
+        cbEntrena.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
-                String np = Main.nombrePropietario(cbPropietario.getSelectedItem().toString());
-                tfNombrePropietario.setText(np);
+                String ne = Main.nombreEntrenador(cbEntrena.getSelectedItem().toString());
+                tfNombreEntrenador.setText(ne);
             }
         });
         cbEquipo.addItemListener(new ItemListener() {
@@ -81,12 +79,12 @@ public class vInsertarContratoDueno {
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
-            try {
-                ftSueldo = new JFormattedTextField(new MaskFormatter("###########"));
-                ftFechaInicio = new JFormattedTextField(new MaskFormatter("##/##/####"));
-                ftFechaFin = new JFormattedTextField(new MaskFormatter("##/##/####"));
-            } catch (ParseException e) {
-                throw new RuntimeException(e);
-            }
+        try {
+            ftSueldo = new JFormattedTextField(new MaskFormatter("###########"));
+            ftFechaInicio = new JFormattedTextField(new MaskFormatter("##/##/####"));
+            ftFechaFin = new JFormattedTextField(new MaskFormatter("##/##/####"));
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

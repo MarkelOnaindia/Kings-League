@@ -17,7 +17,7 @@ public class TContratoDueno {
     public static void insertar(ContratoDueno cd) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("INSERT INTO ContratoDueno (ID_PRO, ID_EQUIPO, SUELDO, FECHA_INI, FECHA_FIN) VALUES (?,?,?,?,?);");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("INSERT INTO ContratoDueno (ID_PRO, ID_EQUIPO, SUELDO, FECHA_INI, FECHA_FIN) VALUES (?,?,?,?,?)");
         ps.setInt(1,cd.getPropietario().getIdPro());
         ps.setFloat(2,cd.getEquipo().getIdEquipo());
         ps.setFloat(3,cd.getSueldo());
@@ -30,7 +30,7 @@ public class TContratoDueno {
     public static int borrar(ContratoDueno cd) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from ContratoDueno where IdCondu = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from ContratoDueno where Id_Condu = ?");
         ps.setInt(1, cd.getIdCondu());
         int n = ps.executeUpdate();
         BaseDatos.cerrarConexion();
@@ -53,7 +53,7 @@ public class TContratoDueno {
     public static ContratoDueno consultarContratoDueno(ContratoDueno cd) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from ContratoDueno where IdCondu = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from ContratoDueno where Id_Condu = ?");
         ps.setInt(1,cd.getIdCondu());
         ResultSet resultado = ps.executeQuery();
         ContratoDueno condu = null;
@@ -65,12 +65,12 @@ public class TContratoDueno {
             eq1 = new Equipo(resultado.getInt("ID_EQUIPO"));
             pro1 = new Propietario(resultado.getInt("ID_PRO"));
 
-            condu.setIdCondu(resultado.getInt("IdCondu"));
+            condu.setIdCondu(resultado.getInt("Id_Condu"));
             condu.setPropietario(pro1);
             condu.setEquipo(eq1);
             condu.setSueldo(resultado.getInt("Sueldo"));
-            condu.setFechainicio(resultado.getString("FechaInicio"));
-            condu.setFechaFin(resultado.getString("FechaFin"));
+            condu.setFechainicio(resultado.getString("Fecha_ini"));
+            condu.setFechaFin(resultado.getString("Fecha_fin"));
         }
         else
             condu = null;
@@ -107,7 +107,7 @@ public class TContratoDueno {
         BaseDatos.abrirConexion();
         PreparedStatement ps = null;
         try {
-            ps = BaseDatos.getCon().prepareStatement("SELECT Propietario.NOMBRE AS NombrePropietario FROM ContratoDueno JOIN Propietario ON ContratoDueno.ID_PRO = Propietario.ID_PRO WHERE ContratoDueno.ID_CONDU = ?;");
+            ps = BaseDatos.getCon().prepareStatement("SELECT Propietario.NOMBRE AS NombrePropietario FROM ContratoDueno JOIN Propietario ON ContratoDueno.ID_PRO = Propietario.ID_PRO WHERE ContratoDueno.ID_CONDU = ?");
             ps.setString(1, String.valueOf(cd.getIdCondu()));
             ResultSet rs = ps.executeQuery();
             String np = null;
@@ -128,7 +128,7 @@ public class TContratoDueno {
         BaseDatos.abrirConexion();
         PreparedStatement ps = null;
         try {
-            ps = BaseDatos.getCon().prepareStatement("SELECT Equipo.NOMBRE AS NombreEquipo FROM ContratoDueno JOIN Equipo ON ContratoDueno.ID_EQUIPO = Equipo.ID_EQUIPO WHERE ContratoDueno.ID_CONDU = ?;");
+            ps = BaseDatos.getCon().prepareStatement("SELECT Equipo.NOMBRE AS NombreEquipo FROM ContratoDueno JOIN Equipo ON ContratoDueno.ID_EQUIPO = Equipo.ID_EQUIPO WHERE ContratoDueno.ID_CONDU = ?");
             ps.setString(1, String.valueOf(cd.getIdCondu()));
             ResultSet rs = ps.executeQuery();
             String ne = null;

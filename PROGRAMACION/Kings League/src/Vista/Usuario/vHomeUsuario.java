@@ -1,6 +1,7 @@
 package Vista.Usuario;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.TimerTask;
 import java.util.Timer;
 import javax.swing.ImageIcon;
@@ -11,7 +12,7 @@ public class vHomeUsuario {
     private JPanel panelArriba;
     private JPanel panelCentrado;
     private JLabel jlNoticias;
-    private JPanel pPrinciapl;
+    private JPanel pPrincipal;
     private JPanel panelClasificacion;
     private JLabel jlequipo1;
     private JLabel jlequipo2;
@@ -89,13 +90,17 @@ public class vHomeUsuario {
     private JMenu clasificacionMenu;
     private JMenu partidosMenu;
 
+    public JPanel getpPrincipal() {
+        return pPrincipal;
+    }
+
     static int contador = 0;
 
     public vHomeUsuario() {
 
     }
 
-    public static void main(String[] args) {
+    public static void main() {
         int velocidad = 2; // segundos
 
         Timer timer;
@@ -104,9 +109,10 @@ public class vHomeUsuario {
 
         JFrame frame = new JFrame("vHomeUsuario");
         vHomeUsuario homeUsuario = new vHomeUsuario(); // Crear una instancia de vHomeUsuario
-        frame.setContentPane(homeUsuario.pPrinciapl);
+        frame.setContentPane(homeUsuario.pPrincipal);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+        frame.setExtendedState(Frame.MAXIMIZED_BOTH);
         frame.setVisible(true);
 
         tarea = new TimerTask() {

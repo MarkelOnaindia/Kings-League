@@ -22,6 +22,11 @@ public class Entrenador {
 
     public Entrenador() {
 
+        
+    }
+
+    public Entrenador(int idEnt) {
+        IdEnt = idEnt;
     }
 
     public int getIdEnt() {
@@ -79,4 +84,6 @@ public class Entrenador {
     public void setCorreo(String correo) {
         Correo = correo;
     }
+
+    
 }
