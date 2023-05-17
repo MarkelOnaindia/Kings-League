@@ -8,7 +8,15 @@ import java.awt.event.ActionListener;
 
 public class vUsuario {
     private JPanel pPrincipal;
+    private JPanel panelAbajo;
+    private JPanel panelArriba;
     private JButton volverButton;
+    private JPanel panelCentrado;
+    private JPanel panelInicio;
+    private JButton insertarButton;
+    private JButton borrarButton;
+    private JButton consultarButton;
+    private JButton actualizarButton;
 
     //Getter
     public JPanel getpPrincipal() {
@@ -29,7 +37,7 @@ public class vUsuario {
         volverButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main.vUsuario.setVisible(false);
+                Main.vHomeUsuario.setVisible(false);
                 Main.vCRUD.setVisible(true);
             }
         });
