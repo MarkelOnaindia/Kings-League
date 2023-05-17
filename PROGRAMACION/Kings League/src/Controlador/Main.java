@@ -315,13 +315,10 @@ public class Main {
             }
 
             public static void crearVentanaConsultarContratoDueno(){
-<<<<<<< HEAD
                 vConsultarContratoDueno = new vConsultarContratoDueno();
                 vConsultarContratoDueno.setLocationRelativeTo(null);
-=======
                 vConsultarContratoDueno = new vBorrarContratoDueno();
                 vBorrarContratoDueno.setLocationRelativeTo(null);
->>>>>>> main
                 vConsultarContratoDueno.pack();
                 vConsultarContratoDueno.setVisible(true);
             }
