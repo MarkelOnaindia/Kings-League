@@ -13,6 +13,8 @@ public class vContratoDueno {
     private JButton borrarButton;
     private JButton consultarButton;
     private JButton actualizarButton;
+    private JPanel panelAbajo;
+    private JPanel panelArriba;
 
     //Getter
     public JPanel getpPrincipal() {

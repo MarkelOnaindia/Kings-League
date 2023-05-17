@@ -26,9 +26,9 @@ import Vista.Admin.Cruds.Partido.vPartido;
 import Vista.Admin.Cruds.Propietario.vPropietario;
 import Vista.Admin.Cruds.Staff.vStaff;
 import Vista.Admin.Cruds.Temporada.vTemporada;
-import Vista.Admin.Cruds.Usuario.vUsuario;
 import Vista.Admin.Cruds.vCRUD;
 import Vista.Admin.vHomeAdmin;
+import Vista.Usuario.vHomeUsuario;
 import Vista.Usuario.vRegistrarse;
 import Vista.Usuario.vUser;
 import Vista.vPrincipal;
@@ -136,7 +136,7 @@ public class Main {
 
 
                 //JFrames del Usuario
-                public static JFrame vUsuario;
+                public static JFrame vHomeUsuario;
                     public static JFrame vInsertarUsuario;
                     public static JFrame vActualizarUsuario;
 
@@ -313,13 +313,13 @@ public class Main {
             public static void crearVentanaBorrarContratoDueno() {
                 vBorrarContratoDueno = new vBorrarContratoDueno();
                 vBorrarContratoDueno.setLocationRelativeTo(null);
-                vBorrarContratoDueno.pack();
+                vBorrarContratoDueno.setSize(1000, 600);
                 vBorrarContratoDueno.setVisible(true);
             }
 
             public static void crearVentanaConsultarContratoDueno(){
                 vConsultarContratoDueno = new vBorrarContratoDueno();
-                vConsultarContratoDueno.setLocationRelativeTo(null);
+                vBorrarContratoDueno.setLocationRelativeTo(null);
                 vConsultarContratoDueno.pack();
                 vConsultarContratoDueno.setVisible(true);
             }
@@ -1224,12 +1224,12 @@ public class Main {
         //Creación de las Ventanas del Usuario
         public static void crearVentanaUsuario(){
             vCRUD.setVisible(false);
-            vUsuario = new JFrame("vUsuario");
-            vUsuario.setContentPane(new vUsuario().getpPrincipal());
-            vUsuario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            vUsuario.pack();
-            vUsuario.setExtendedState(Frame.MAXIMIZED_BOTH);
-            vUsuario.setVisible(true);
+            vHomeUsuario = new JFrame("vHomeUsuario");
+            vHomeUsuario.setContentPane(new vHomeUsuario().getpPrincipal());
+            vHomeUsuario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            vHomeUsuario.pack();
+            vHomeUsuario.setExtendedState(Frame.MAXIMIZED_BOTH);
+            vHomeUsuario.setVisible(true);
     }
 
             //Crud de los usuarios
@@ -1287,13 +1287,7 @@ public class Main {
      }
 
      public static void crearVentanaUser(){
-         vPrincipal.setVisible(false);
-         vUser  = new JFrame("vUser");
-         vUser.setContentPane(new vUser().getpPrincipal());
-         vUser.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-         vUser.pack();
-         vUser.setExtendedState(Frame.MAXIMIZED_BOTH);
-         vUser.setVisible(true);
+         Vista.Usuario.vHomeUsuario.main();
      }
 
 

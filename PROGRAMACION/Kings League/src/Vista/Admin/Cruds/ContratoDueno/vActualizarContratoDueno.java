@@ -15,8 +15,6 @@ public class vActualizarContratoDueno {
     private JPanel pPrincipal;
     private JPanel panelAbajo;
     private JPanel panelArriba;
-    private JPanel panelCentrado;
-    private JPanel panelInicio;
     private JTextField tfNombrePropietario;
     private JTextField tfNombreEquipo;
     private JFormattedTextField ftSueldo;
@@ -24,10 +22,10 @@ public class vActualizarContratoDueno {
     private JFormattedTextField ftFechaFin;
     private JButton volverButton;
     private JButton insertarButton;
-    private JLabel logo;
     private JComboBox cbIDDueno;
     private JTextField tfIDPro;
     private JTextField tfIDEquipo;
+    private JPanel panelCentrado;
 
     //Getter
     public JPanel getpPrincipal() {
