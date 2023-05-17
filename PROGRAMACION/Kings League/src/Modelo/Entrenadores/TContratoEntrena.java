@@ -6,13 +6,16 @@ import Modelo.Duenos.ContratoDueno;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class TContratoEntrena {
 
     public static void insertar(ContratoEntrena ce) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into ContratoEntrena values (?,?,?,?)");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("INSERT INTO ContratoEntrena (ID_ENT, ID_EQUIPO," +
+                " Sueldo, Fecha_ini, Fecha_fin) VALUES (?, ?, ?, ?, ?)");
         ps.setInt(1, ce.getIdConen());
         ps.setInt(2, ce.getSueldo());
         ps.setDate(3, Date.valueOf(ce.getFechaInicio()));
@@ -63,5 +66,28 @@ public class TContratoEntrena {
             conen = null;
         BaseDatos.cerrarConexion();
         return conen;
+    }
+
+    public static ArrayList<ContratoEntrena> llenarCBContratoEntrenador(){
+        BaseDatos.abrirConexion();
+        PreparedStatement ps = null;
+        try {
+            ps = BaseDatos.getCon().prepareStatement("SELECT ID_CONEN FROM CONTRATOENTRENA");
+            ResultSet rs = ps.executeQuery();
+            ArrayList <ContratoEntrena> lContratoEntrena  = new ArrayList();
+            ContratoEntrena cd1 = null;
+            while (rs.next())
+            {
+                cd1 = new ContratoEntrena();
+                cd1.setIdConen(rs.getInt("ID_CONEN"));
+                lContratoEntrena.add(cd1);
+            }
+            BaseDatos.cerrarConexion();
+
+            return lContratoEntrena;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }

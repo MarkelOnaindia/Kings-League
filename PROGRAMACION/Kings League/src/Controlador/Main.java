@@ -11,8 +11,12 @@ import Modelo.Propietario.*;
 import Modelo.Staff.*;
 import Modelo.Temporada.*;
 import Modelo.Usuario.*;
-import Vista.Admin.Cruds.ContratoDueno.*;
+import Vista.Admin.Cruds.ContratoDueno.vActualizarContratoDueno;
+import Vista.Admin.Cruds.ContratoDueno.vBorrarContratoDueno;
+import Vista.Admin.Cruds.ContratoDueno.vContratoDueno;
+import Vista.Admin.Cruds.ContratoDueno.vInsertarContratoDueno;
 import Vista.Admin.Cruds.ContratoEntrenador.vContratoEntrena;
+import Vista.Admin.Cruds.ContratoEntrenador.vInsertarContratoEntrena;
 import Vista.Admin.Cruds.ContratoJugador.vContratoJugador;
 import Vista.Admin.Cruds.ContratoStaff.vContratoStaff;
 import Vista.Admin.Cruds.Entrenador.vEntrenador;
@@ -268,17 +272,41 @@ public class Main {
         }catch (Exception ex) {
             throw new RuntimeException(ex);
         }
+
+
+    }
+
+    public static String nombreEntrenador(String ID_ENTRENADOR){
+        int iden = Main.stringAInt(ID_ENTRENADOR);
+        e = new Entrenador(iden);
+        String e1 = TEntrenador.nombreEntrenador(e);
+        return e1;
+    }
+
+
+
+    public static void llenarCBContratoEntrenador(JComboBox CB){
+        ArrayList<ContratoEntrena> lEntrenador = TContratoEntrena.llenarCBContratoEntrenador();
+
+        CB.addItem("--Seleccione uno--");
+        try {
+            for (int x = 0; x < lEntrenador.size();x++){
+                CB.addItem(lEntrenador.get(x).getIdConen());
+            }
+        }catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
         public static String npIDCondu(String ID_CONDU){
-            int idCondu = Main.stringAInt(ID_CONDU);
+            int idCondu = Integer.parseInt(ID_CONDU);
             cd = new ContratoDueno(idCondu);
             String np = TContratoDueno.npIDCONDU(cd);
             return np;
         }
 
         public static String neIDCondu(String ID_CONDU){
-            int idCondu = Main.stringAInt(ID_CONDU);
+            int idCondu = Integer.parseInt(ID_CONDU);
             cd = new ContratoDueno(idCondu);
             String ne = TContratoDueno.neIDCONDU(cd);
             return ne;
@@ -315,13 +343,8 @@ public class Main {
             }
 
             public static void crearVentanaConsultarContratoDueno(){
-<<<<<<< HEAD
-                vConsultarContratoDueno = new vConsultarContratoDueno();
-                vConsultarContratoDueno.setLocationRelativeTo(null);
-=======
                 vConsultarContratoDueno = new vBorrarContratoDueno();
                 vBorrarContratoDueno.setLocationRelativeTo(null);
->>>>>>> main
                 vConsultarContratoDueno.pack();
                 vConsultarContratoDueno.setVisible(true);
             }
@@ -334,14 +357,19 @@ public class Main {
                 vActualizarContratoDueno.setVisible(true);
             }
 
-            /*
-            public static void crearVentanaActualizarContratoDueno(){
-                vActualizarContratoDueno = new JFrame("vActualizarContratoDueno");
-                vActualizarContratoDueno.setContentPane(new vActualizarContratoDueno().getpPrincipal());
-                vActualizarContratoDueno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                vActualizarContratoDueno.pack();
-                vActualizarContratoDueno.setVisible(true);
+
+            public static void crearVentanaInsertarContratoEntrenador(){
+                vContratoEntrena.setVisible(false);
+                vInsertarContratoEntrenador  = new JFrame("vInsertarContratoDueno");
+                vInsertarContratoEntrenador.setContentPane(new vInsertarContratoEntrena().getpPrincipal());
+                vInsertarContratoEntrenador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                vInsertarContratoEntrenador.pack();
+                vInsertarContratoEntrenador.setExtendedState(Frame.MAXIMIZED_BOTH);
+                vInsertarContratoEntrenador.setVisible(true);
             }
+
+            /*
+
 
             //Creación de las Ventanas del ContratoEntrenador
 
@@ -569,7 +597,7 @@ public class Main {
                 int idEquipo = Integer.parseInt(ID_EQUIPO);
                 eq = new Equipo(idEquipo);
 
-                int idPro = Integer.parseInt(ID_EQUIPO);
+                int idPro = Integer.parseInt(ID_PRO);
                 pro = new Propietario(idPro);
 
                 float fsueldo = Float.parseFloat(sueldo);
@@ -622,7 +650,6 @@ public class Main {
 
                 return cd1;
             }
-
         //Creación de las Ventanas del ContratoEntrena
         public static void crearVentanaContratoEntrena(){
                 vCRUD.setVisible(false);
@@ -636,13 +663,24 @@ public class Main {
 
             //Crud del ContratoEntrenador
 
-            public static void crearContratoEntrenador(int IdConen, int sueldo, LocalDate FechaInicio, LocalDate FechaFin) throws Exception
+            public static void crearContratoEntrenador(String ID_ENT, String ID_EQUIPO, String sueldo, String FechaInicio, String FechaFin) throws Exception
             {
+                int idEquipo = Integer.parseInt(ID_EQUIPO);
+                eq = new Equipo(idEquipo);
+
+                int idEnt = Integer.parseInt(ID_ENT);
+                e = new Entrenador(idEnt);
+
+                float fsueldo = Float.parseFloat(sueldo);
+
                 //Inserción de datos
-                ce = new ContratoEntrena(IdConen, sueldo, FechaInicio, FechaFin);
+                e = new Entrenador(idEnt);
+                eq = new Equipo(idEquipo);
+                ce = new ContratoEntrena(eq,e,fsueldo, FechaInicio,FechaFin);
                 TContratoEntrena.insertar(ce);
                 vInsertarContratoEntrenador.dispose();
             }
+
 
             public static int borrarContratoEntrena(int IdConen) throws Exception
             {

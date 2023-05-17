@@ -1,5 +1,7 @@
 package Modelo.Entrenadores;
 
+import Modelo.Equipos.Equipo;
+
 import java.time.LocalDate;
 
 public class ContratoEntrena {
@@ -18,6 +20,9 @@ public class ContratoEntrena {
 
     public ContratoEntrena() {
 
+    }
+
+    public ContratoEntrena(Equipo eq, Entrenador e, float fsueldo, String fechaInicio, String fechaFin) {
     }
 
     public int getIdConen() {
