@@ -19,7 +19,11 @@ BEGIN
   
   -- Get the result
   result := DBMS_XMLGEN.getXML(qryCtx);
-  INSERT INTO CAL_XML_RESULTADO VALUES(DEFAULT, result, 'UltimaJornada');
+  
+  -- Calculate expiration date
+  fecha_expiracion := TO_DATE(SYSDATE + 7, 'YYYY-MM-DD');
+  
+  INSERT INTO CAL_XML_RESULTADOS VALUES(DEFAULT, result,fecha_expiracion, 'UltimaJornada');
   
   --Close context
   DBMS_XMLGEN.closeContext(qryCtx);
