@@ -227,5 +227,5 @@ CREATE TABLE CAL_XML_Resultados(
                     PRIMARY KEY,
     result CLOB,
     fecha_expiracion DATE,
-    TIPO      Varchar2(30) CHECK (TIPO IN('TodasJornadass','UltimaJornadas','Clasificacion'))
+    TIPO      Varchar2(30) CHECK (TIPO IN('TodasJornadas','UltimaJornadas','Clasificacion'))
 );
