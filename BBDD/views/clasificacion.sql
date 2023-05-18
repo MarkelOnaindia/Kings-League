@@ -1,6 +1,6 @@
 /*Kings League equipo 2*/
 /*View clasificacion*/
-CREATE OR REPLACE VIEW clasificaciones AS
+CREATE OR REPLACE VIEW clasificacion AS
 SELECT 
        ROW_NUMBER() OVER (ORDER BY COUNT(CASE WHEN p.ID_Ganador = e.ID_EQUIPO THEN 1 END) DESC) AS Posicion,
        e.NOMBRE AS Nombre_Equipo, 
