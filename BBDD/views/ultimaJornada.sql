@@ -17,8 +17,8 @@ SELECT
     p.ID_Perdedor
 FROM
     Temporadas t
-    INNER JOIN Jornada j ON t.ID_TEMP = j.ID_TEMP
-    INNER JOIN Partido p ON j.ID_JOR = p.ID_JOR
+    INNER JOIN Jornadas j ON t.ID_TEMP = j.ID_TEMP
+    INNER JOIN Partidos p ON j.ID_JOR = p.ID_JOR
 WHERE
     j.ID_JOR = (SELECT MAX(ID_JOR)
                 FROM Jornadas);
