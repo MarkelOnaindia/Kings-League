@@ -1,13 +1,14 @@
-<!ELEMENT jornadas (jornada+)>
-<!ATTLIST jornada num_jornada CDATA #REQUIRED>
+<!ELEMENT tabla_jornada (jornada)>
+<!ELEMENT jornada (ID_split, tipo_jor, Partido*)>
+<!ATTLIST jornada NUMERO CDATA #REQUIRED>
 <!ELEMENT ID_split (#PCDATA)>
 <!ELEMENT tipo_jor (#PCDATA)>
-<!ELEMENT jornada (ID_split, tipo_jor, Partido+)>
-<!ELEMENT Partido (FECHA_PARTIDO, HORA, GOLES_EQ1?, GOLES_EQ2?, ID_GANADOR)>
+<!ELEMENT Partido (FECHA_PARTIDO, HORA, EQ1, GOLES_EQ1, EQ2, GOLES_EQ2, ID_Ganador)>
 <!ATTLIST Partido ID_PARTIDO CDATA #REQUIRED>
-        <!ELEMENT FECHA_PARTIDO (#PCDATA)>
-        <!ELEMENT EQ1 (#PCDATA)>
-        <!ELEMENT GOLES_EQ1 (#PCDATA)>
-        <!ELEMENT EQ2 (#PCDATA)>
-        <!ELEMENT GOLES_EQ2 (#PCDATA)>
-        <!ELEMENT ID_GANADOR (#PCDATA)>
+<!ELEMENT FECHA_PARTIDO (#PCDATA)>
+<!ELEMENT HORA (#PCDATA)>
+<!ELEMENT EQ1 (#PCDATA)>
+<!ELEMENT GOLES_EQ1 (#PCDATA)>
+<!ELEMENT EQ2 (#PCDATA)>
+<!ELEMENT GOLES_EQ2 (#PCDATA)>
+<!ELEMENT ID_Ganador (#PCDATA)>
