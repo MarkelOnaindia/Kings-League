@@ -1,7 +1,7 @@
 /*Kings League equipo 2*/
 /*View para visualizar toda la informacion de la ultima jornadas*/
 
-CREATE OR REPLACE VIEW vista_ultima_jornadas AS
+CREATE OR REPLACE VIEW vista_ultima_jornada AS
 SELECT
     t.ID_TEMP,
     t.TIPO AS Temporadas,
