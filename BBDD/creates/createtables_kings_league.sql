@@ -1,20 +1,20 @@
-DROP TABLE Equipo CASCADE CONSTRAINTS;
-DROP TABLE Jugador CASCADE CONSTRAINTS;
-DROP TABLE Staff CASCADE CONSTRAINTS;
-DROP TABLE Entrenador CASCADE CONSTRAINTS;
-DROP TABLE Propietario CASCADE CONSTRAINTS;
-DROP TABLE Temporada CASCADE CONSTRAINTS;
-DROP TABLE Partido CASCADE CONSTRAINTS;
-DROP TABLE Jornada CASCADE CONSTRAINTS;
-DROP TABLE Usuario;
-DROP TABLE ContratoDueno CASCADE CONSTRAINTS;
-DROP TABLE ContratoEntrena CASCADE CONSTRAINTS;
-DROP TABLE ContratoStaff CASCADE CONSTRAINTS;
-DROP TABLE ContratoJugador CASCADE CONSTRAINTS;
-DROP TABLE CAL_XML_Resultado;
+DROP TABLE Equipos CASCADE CONSTRAINTS;
+DROP TABLE Jugadores CASCADE CONSTRAINTS;
+DROP TABLE Staffs CASCADE CONSTRAINTS;
+DROP TABLE Entrenadores CASCADE CONSTRAINTS;
+DROP TABLE Propietarios CASCADE CONSTRAINTS;
+DROP TABLE Temporadas CASCADE CONSTRAINTS;
+DROP TABLE Partidos CASCADE CONSTRAINTS;
+DROP TABLE Jornadas CASCADE CONSTRAINTS;
+DROP TABLE Usuarios;
+DROP TABLE ContratosDueno CASCADE CONSTRAINTS;
+DROP TABLE ContratosEntrena CASCADE CONSTRAINTS;
+DROP TABLE ContratosStaff CASCADE CONSTRAINTS;
+DROP TABLE ContratosJugador CASCADE CONSTRAINTS;
+DROP TABLE CAL_XML_Resultados;
 
-CREATE TABLE Equipo (
- 	ID_EQUIPO	INTEGER GENERATED ALWAYS AS IDENTITY
+CREATE TABLE Equipos (
+ 	ID_Equipos	INTEGER GENERATED ALWAYS AS IDENTITY
 					START WITH 1
 					INCREMENT BY 1
 					NOCACHE
@@ -26,7 +26,7 @@ CREATE TABLE Equipo (
 		CONSTRAINT EQU_PRESUPUESTO_CK CHECK(PRESUPUESTO <= 200000000)
 );
 
-CREATE TABLE Jugador (
+CREATE TABLE Jugadores (
     ID_JUG		INTEGER GENERATED ALWAYS AS IDENTITY
 					START WITH 1
 					INCREMENT BY 1
@@ -47,8 +47,8 @@ CREATE TABLE Jugador (
     CORREO	    Varchar2(50)
 );
 
-CREATE TABLE Staff (
-	ID_STAFF	INTEGER GENERATED ALWAYS AS IDENTITY
+CREATE TABLE Staffs (
+	ID_Staffs	INTEGER GENERATED ALWAYS AS IDENTITY
                         START WITH 1
                         INCREMENT BY 1
                         NOCACHE
@@ -62,7 +62,7 @@ CREATE TABLE Staff (
     ROL		        Varchar2(15)
 );
 
-CREATE TABLE Entrenador (
+CREATE TABLE Entrenadores (
 	ID_ENT 	    INTEGER GENERATED ALWAYS AS IDENTITY
                         START WITH 1
                         INCREMENT BY 1
@@ -76,7 +76,7 @@ CREATE TABLE Entrenador (
     CORREO	        Varchar2(50)
 );
 
-CREATE TABLE Propietario (
+CREATE TABLE Propietarios (
 	ID_PRO 	    INTEGER GENERATED ALWAYS AS IDENTITY
                         START WITH 1
                         INCREMENT BY 1
@@ -91,7 +91,7 @@ CREATE TABLE Propietario (
 );
 
 
-CREATE TABLE Temporada (
+CREATE TABLE Temporadas (
 	ID_TEMP		INTEGER GENERATED ALWAYS AS IDENTITY
 					START WITH 1
 					INCREMENT BY 1
@@ -101,7 +101,7 @@ CREATE TABLE Temporada (
     ESTADO	    Varchar2(10) CHECK (ESTADO IN ('Abierto','Cerrado'))
 );
 
-CREATE TABLE Jornada (
+CREATE TABLE Jornadas (
 	ID_JOR		INTEGER GENERATED ALWAYS AS IDENTITY
                     START WITH 1
                     INCREMENT BY 1
@@ -112,11 +112,11 @@ CREATE TABLE Jornada (
     Dia         Varchar2(11),
     TIPO        Varchar2(15) CHECK (TIPO IN ('FaseRegular','PlayOffs')),
     CONSTRAINT ID_TEMP_FK FOREIGN KEY(ID_TEMP)
-            REFERENCES Temporada (ID_TEMP)
+            REFERENCES Temporadas (ID_TEMP)
 );
 
-CREATE TABLE Partido (
-	ID_PARTIDO	INTEGER GENERATED ALWAYS AS IDENTITY
+CREATE TABLE Partidos (
+	ID_PARTIDOS	INTEGER GENERATED ALWAYS AS IDENTITY
                     START WITH 1
                     INCREMENT BY 1
                     NOCACHE
@@ -128,15 +128,15 @@ CREATE TABLE Partido (
     ID_Ganador  Number(5),
     ID_Perdedor  Number(5),
     CONSTRAINT ID_JOR_FK FOREIGN KEY(ID_JOR)
-            REFERENCES Jornada (ID_JOR),
+            REFERENCES Jornadas (ID_JOR),
     CONSTRAINT EQU_GANA_FK FOREIGN KEY (ID_GANADOR) 
-            REFERENCES EQUIPO(ID_EQUIPO),
+            REFERENCES Equipos(ID_Equipos),
     CONSTRAINT EQU_PIERDE_FK FOREIGN KEY (ID_Perdedor) 
-            REFERENCES EQUIPO(ID_EQUIPO)
+            REFERENCES Equipos(ID_Equipos)
 );
 
-CREATE TABLE Usuario (
-    ID_USUARIO	    INTEGER GENERATED ALWAYS AS IDENTITY
+CREATE TABLE Usuarios (
+    ID_USUARIOS	    INTEGER GENERATED ALWAYS AS IDENTITY
                         START WITH 1
                         INCREMENT BY 1
                         NOCACHE
@@ -148,65 +148,65 @@ CREATE TABLE Usuario (
     ADMIN		    Varchar2(2) CHECK (ADMIN IN ('SI','NO'))
 );
 
-CREATE TABLE ContratoDueno (
+CREATE TABLE ContratosDueno (
     ID_CONDU    INTEGER GENERATED ALWAYS AS IDENTITY
                     START WITH 1
                     INCREMENT BY 1
                     NOCACHE
                     PRIMARY KEY,
     ID_PRO      Number(5),
-    ID_EQUIPO   Number(5),
+    ID_Equipos   Number(5),
     Sueldo      Number(10),
     Fecha_ini   Varchar2(12),
     Fecha_fin   Varchar2(12),
         CONSTRAINT CONDU_ID_PRO_FK FOREIGN KEY(ID_PRO)
-            REFERENCES Propietario (ID_PRO),
-        CONSTRAINT CONDU_ID_EQUIPO_FK FOREIGN KEY(ID_EQUIPO)
-            REFERENCES Equipo (ID_EQUIPO)
+            REFERENCES Propietarios (ID_PRO),
+        CONSTRAINT CONDU_ID_Equipos_FK FOREIGN KEY(ID_Equipos)
+            REFERENCES Equipos (ID_Equipos)
 );
 
-CREATE TABLE ContratoEntrena (
+CREATE TABLE ContratosEntrena (
     ID_CONEN    INTEGER GENERATED ALWAYS AS IDENTITY
                     START WITH 1
                     INCREMENT BY 1
                     NOCACHE
                     PRIMARY KEY,
     ID_ENT      Number(5),
-    ID_EQUIPO   Number(5),
+    ID_Equipos   Number(5),
     Sueldo      Number(10),
     Fecha_ini   Varchar2(12),
     Fecha_fin   Varchar2(12),
         CONSTRAINT CONEN_ID_ENT_FK FOREIGN KEY(ID_ENT)
-            REFERENCES Entrenador (ID_ENT),
-        CONSTRAINT CONEN_ID_EQUIPO_FK FOREIGN KEY(ID_EQUIPO)
-            REFERENCES Equipo (ID_EQUIPO)
+            REFERENCES Entrenadores (ID_ENT),
+        CONSTRAINT CONEN_ID_Equipos_FK FOREIGN KEY(ID_Equipos)
+            REFERENCES Equipos (ID_Equipos)
 );
 
-CREATE TABLE ContratoStaff (
+CREATE TABLE ContratosStaff (
     ID_CONST    INTEGER GENERATED ALWAYS AS IDENTITY
                     START WITH 1
                     INCREMENT BY 1
                     NOCACHE
                     PRIMARY KEY,
-    ID_STAFF    Number(5),
-    ID_EQUIPO   Number(5),
+    ID_Staffs    Number(5),
+    ID_Equipos   Number(5),
     Sueldo      Number(10),
     Fecha_ini   Varchar2(12),
     Fecha_fin   Varchar2(12),
-        CONSTRAINT CONST_ID_STAFF_FK FOREIGN KEY(ID_STAFF)
-            REFERENCES Staff (ID_STAFF),
-        CONSTRAINT CONST_ID_EQUIPO_FK FOREIGN KEY(ID_EQUIPO)
-            REFERENCES Equipo (ID_EQUIPO)
+        CONSTRAINT CONST_ID_Staffs_FK FOREIGN KEY(ID_Staffs)
+            REFERENCES Staffs (ID_Staffs),
+        CONSTRAINT CONST_ID_Equipos_FK FOREIGN KEY(ID_Equipos)
+            REFERENCES Equipos (ID_Equipos)
 );
 
-CREATE TABLE ContratoJugador (
+CREATE TABLE ContratosJugador (
     ID_CONJU    INTEGER GENERATED ALWAYS AS IDENTITY
                     START WITH 1
                     INCREMENT BY 1
                     NOCACHE
                     PRIMARY KEY,
     ID_JUG      Number(5),
-    ID_EQUIPO   Number(5),
+    ID_Equipos   Number(5),
     Sueldo      Number(10) CONSTRAINT CONJU_SUE_CK CHECK
                             (Sueldo IN (10000000, 15000000, 10500000, 22500000)),
     Fecha_ini   Varchar2(12),
@@ -214,12 +214,12 @@ CREATE TABLE ContratoJugador (
     Clausula    Number(10),
     Dorsal      Number(2),
         CONSTRAINT CONJU_ID_JUG_FK FOREIGN KEY(ID_JUG)
-            REFERENCES Jugador (ID_JUG),
-        CONSTRAINT CONJU_ID_EQUIPO_FK FOREIGN KEY(ID_EQUIPO)
-            REFERENCES Equipo (ID_EQUIPO)
+            REFERENCES Jugadores (ID_JUG),
+        CONSTRAINT CONJU_ID_Equipos_FK FOREIGN KEY(ID_Equipos)
+            REFERENCES Equipos (ID_Equipos)
 );
 
-CREATE TABLE CAL_XML_Resultado(
+CREATE TABLE CAL_XML_Resultados(
     ID_XML  INTEGER GENERATED ALWAYS AS IDENTITY
                     START WITH 1
                     INCREMENT BY 1
@@ -227,6 +227,5 @@ CREATE TABLE CAL_XML_Resultado(
                     PRIMARY KEY,
     result CLOB,
     fecha_expiracion DATE,
-    TIPO			Varchar2(30) CHECK (TIPO IN('TodasJornadas','UltimaJornada','Clasificacion'))
+    TIPO			Varchar2(30) CHECK (TIPO IN('TodasJornadass','UltimaJornadas','Clasificacion'))
 );
-

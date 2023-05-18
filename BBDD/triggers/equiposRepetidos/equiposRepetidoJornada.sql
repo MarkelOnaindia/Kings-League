@@ -1,7 +1,7 @@
 /*Kings League equipo 2*/
 /*Trigger verificar que cada equipo solo puede jugar una vez por jornada*/
 CREATE OR REPLACE TRIGGER tr_partido_evitar_repetidos
-BEFORE INSERT ON Partido
+BEFORE INSERT ON Partidos
 FOR EACH ROW
 DECLARE
     v_count NUMBER;
@@ -11,7 +11,7 @@ BEGIN
     END IF;
 
     SELECT COUNT(*) INTO v_count
-    FROM Partido
+    FROM Partidos
     WHERE ID_JOR = :NEW.ID_JOR
         AND (ID_Ganador = :NEW.ID_Ganador OR ID_Perdedor = :NEW.ID_Ganador
              OR ID_Ganador = :NEW.ID_Perdedor OR ID_Perdedor = :NEW.ID_Perdedor);
