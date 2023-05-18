@@ -7,11 +7,11 @@ DROP TABLE Temporadas CASCADE CONSTRAINTS;
 DROP TABLE Partidos CASCADE CONSTRAINTS;
 DROP TABLE Jornadas CASCADE CONSTRAINTS;
 DROP TABLE Usuarios;
-DROP TABLE ContratoDuenos CASCADE CONSTRAINTS;
-DROP TABLE ContratoEntrena CASCADE CONSTRAINTS;
-DROP TABLE ContratoStaffs CASCADE CONSTRAINTS;
-DROP TABLE ContratoJugadores CASCADE CONSTRAINTS;
-DROP TABLE CAL_XML_Resultado;
+DROP TABLE ContratosDueno CASCADE CONSTRAINTS;
+DROP TABLE ContratosEntrena CASCADE CONSTRAINTS;
+DROP TABLE ContratosStaff CASCADE CONSTRAINTS;
+DROP TABLE ContratosJugador CASCADE CONSTRAINTS;
+DROP TABLE CAL_XML_Resultados;
 
 CREATE TABLE Equipos (
  	ID_Equipos	INTEGER GENERATED ALWAYS AS IDENTITY
@@ -148,7 +148,7 @@ CREATE TABLE Usuarios (
     ADMIN		    Varchar2(2) CHECK (ADMIN IN ('SI','NO'))
 );
 
-CREATE TABLE ContratoDuenos (
+CREATE TABLE ContratosDueno (
     ID_CONDU    INTEGER GENERATED ALWAYS AS IDENTITY
                     START WITH 1
                     INCREMENT BY 1
@@ -165,7 +165,7 @@ CREATE TABLE ContratoDuenos (
             REFERENCES Equipos (ID_Equipos)
 );
 
-CREATE TABLE ContratoEntrena (
+CREATE TABLE ContratosEntrena (
     ID_CONEN    INTEGER GENERATED ALWAYS AS IDENTITY
                     START WITH 1
                     INCREMENT BY 1
@@ -182,7 +182,7 @@ CREATE TABLE ContratoEntrena (
             REFERENCES Equipos (ID_Equipos)
 );
 
-CREATE TABLE ContratoStaffs (
+CREATE TABLE ContratosStaff (
     ID_CONST    INTEGER GENERATED ALWAYS AS IDENTITY
                     START WITH 1
                     INCREMENT BY 1
@@ -199,7 +199,7 @@ CREATE TABLE ContratoStaffs (
             REFERENCES Equipos (ID_Equipos)
 );
 
-CREATE TABLE ContratoJugadores (
+CREATE TABLE ContratosJugador (
     ID_CONJU    INTEGER GENERATED ALWAYS AS IDENTITY
                     START WITH 1
                     INCREMENT BY 1
@@ -219,7 +219,7 @@ CREATE TABLE ContratoJugadores (
             REFERENCES Equipos (ID_Equipos)
 );
 
-CREATE TABLE CAL_XML_Resultado(
+CREATE TABLE CAL_XML_Resultados(
     ID_XML  INTEGER GENERATED ALWAYS AS IDENTITY
                     START WITH 1
                     INCREMENT BY 1
