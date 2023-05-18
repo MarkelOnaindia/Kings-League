@@ -15,11 +15,11 @@
     /* Se declara una variable que almacenará el estado de la temporada. */
     
     DECLARE
-    estado_temporada Temporada.ESTADO%TYPE;
+    estado_temporada Temporadas.ESTADO%TYPE;
     BEGIN
     /* Se selecciona el estado de la temporada almacenada en la tabla Temporadas. */
     
-    SELECT ESTADO INTO estado_temporada FROM Temporada WHERE ID_TEMP = 1;
+    SELECT ESTADO INTO estado_temporada FROM Temporadas WHERE ID_TEMP = 1;
     
     /* Se comprueba si el estado de la temporada es "Cerrado". Si es así, se lanza un error que indica que no se pueden actualizar jugadores. */
     
