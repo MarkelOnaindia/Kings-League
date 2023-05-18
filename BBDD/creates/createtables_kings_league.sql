@@ -14,7 +14,7 @@ DROP TABLE ContratosJugador CASCADE CONSTRAINTS;
 DROP TABLE CAL_XML_Resultados;
 
 CREATE TABLE Equipos (
- 	ID_Equipos	INTEGER GENERATED ALWAYS AS IDENTITY
+ 	ID_Equipo	INTEGER GENERATED ALWAYS AS IDENTITY
 					START WITH 1
 					INCREMENT BY 1
 					NOCACHE
@@ -48,7 +48,7 @@ CREATE TABLE Jugadores (
 );
 
 CREATE TABLE Staffs (
-	ID_Staffs	INTEGER GENERATED ALWAYS AS IDENTITY
+	ID_Staff	INTEGER GENERATED ALWAYS AS IDENTITY
                         START WITH 1
                         INCREMENT BY 1
                         NOCACHE
@@ -116,7 +116,7 @@ CREATE TABLE Jornadas (
 );
 
 CREATE TABLE Partidos (
-	ID_PARTIDOS	INTEGER GENERATED ALWAYS AS IDENTITY
+	ID_PARTIDO	INTEGER GENERATED ALWAYS AS IDENTITY
                     START WITH 1
                     INCREMENT BY 1
                     NOCACHE
@@ -130,13 +130,13 @@ CREATE TABLE Partidos (
     CONSTRAINT ID_JOR_FK FOREIGN KEY(ID_JOR)
             REFERENCES Jornadas (ID_JOR),
     CONSTRAINT EQU_GANA_FK FOREIGN KEY (ID_GANADOR) 
-            REFERENCES Equipos(ID_Equipos),
+            REFERENCES Equipos(ID_Equipo),
     CONSTRAINT EQU_PIERDE_FK FOREIGN KEY (ID_Perdedor) 
-            REFERENCES Equipos(ID_Equipos)
+            REFERENCES Equipos(ID_Equipo)
 );
 
 CREATE TABLE Usuarios (
-    ID_USUARIOS	    INTEGER GENERATED ALWAYS AS IDENTITY
+    ID_USUARIO	    INTEGER GENERATED ALWAYS AS IDENTITY
                         START WITH 1
                         INCREMENT BY 1
                         NOCACHE
@@ -161,8 +161,8 @@ CREATE TABLE ContratosDueno (
     Fecha_fin   Varchar2(12),
         CONSTRAINT CONDU_ID_PRO_FK FOREIGN KEY(ID_PRO)
             REFERENCES Propietarios (ID_PRO),
-        CONSTRAINT CONDU_ID_Equipos_FK FOREIGN KEY(ID_Equipos)
-            REFERENCES Equipos (ID_Equipos)
+        CONSTRAINT CONDU_ID_Equipos_FK FOREIGN KEY(ID_Equipo)
+            REFERENCES Equipos (ID_Equipo)
 );
 
 CREATE TABLE ContratosEntrena (
@@ -172,14 +172,14 @@ CREATE TABLE ContratosEntrena (
                     NOCACHE
                     PRIMARY KEY,
     ID_ENT      Number(5),
-    ID_Equipos   Number(5),
+    ID_Equipo   Number(5),
     Sueldo      Number(10),
     Fecha_ini   Varchar2(12),
     Fecha_fin   Varchar2(12),
         CONSTRAINT CONEN_ID_ENT_FK FOREIGN KEY(ID_ENT)
             REFERENCES Entrenadores (ID_ENT),
-        CONSTRAINT CONEN_ID_Equipos_FK FOREIGN KEY(ID_Equipos)
-            REFERENCES Equipos (ID_Equipos)
+        CONSTRAINT CONEN_ID_Equipos_FK FOREIGN KEY(ID_Equipo)
+            REFERENCES Equipos (ID_Equipo)
 );
 
 CREATE TABLE ContratosStaff (
@@ -188,15 +188,15 @@ CREATE TABLE ContratosStaff (
                     INCREMENT BY 1
                     NOCACHE
                     PRIMARY KEY,
-    ID_Staffs    Number(5),
-    ID_Equipos   Number(5),
+    ID_Staff    Number(5),
+    ID_Equipo   Number(5),
     Sueldo      Number(10),
     Fecha_ini   Varchar2(12),
     Fecha_fin   Varchar2(12),
-        CONSTRAINT CONST_ID_Staffs_FK FOREIGN KEY(ID_Staffs)
-            REFERENCES Staffs (ID_Staffs),
-        CONSTRAINT CONST_ID_Equipos_FK FOREIGN KEY(ID_Equipos)
-            REFERENCES Equipos (ID_Equipos)
+        CONSTRAINT CONST_ID_Staffs_FK FOREIGN KEY(ID_Staff)
+            REFERENCES Staffs (ID_Staff),
+        CONSTRAINT CONST_ID_Equipos_FK FOREIGN KEY(ID_Equipo)
+            REFERENCES Equipos (ID_Equipo)
 );
 
 CREATE TABLE ContratosJugador (
@@ -206,7 +206,7 @@ CREATE TABLE ContratosJugador (
                     NOCACHE
                     PRIMARY KEY,
     ID_JUG      Number(5),
-    ID_Equipos   Number(5),
+    ID_Equipo   Number(5),
     Sueldo      Number(10) CONSTRAINT CONJU_SUE_CK CHECK
                             (Sueldo IN (10000000, 15000000, 10500000, 22500000)),
     Fecha_ini   Varchar2(12),
@@ -215,8 +215,8 @@ CREATE TABLE ContratosJugador (
     Dorsal      Number(2),
         CONSTRAINT CONJU_ID_JUG_FK FOREIGN KEY(ID_JUG)
             REFERENCES Jugadores (ID_JUG),
-        CONSTRAINT CONJU_ID_Equipos_FK FOREIGN KEY(ID_Equipos)
-            REFERENCES Equipos (ID_Equipos)
+        CONSTRAINT CONJU_ID_Equipos_FK FOREIGN KEY(ID_Equipo)
+            REFERENCES Equipos (ID_Equipo)
 );
 
 CREATE TABLE CAL_XML_Resultados(
