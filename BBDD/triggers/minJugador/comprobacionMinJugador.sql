@@ -17,7 +17,7 @@
          9 Invierno   Abierto   
         10 Verano     Abierto
 */
-/*select * from ContratoJugadores;*/
+/*select * from ContratosJugador;*/
 
 UPDATE Temporadas SET ESTADO = 'Cerrado' WHERE ID_TEMP = 1;
 
