@@ -4,17 +4,23 @@
 CREATE OR REPLACE VIEW vista_ultima_jornada AS
 SELECT
     t.ID_TEMP,
-    t.TIPO AS Temporadas,
-    j.ID_JOR,
-    j.NUMERO AS Numero_Jornada,
-    j.Dia,
     j.TIPO AS Tipo_Jornada,
     p.ID_PARTIDO,
+    j.Dia as Fecha_Partido,
     p.HORA,
+    p.ID_Ganador as Equipo1,
     p.GOLES_EQ1,
-    p.GOLES_EQ2,
-    p.ID_Ganador,
-    p.ID_Perdedor
+    p.ID_Perdedor as Equipo2,
+    p.GOLES_EQ2
+
+    
+    
+
+   
+   
+   
+    
+   
 FROM
     Temporadas t
     INNER JOIN Jornadas j ON t.ID_TEMP = j.ID_TEMP
@@ -22,4 +28,3 @@ FROM
 WHERE
     j.ID_JOR = (SELECT MAX(ID_JOR)
                 FROM Jornadas);
-                
