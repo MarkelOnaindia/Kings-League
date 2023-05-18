@@ -2,29 +2,29 @@
 /*Comprobacion triggers del calendario*/
 
     /*Modificar equipo*/
-    UPDATE Temporada SET ESTADO = 'Cerrado' WHERE ID_TEMP = 1;
+    UPDATE Temporadas SET ESTADO = 'Cerrado' WHERE ID_TEMP = 1;
     /*Cerramos la temporada*/
-    UPDATE Equipo SET PRESUPUESTO = 3000000 WHERE ID_EQUIPO = 1;
+    UPDATE Equipos SET PRESUPUESTO = 3000000 WHERE ID_EQUIPO = 1;
     /*Al hacer el update de equipo podemos ver como salta el error*/
     
     /*
-    UPDATE Equipo SET PRESUPUESTO = 3000000 WHERE ID_EQUIPO = 1
+    UPDATE Equipos SET PRESUPUESTO = 3000000 WHERE ID_EQUIPO = 1
     Informe de error -
     ORA-20001: No se pueden actualizar equipos durante una temporada cerrada.
-    ORA-06512: en "EQDAW02.TR_CERRAR_TEMPORADA", línea 6
-    ORA-04088: error durante la ejecución del disparador 'EQDAW02.TR_CERRAR_TEMPORADA'
+    ORA-06512: en "EQDAW02.TR_CERRAR_TEMPORADA", lÃ­nea 6
+    ORA-04088: error durante la ejecuciÃ³n del disparador 'EQDAW02.TR_CERRAR_TEMPORADA'
     */
 
-    /*Modificar jugador*/
-    UPDATE Jugador SET TELEFONO = '123456789' WHERE ID_JUG = 1;
+    /*Modificar jugadores*/
+    UPDATE Jugadores SET TELEFONO = '123456789' WHERE ID_JUG = 1;
     /*Al hacer el update de equipo podemos ver como salta el error*/
     
     
-    /*Error que empieza en la línea: 59 del comando :
-    UPDATE Jugador SET TELEFONO = '123456789' WHERE ID_JUG = 1
+    /*Error que empieza en la lÃ­nea: 59 del comando :
+    UPDATE Jugadores SET TELEFONO = '123456789' WHERE ID_JUG = 1
     Informe de error -
     ORA-20001: No se pueden actualizar jugadores durante una temporada cerrada.
-    ORA-06512: en "EQDAW02.TR_CERRAR_TEMPORADA_JUGADOR", línea 6
-    ORA-04088: error durante la ejecución del disparador 'EQDAW02.TR_CERRAR_TEMPORADA_JUGADOR'*/
+    ORA-06512: en "EQDAW02.TR_CERRAR_TEMPORADA_JUGADOR", lÃ­nea 6
+    ORA-04088: error durante la ejecuciÃ³n del disparador 'EQDAW02.TR_CERRAR_TEMPORADA_JUGADOR'*/
 
 
