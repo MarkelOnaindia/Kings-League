@@ -2,14 +2,14 @@
 /*Trigger que comprueba que el presupuesto maximo del equipo*/
 
 CREATE OR REPLACE TRIGGER TRG_CONTRATOJUGADOR
-BEFORE INSERT OR UPDATE ON ContratoJugadores
+BEFORE INSERT OR UPDATE ON ContratosJugador
 FOR EACH ROW
 DECLARE
     v_total NUMBER;
 BEGIN
     /* Selecciona la suma de sueldo y cláusula de todos los jugadores de un equipo */
     SELECT SUM(Sueldo + Clausula) INTO v_total
-    FROM ContratoJugadores
+    FROM ContratosJugador
     WHERE ID_EQUIPO = :NEW.ID_EQUIPO;
     
     /* Si la suma total más el nuevo sueldo y cláusula del jugador supera los 200000000 */
