@@ -12,7 +12,7 @@
     
     /* Declara una variable llamada "estado_temporada" con el mismo tipo de datos que el campo "ESTADO" de la tabla "Temporada". */
     DECLARE
-        estado_temporada Temporada.ESTADO%TYPE;
+        estado_temporada Temporadas.ESTADO%TYPE;
     BEGIN
     
         /* Asigna el valor del campo "ESTADO" de la fila con ID_TEMP=1 en la tabla "Temporada" a la variable "estado_temporada". */
