@@ -155,7 +155,7 @@ CREATE TABLE ContratosDueno (
                     NOCACHE
                     PRIMARY KEY,
     ID_PRO      Number(5),
-    ID_Equipos   Number(5),
+    ID_Equipo   Number(5),
     Sueldo      Number(10),
     Fecha_ini   Varchar2(12),
     Fecha_fin   Varchar2(12),
