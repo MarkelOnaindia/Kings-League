@@ -1,18 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE tabla_jornada SYSTEM "todaslasjornadas.dtd">
-<tabla_jornada xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="todaslasjornadas.xsd">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tabla_jornada SYSTEM "ultimajornada.dtd">
+<tabla_jornada  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ultimajornada.xsd">
   <jornada NUMERO="1">
-    <ID_split>Invierno</ID_split>
-    <tipo_jor>FaseRegular</tipo_jor>
+    <ID_SPLIT></ID_SPLIT>
+    <TIPO_JOR>FaseRegular</TIPO_JOR>
     
        <Partido ID_PARTIDO="1">
        <FECHA_PARTIDO> 05/10/2023</FECHA_PARTIDO>
        <HORA>16:00</HORA>
        <EQ1>XBUYER</EQ1>
-      <GOLES_EQ1>3</GOLES_EQ1>
+      <GOLES_EQ1></GOLES_EQ1>
       <EQ2>SAIYANS-FC</EQ2>
             <GOLES_EQ2>4</GOLES_EQ2>
-            <ID_Ganador>5</ID_Ganador>
+            <ID_GANADOR>5</ID_GANADOR>
        </Partido> 
        
        <Partido ID_PARTIDO="2">
@@ -22,7 +22,7 @@
       <GOLES_EQ1>4</GOLES_EQ1>
       <EQ2>JIJANTES FC</EQ2>
             <GOLES_EQ2>2</GOLES_EQ2>
-            <ID_Ganador>2</ID_Ganador>
+            <ID_GANADOR>2</ID_GANADOR>
        </Partido> 
        
        <Partido ID_PARTIDO="3">
@@ -32,7 +32,7 @@
       <GOLES_EQ1>3</GOLES_EQ1>
       <EQ2>ANIQUILADORES-FC</EQ2>
             <GOLES_EQ2>6</GOLES_EQ2>
-            <ID_Ganador>10</ID_Ganador>
+            <ID_GANADOR>10</ID_GANADOR>
        </Partido> 
        
        <Partido ID_PARTIDO="4">
@@ -42,7 +42,7 @@
       <GOLES_EQ1>1</GOLES_EQ1>
       <EQ2>RAYO-BARCELONA</EQ2>
             <GOLES_EQ2>5</GOLES_EQ2>
-            <ID_Ganador>12</ID_Ganador>
+            <ID_GANADOR>12</ID_GANADOR>
        </Partido> 
        
        <Partido ID_PARTIDO="5">
@@ -52,7 +52,7 @@
       <GOLES_EQ1>5</GOLES_EQ1>
       <EQ2>1K-FC</EQ2>
             <GOLES_EQ2>3</GOLES_EQ2>
-            <ID_Ganador>7</ID_Ganador>
+            <ID_GANADOR>7</ID_GANADOR>
        </Partido> 
        
        <Partido ID_PARTIDO="6">
@@ -62,7 +62,7 @@
       <GOLES_EQ1>3</GOLES_EQ1>
       <EQ2>LOS-TRONCOS-FC</EQ2>
             <GOLES_EQ2>5</GOLES_EQ2>
-            <ID_Ganador>1</ID_Ganador>
+            <ID_GANADOR>1</ID_GANADOR>
   </Partido>
   </jornada>
 </tabla_jornada>
