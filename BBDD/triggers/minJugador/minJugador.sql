@@ -13,11 +13,11 @@ DECLARE
 BEGIN
 
     -- Verificar que todos los equipos tienen al menos 8 jugadores
-    FOR equipo IN (SELECT ID_EQUIPO FROM Equipo) -- Por cada equipo en la tabla Equipo
+    FOR equipo IN (SELECT ID_EQUIPO FROM Equipos) -- Por cada equipo en la tabla Equipo
     LOOP
         -- Contar el número de jugadores que tiene el equipo actual
         SELECT COUNT(*) INTO num_jugadores
-        FROM ContratoJugadores
+        FROM ContratosJugador
         WHERE ID_EQUIPO = equipo.ID_EQUIPO;
 
         -- Si el equipo actual tiene menos de 8 jugadores, lanzar un error
@@ -32,7 +32,7 @@ BEGIN
         LOOP
             -- Contar el número de jugadores que tiene el equipo actual
             SELECT COUNT(*) INTO num_jugadores
-            FROM ContratoJugador
+            FROM ContratosJugador
             WHERE ID_EQUIPO = equipo.ID_EQUIPO;
 
             -- Si el equipo actual tiene menos de 8 jugadores, lanzar un error
