@@ -25,7 +25,7 @@ BEGIN
   fecha_expiracion := TO_DATE(SYSDATE + 7, 'YYYY-MM-DD');
   
   -- Insert into CAL_XML_RESULTADO table
-  INSERT INTO CAL_XML_RESULTADO VALUES(DEFAULT, result, fecha_expiracion, 'Clasificacion');
+  INSERT INTO CAL_XML_RESULTADOS VALUES(DEFAULT, result, fecha_expiracion, 'Clasificacion');
   
   -- Close context
   DBMS_XMLGEN.closeContext(qryCtx);
