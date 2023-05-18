@@ -2,7 +2,7 @@
 /*Comprobacion trigger de minimo de jugadores*/
 /*Comprobaciones*/
 
-/*select * from Temporada;*/
+/*select * from Temporadas;*/
 /*
    ID_TEMP TIPO       ESTADO    
 ---------- ---------- ----------
@@ -17,18 +17,18 @@
          9 Invierno   Abierto   
         10 Verano     Abierto
 */
-/*select * from ContratoJugador;*/
+/*select * from ContratoJugadores;*/
 
-UPDATE Temporada SET ESTADO = 'Cerrado' WHERE ID_TEMP = 1;
+UPDATE Temporadas SET ESTADO = 'Cerrado' WHERE ID_TEMP = 1;
 
 /*Probamos a poner el estado en cerrado sin tener todos los equipos con 8 jugadores
 
-Error que empieza en la línea: 64 del comando :
-UPDATE Temporada SET ESTADO = 'Cerrado' WHERE ID_TEMP = 1
+Error que empieza en la lÃ­nea: 64 del comando :
+UPDATE Temporadas SET ESTADO = 'Cerrado' WHERE ID_TEMP = 1
 Informe de error -
 ORA-20001: El equipo 2 no tiene al menos 8 jugadores
-ORA-06512: en "EQDAW02.TRG_VERIF_JUGADORES", línea 12
-ORA-04088: error durante la ejecución del disparador 'EQDAW02.TRG_VERIF_JUGADORES'
+ORA-06512: en "EQDAW02.TRG_VERIF_JUGADORES", lÃ­nea 12
+ORA-04088: error durante la ejecuciÃ³n del disparador 'EQDAW02.TRG_VERIF_JUGADORES'
 */ 
 
 /*Ponemos 8 jugadores a cada equipo y lo volvemos a intentar*/
