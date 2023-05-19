@@ -2,28 +2,32 @@ package Modelo.Entrenadores;
 
 import Modelo.Equipos.Equipo;
 
-import java.time.LocalDate;
-
 public class ContratoEntrena {
 
     public int IdConen;
-    public  int Sueldo;
-    public LocalDate FechaInicio;
-    public  LocalDate FechaFin;
+    public Entrenador ID_ENT;
+    public Equipo ID_EQUIPO;
+    public float Sueldo;
+    public String FechaInicio;
+    public String FechaFin;
 
-    public ContratoEntrena(int idConen, int sueldo, LocalDate fechaInicio, LocalDate fechaFin) {
-        IdConen = idConen;
+    public ContratoEntrena(Entrenador ID_ENT, Equipo ID_EQUIPO, float sueldo, String fechaInicio, String fechaFin) {
+        this.ID_ENT = ID_ENT;
+        this.ID_EQUIPO = ID_EQUIPO;
         Sueldo = sueldo;
         FechaInicio = fechaInicio;
         FechaFin = fechaFin;
     }
 
     public ContratoEntrena() {
+    }
 
+    public ContratoEntrena(int idConen) {
     }
 
     public ContratoEntrena(Equipo eq, Entrenador e, float fsueldo, String fechaInicio, String fechaFin) {
     }
+
 
     public int getIdConen() {
         return IdConen;
@@ -33,27 +37,43 @@ public class ContratoEntrena {
         IdConen = idConen;
     }
 
-    public int getSueldo() {
+    public Entrenador getID_ENT() {
+        return ID_ENT;
+    }
+
+    public void setID_ENT(Entrenador ID_ENT) {
+        this.ID_ENT = ID_ENT;
+    }
+
+    public Equipo getID_EQUIPO() {
+        return ID_EQUIPO;
+    }
+
+    public void setID_EQUIPO(Equipo ID_EQUIPO) {
+        this.ID_EQUIPO = ID_EQUIPO;
+    }
+
+    public float getSueldo() {
         return Sueldo;
     }
 
-    public void setSueldo(int sueldo) {
+    public void setSueldo(float sueldo) {
         Sueldo = sueldo;
     }
 
-    public LocalDate getFechaInicio() {
+    public String getFechaInicio() {
         return FechaInicio;
     }
 
-    public void setFechaInicio(LocalDate fechaInicio) {
+    public void setFechaInicio(String fechaInicio) {
         FechaInicio = fechaInicio;
     }
 
-    public LocalDate getFechaFin() {
+    public String getFechaFin() {
         return FechaFin;
     }
 
-    public void setFechaFin(LocalDate fechaFin) {
+    public void setFechaFin(String fechaFin) {
         FechaFin = fechaFin;
     }
 }

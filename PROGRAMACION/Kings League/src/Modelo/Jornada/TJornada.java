@@ -12,7 +12,7 @@ public class TJornada {
     public static void insertar(Jornada jo) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Jornada values (?,?,?,?)");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Jornadas values (?,?,?,?)");
         ps.setInt(1, jo.getIdJor());
         ps.setString(2, jo.getNumero());
         ps.setDate(3, Date.valueOf(jo.getDia()));
@@ -24,7 +24,7 @@ public class TJornada {
     public static int borrar(Jornada jo) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from Jornada where IdJor = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from Jornadas where IdJor = ?");
         ps.setInt(1, jo.getIdJor());
         int n = ps.executeUpdate();
         BaseDatos.cerrarConexion();
@@ -34,7 +34,7 @@ public class TJornada {
     public static int actualizar(Jornada jo) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("update Jornada set Numero = ?, Dia = ?, Tipo = ? where IdJor = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("update Jornadas set Numero = ?, Dia = ?, Tipo = ? where IdJor = ?");
         ps.setString( 1, jo.getNumero());
         ps.setDate(2, Date.valueOf(jo.getDia()));
         ps.setString(3, jo.getTipoJornada());
@@ -47,7 +47,7 @@ public class TJornada {
     public static Jornada consultarJornadas(Jornada jo) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from Jornada where IdJor = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from Jornadas where IdJor = ?");
         ps.setInt(1, jo.getIdJor());
         ResultSet resultado = ps.executeQuery();
         Jornada jor;

@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 
 public class vJornada {
     private JPanel pPrincipal;
-    private JPanel panelAbajo;
     private JPanel panelArriba;
     private JButton volverButton;
     private JPanel panelCentrado;
@@ -39,6 +38,34 @@ public class vJornada {
             public void actionPerformed(ActionEvent e) {
                 Main.vJornada.setVisible(false);
                 Main.vCRUD.setVisible(true);
+            }
+        });
+
+        insertarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaInsertarJornada();
+            }
+        });
+
+        borrarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaBorrarJornada();
+            }
+        });
+
+        consultarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaConsultarJornada();
+            }
+        });
+
+        actualizarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaActualizarJornada();
             }
         });
     }

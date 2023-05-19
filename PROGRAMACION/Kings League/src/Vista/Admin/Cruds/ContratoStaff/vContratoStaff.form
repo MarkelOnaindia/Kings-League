@@ -3,112 +3,11 @@
   <grid id="27dc6" binding="pPrincipal" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="1021" height="535"/>
+      <xy x="20" y="20" width="598" height="480"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="3c93b" binding="panelAbajo" layout-manager="GridLayoutManager" row-count="1" column-count="13" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
-        <margin top="0" left="0" bottom="0" right="0"/>
-        <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-3704941"/>
-        </properties>
-        <border type="none"/>
-        <children>
-          <component id="72cec" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <icon value="Imagenes/cupra.png"/>
-              <text value=""/>
-            </properties>
-          </component>
-          <component id="7d35e" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <icon value="Imagenes/grefusa.png"/>
-              <text value=""/>
-            </properties>
-          </component>
-          <component id="54d6c" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <icon value="Imagenes/InfoJobs.png"/>
-              <text value=""/>
-            </properties>
-          </component>
-          <component id="5f360" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <icon value="Imagenes/McDelivery.png"/>
-              <text value=""/>
-            </properties>
-          </component>
-          <component id="86164" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="0" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <icon value="Imagenes/pozo.png"/>
-              <text value=""/>
-            </properties>
-          </component>
-          <component id="581e3" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="0" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <icon value="Imagenes/spotify.png"/>
-              <text value=""/>
-            </properties>
-          </component>
-          <hspacer id="a5dfd">
-            <constraints>
-              <grid row="0" column="12" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-          </hspacer>
-          <hspacer id="127c2">
-            <constraints>
-              <grid row="0" column="10" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-          </hspacer>
-          <hspacer id="1e2b5">
-            <constraints>
-              <grid row="0" column="8" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-          </hspacer>
-          <hspacer id="f0734">
-            <constraints>
-              <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-          </hspacer>
-          <hspacer id="a7681">
-            <constraints>
-              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-          </hspacer>
-          <hspacer id="8c26b">
-            <constraints>
-              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-          </hspacer>
-          <hspacer id="a95f7">
-            <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-          </hspacer>
-        </children>
-      </grid>
       <grid id="54aa8" binding="panelArriba" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
@@ -144,7 +43,7 @@
           </hspacer>
         </children>
       </grid>
-      <grid id="cc6f5" binding="panelCentrado" layout-manager="GridLayoutManager" row-count="4" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="cc6f5" binding="panelCentrado" layout-manager="GridLayoutManager" row-count="6" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -152,10 +51,30 @@
         <properties/>
         <border type="none"/>
         <children>
-          <grid id="f406b" binding="panelInicio" layout-manager="GridLayoutManager" row-count="4" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <hspacer id="68326">
+            <constraints>
+              <grid row="1" column="3" row-span="4" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="8daa0">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <vspacer id="6e83e">
+            <constraints>
+              <grid row="5" column="1" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <vspacer id="73394">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <grid id="ea34a" binding="panelInicio" layout-manager="GridLayoutManager" row-count="4" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <grid row="1" column="1" row-span="2" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="2" column="1" row-span="2" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <minimum-size width="550" height="250"/>
                 <preferred-size width="550" height="250"/>
                 <maximum-size width="550" height="250"/>
@@ -169,106 +88,168 @@
               <color color="-3704941"/>
             </border>
             <children>
-              <component id="70e61" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <font name="Nirmala UI" size="28"/>
-                  <text value="Selecciona una opccion"/>
-                </properties>
-              </component>
-              <hspacer id="1cd5e">
+              <hspacer id="57ef1">
                 <constraints>
                   <grid row="2" column="0" row-span="2" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
               </hspacer>
-              <hspacer id="962bf">
+              <hspacer id="31e05">
                 <constraints>
-                  <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="6" row-span="2" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
               </hspacer>
-              <component id="9f155" class="javax.swing.JButton" binding="volverButton" default-binding="true">
+              <component id="4508b" class="javax.swing.JButton" binding="volverButton" default-binding="true">
                 <constraints>
-                  <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <background color="-10076854"/>
+                  <foreground color="-4"/>
                   <text value="Volver"/>
                 </properties>
               </component>
-              <toolbar id="a05ba">
+              <toolbar id="2ef0e">
                 <constraints>
-                  <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                  <grid row="1" column="1" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="-1" height="20"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <background color="-3704941"/>
+                  <borderPainted value="false"/>
+                  <foreground color="-3704941"/>
+                </properties>
                 <border type="none"/>
                 <children>
-                  <hspacer id="164bf">
+                  <hspacer id="29157">
                     <constraints/>
                   </hspacer>
-                  <component id="8f001" class="javax.swing.JButton" binding="insertarButton" default-binding="true">
+                  <component id="5b1fb" class="javax.swing.JButton" binding="insertarButton" default-binding="true">
                     <constraints/>
                     <properties>
+                      <background color="-10076854"/>
+                      <foreground color="-4"/>
                       <text value="Insertar"/>
                     </properties>
                   </component>
-                  <component id="87cde" class="javax.swing.JButton" binding="borrarButton" default-binding="true">
+                  <hspacer id="a800f">
+                    <constraints/>
+                  </hspacer>
+                  <component id="32077" class="javax.swing.JButton" binding="borrarButton" default-binding="true">
                     <constraints/>
                     <properties>
+                      <background color="-10076854"/>
+                      <foreground color="-4"/>
                       <text value="Borrar"/>
                     </properties>
                   </component>
-                  <component id="464ca" class="javax.swing.JButton" binding="consultarButton" default-binding="true">
+                  <hspacer id="db43c">
+                    <constraints/>
+                  </hspacer>
+                  <component id="5b3a5" class="javax.swing.JButton" binding="consultarButton" default-binding="true">
                     <constraints/>
                     <properties>
+                      <background color="-10076854"/>
+                      <foreground color="-4"/>
                       <text value="Consultar"/>
                     </properties>
                   </component>
-                  <component id="5e427" class="javax.swing.JButton" binding="actualizarButton" default-binding="true">
+                  <hspacer id="1c9b6">
+                    <constraints/>
+                  </hspacer>
+                  <component id="2b6ed" class="javax.swing.JButton" binding="actualizarButton" default-binding="true">
                     <constraints/>
                     <properties>
+                      <background color="-10076854"/>
+                      <foreground color="-4"/>
                       <text value="Actualizar"/>
                     </properties>
                   </component>
-                  <hspacer id="5147b">
+                  <hspacer id="c8199">
                     <constraints/>
                   </hspacer>
                 </children>
               </toolbar>
-              <hspacer id="de53">
+              <hspacer id="1276e">
                 <constraints>
-                  <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
               </hspacer>
-              <hspacer id="827ce">
+              <hspacer id="db6b0">
                 <constraints>
                   <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
               </hspacer>
+              <component id="91429" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-4"/>
+                  <font size="22"/>
+                  <foreground color="-4"/>
+                  <text value="¿Que desea hacer?"/>
+                </properties>
+              </component>
+              <hspacer id="2e115">
+                <constraints>
+                  <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
+              <hspacer id="7b626">
+                <constraints>
+                  <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
             </children>
           </grid>
-          <hspacer id="68326">
+        </children>
+      </grid>
+      <grid id="adb41" layout-manager="GridLayoutManager" row-count="1" column-count="7" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-3704941"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <hspacer id="bbf67">
             <constraints>
-              <grid row="1" column="3" row-span="2" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
-          <hspacer id="8daa0">
+          <hspacer id="ae57">
             <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
-          <vspacer id="6e83e">
+          <hspacer id="94f05">
             <constraints>
-              <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
-          </vspacer>
-          <vspacer id="73394">
+          </hspacer>
+          <hspacer id="fd6e5">
             <constraints>
-              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
-          </vspacer>
+          </hspacer>
+          <hspacer id="4b16f">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="4fae4">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="5ab42">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
         </children>
       </grid>
     </children>

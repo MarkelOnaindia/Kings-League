@@ -1,7 +1,14 @@
 package Vista.Usuario;
 
+import Controlador.Main;
+import Modelo.Equipos.Equipo;
+import Modelo.Temporada.TTemporada;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.TimerTask;
 import java.util.Timer;
 import javax.swing.ImageIcon;
@@ -14,18 +21,6 @@ public class vHomeUsuario {
     private JLabel jlNoticias;
     private JPanel pPrincipal;
     private JPanel panelClasificacion;
-    private JLabel jlequipo1;
-    private JLabel jlequipo2;
-    private JLabel jlequipo3;
-    private JLabel jlequipo4;
-    private JLabel jlequipo5;
-    private JLabel jlequipo6;
-    private JLabel jlequipo7;
-    private JLabel jlequipo8;
-    private JLabel jlequipo9;
-    private JLabel jlequipo10;
-    private JLabel jlequipo11;
-    private JLabel jlequipo12;
     private JLabel a1Label;
     private JLabel a2Label;
     private JLabel a3Label;
@@ -62,18 +57,6 @@ public class vHomeUsuario {
     private JLabel puntosEquipo10;
     private JLabel puntosEquipo11;
     private JLabel puntosEquipo12;
-    private JLabel partidosequipo1;
-    private JLabel partidosequipo2;
-    private JLabel partidosequipo3;
-    private JLabel partidosequipo4;
-    private JLabel partidosequipo5;
-    private JLabel partidosequipo6;
-    private JLabel partidosequipo7;
-    private JLabel partidosequipo8;
-    private JLabel partidosequipo9;
-    private JLabel partidosequipo10;
-    private JLabel partidosequipo11;
-    private JLabel partidosequipo12;
     private JLabel diferenciaEquipo1;
     private JLabel diferenciaEquipo2;
     private JLabel diferenciaEquipo3;
@@ -89,6 +72,11 @@ public class vHomeUsuario {
     private JMenu equiposMenu;
     private JMenu clasificacionMenu;
     private JMenu partidosMenu;
+    private JMenuItem verEquipos;
+    private JMenuItem verClasificacion;
+    private JMenuItem verPartidos;
+    private JMenu mhome;
+    private JMenuItem verhome;
 
     public JPanel getpPrincipal() {
         return pPrincipal;
@@ -97,6 +85,91 @@ public class vHomeUsuario {
     static int contador = 0;
 
     public vHomeUsuario() {
+        verhome.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaUser();
+                Main.vHomeUsuario.setVisible(false);
+            }
+        });
+        verEquipos.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.verEquipos();
+                Main.vHomeUsuario.setVisible(false);
+            }
+        });
+
+        verClasificacion.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.verClasificacion();
+                Main.vHomeUsuario.setVisible(false);
+            }
+        });
+
+        verPartidos.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.verPartidos();
+            }
+        });
+
+            //Generar la clasificacion
+    try {
+       //Sacar datos
+       ArrayList<Object> clasificacion = Main.generarClasificacion();
+       ArrayList<Equipo> equipo = (ArrayList<Equipo>) clasificacion.get(0);
+       ArrayList<Integer> victorias = (ArrayList<Integer>) clasificacion.get(1);
+       ArrayList<Integer> diferenciaGoles = (ArrayList<Integer>) clasificacion.get(2);
+       ArrayList<Integer> posicion = (ArrayList<Integer>) clasificacion.get(3);
+
+       //Colocar datos
+       //Nombres
+       nombreEquipo1.setText(equipo.get(0).getNombre());
+       nombreEquipo2.setText(equipo.get(1).getNombre());
+       nombreEquipo3.setText(equipo.get(2).getNombre());
+       nombreEquipo4.setText(equipo.get(3).getNombre());
+       nombreEquipo5.setText(equipo.get(4).getNombre());
+       nombreEquipo6.setText(equipo.get(5).getNombre());
+       nombreEquipo7.setText(equipo.get(6).getNombre());
+       nombreEquipo8.setText(equipo.get(7).getNombre());
+       nombreEquipo9.setText(equipo.get(8).getNombre());
+       nombreEquipo10.setText(equipo.get(9).getNombre());
+       nombreEquipo11.setText(equipo.get(10).getNombre());
+       nombreEquipo12.setText(equipo.get(11).getNombre());
+
+       //Victorias
+       puntosEquipo1.setText(victorias.get(0).toString());
+       puntosEquipo2.setText(victorias.get(1).toString());
+       puntosEquipo3.setText(victorias.get(2).toString());
+       puntosEquipo4.setText(victorias.get(3).toString());
+       puntosEquipo5.setText(victorias.get(4).toString());
+       puntosEquipo6.setText(victorias.get(5).toString());
+       puntosEquipo7.setText(victorias.get(6).toString());
+       puntosEquipo8.setText(victorias.get(7).toString());
+       puntosEquipo9.setText(victorias.get(8).toString());
+       puntosEquipo10.setText(victorias.get(9).toString());
+       puntosEquipo11.setText(victorias.get(10).toString());
+       puntosEquipo12.setText(victorias.get(11).toString());
+
+       //Diferencia goles
+       diferenciaEquipo1.setText(diferenciaGoles.get(0).toString());
+       diferenciaEquipo2.setText(diferenciaGoles.get(1).toString());
+       diferenciaEquipo3.setText(diferenciaGoles.get(2).toString());
+       diferenciaEquipo4.setText(diferenciaGoles.get(3).toString());
+       diferenciaEquipo5.setText(diferenciaGoles.get(4).toString());
+       diferenciaEquipo6.setText(diferenciaGoles.get(5).toString());
+       diferenciaEquipo7.setText(diferenciaGoles.get(6).toString());
+       diferenciaEquipo8.setText(diferenciaGoles.get(7).toString());
+       diferenciaEquipo9.setText(diferenciaGoles.get(8).toString());
+       diferenciaEquipo10.setText(diferenciaGoles.get(9).toString());
+       diferenciaEquipo11.setText(diferenciaGoles.get(10).toString());
+       diferenciaEquipo12.setText(diferenciaGoles.get(11).toString());
+    } catch (Exception e) {
+       throw new RuntimeException(e);
+    }
+
 
     }
 

@@ -37,6 +37,10 @@ public class Jugador {
     }
 
 
+    public Jugador(int idJug) {
+        IdJug = idJug;
+    }
+
     public int getIdJug() {
         return IdJug;
     }

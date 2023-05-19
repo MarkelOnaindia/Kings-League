@@ -150,6 +150,8 @@
                   <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <background color="-10076854"/>
+                  <foreground color="-4"/>
                   <text value="Salir"/>
                 </properties>
               </component>
@@ -158,6 +160,8 @@
                   <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <background color="-10076854"/>
+                  <foreground color="-4"/>
                   <text value="Resultados jornadas "/>
                 </properties>
               </component>
@@ -166,6 +170,8 @@
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <background color="-10076854"/>
+                  <foreground color="-4"/>
                   <text value="CRUD"/>
                 </properties>
               </component>
@@ -174,6 +180,8 @@
                   <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <background color="-10076854"/>
+                  <foreground color="-4"/>
                   <text value="Introducir resultados "/>
                 </properties>
               </component>
@@ -182,6 +190,8 @@
                   <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <background color="-10076854"/>
+                  <foreground color="-4"/>
                   <text value="Generar PlayOffs "/>
                 </properties>
               </component>

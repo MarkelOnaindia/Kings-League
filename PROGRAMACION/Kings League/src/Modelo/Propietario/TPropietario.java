@@ -17,7 +17,7 @@ public class TPropietario {
     public static void insertar(Propietario pro) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Propietario values (?,?,?,?,?,?,?)");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Propietarios values (?,?,?,?,?,?,?)");
         ps.setInt(1,pro.getIdPro());
         ps.setString(2,pro.getDNI() );
         ps.setString(3, pro.getNombre());
@@ -32,7 +32,7 @@ public class TPropietario {
     public static int borrar(Propietario pro) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from Propietario where IdPro = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from Propietarios where IdPro = ?");
         ps.setInt(1, pro.getIdPro());
         int n = ps.executeUpdate();
         BaseDatos.cerrarConexion();
@@ -42,7 +42,7 @@ public class TPropietario {
     public static int actualizar(Propietario pro) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("update Propietario set DNI = ?, Nombre = ?, Apellido1 = ?, Apellido2 = ?, Telefono = ?, " +
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("update Propietarios set DNI = ?, Nombre = ?, Apellido1 = ?, Apellido2 = ?, Telefono = ?, " +
                 " Correo = ?  where IdPro = ?");
         ps.setString(1, pro.getDNI());
         ps.setString(2, pro.getNombre());
@@ -59,7 +59,7 @@ public class TPropietario {
     public static Propietario consultarPropietarios(Propietario pro) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from Propietario where IdPro = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from Propietarios where IdPro = ?");
         ps.setInt(1, pro.getIdPro());
         ResultSet resultado = ps.executeQuery();
         Propietario prop;
@@ -85,7 +85,7 @@ public class TPropietario {
         BaseDatos.abrirConexion();
         PreparedStatement ps = null;
         try {
-            ps = BaseDatos.getCon().prepareStatement("SELECT ID_PRO, NOMBRE FROM PROPIETARIO");
+            ps = BaseDatos.getCon().prepareStatement("SELECT ID_PRO, NOMBRE FROM PROPIETARIOS");
             ResultSet rs = ps.executeQuery();
             ArrayList <Propietario> lPropietario  = new ArrayList();
             Propietario p1 = null;
@@ -109,7 +109,7 @@ public class TPropietario {
         BaseDatos.abrirConexion();
         PreparedStatement ps = null;
         try {
-            ps = BaseDatos.getCon().prepareStatement("SELECT NOMBRE FROM PROPIETARIO WHERE ID_PRO = ?");
+            ps = BaseDatos.getCon().prepareStatement("SELECT NOMBRE FROM PROPIETARIOS WHERE ID_PRO = ?");
             ps.setString(1, String.valueOf(pr.getIdPro()));
             ResultSet rs = ps.executeQuery();
             String p1 = null;

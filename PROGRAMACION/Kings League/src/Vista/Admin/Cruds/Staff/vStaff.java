@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 
 public class vStaff {
     private JPanel pPrincipal;
-    private JPanel panelAbajo;
     private JPanel panelArriba;
     private JButton volverButton;
     private JPanel panelCentrado;
@@ -40,6 +39,34 @@ public class vStaff {
             public void actionPerformed(ActionEvent e) {
                 Main.vStaff.setVisible(false);
                 Main.vCRUD.setVisible(true);
+            }
+        });
+
+        insertarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaInsertarStaff();
+            }
+        });
+
+        borrarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaBorrarStaff();
+            }
+        });
+
+        consultarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaConsultarStaff();
+            }
+        });
+
+        actualizarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaActualizarStaff();
             }
         });
     }

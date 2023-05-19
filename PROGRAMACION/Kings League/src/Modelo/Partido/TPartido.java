@@ -12,7 +12,7 @@ public class TPartido {
     public static void insertar(Partido p) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Partido values (?,?,?,?,?,?,?)");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Partidos values (?,?,?,?,?,?,?)");
         ps.setInt(1, p.getIdPartido());
         ps.setInt(2, p.getIdJor());
         ps.setDate(3, Date.valueOf(p.getHora()));
@@ -27,7 +27,7 @@ public class TPartido {
     public static int borrar(Partido p) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from Partido where IdPartido = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from Partidos where IdPartido = ?");
         ps.setInt(1, p.getIdPartido());
         int n = ps.executeUpdate();
         BaseDatos.cerrarConexion();
@@ -37,7 +37,7 @@ public class TPartido {
     public static int actualizar(Partido p) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("update Partido set IdJor = ?, Hora = ?, GolesEq1 = ?, GolesEq2 = ?, IdGanador = ? " +
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("update Partidos set IdJor = ?, Hora = ?, GolesEq1 = ?, GolesEq2 = ?, IdGanador = ? " +
                 " IdPerdedor = ?  where IdPartido = ?");
         ps.setInt(1,p.getIdJor());
         ps.setDate(2, Date.valueOf(p.getHora()));
@@ -54,7 +54,7 @@ public class TPartido {
     public static Partido consultarPartidos(Partido p) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from Partido where IdPartido = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from Partidos where IdPartido = ?");
         ps.setInt(1,p.getIdPartido());
         ResultSet resultado = ps.executeQuery();
         Partido par;

@@ -50,19 +50,19 @@ public class vContratoEntrena {
         borrarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main.crearVentanaInsertarContratoDueno();
+                Main.crearVentanaBorrarContratoEntrenador();
             }
         });
         consultarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main.crearVentanaConsultarContratoDueno();
+                Main.crearVentanaConsultarContratoEntrenador();
             }
         });
         actualizarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main.crearVentanaActualizarContratoDueno();
+                Main.crearVentanaActualizarContratoEntrenador();
             }
         });
     }
