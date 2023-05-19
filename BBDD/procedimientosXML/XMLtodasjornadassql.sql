@@ -1,15 +1,17 @@
 /*Kings League equipo 2*/
 /*PL/SQL para crear el xml de ultima jornada*/
 
-DECLARE
+CREATE OR REPLACE PROCEDURE generar_xml_todaslasjornadas AS
   qryCtx DBMS_XMLGEN.ctxHandle;
   result CLOB;
+  fecha_expiracion VARCHAR2(20);
+
 BEGIN
   qryCtx := DBMS_XMLGEN.newContext(
-              'SELECT * FROM vista_ultima_jornada');
+              'SELECT * FROM vista_todas_jornadas');
 			  
   -- Set the name of the document root element. The default name is ROWSET			  
-  DBMS_XMLGEN.setRowSetTag(qryCtx, 'UltimaJornada');
+  DBMS_XMLGEN.setRowSetTag(qryCtx, 'Jornada');
   
   -- Set the row header to be EMPLOYEE
   DBMS_XMLGEN.setRowTag(qryCtx, 'Partido');
@@ -21,9 +23,9 @@ BEGIN
   result := DBMS_XMLGEN.getXML(qryCtx);
   
   -- Calculate expiration date
-  fecha_expiracion := TO_DATE(SYSDATE + 7, 'YYYY-MM-DD');
+  fecha_expiracion := TO_DATE(SYSDATE + 7, 'DD-MM-YYYY');
   
-  INSERT INTO CAL_XML_RESULTADOS VALUES(DEFAULT, result,fecha_expiracion, 'UltimaJornada');
+  INSERT INTO CAL_XML_RESULTADOS VALUES(DEFAULT, result,fecha_expiracion, 'TodasJornadas');
   
   --Close context
   DBMS_XMLGEN.closeContext(qryCtx);
