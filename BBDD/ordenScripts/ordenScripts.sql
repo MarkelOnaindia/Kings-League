@@ -14,4 +14,4 @@
     @\Kings-League\BBDD\views\wiews.sql
 
     /*Procedimientos almacenados*/
-    @"\Kings-League\BBDD\procedimientos almacenados\procedimientosAlmacenados.sql
+    @"\Kings-League\BBDD\procedimientos almacenados\procedimientosAlmacenados.sql"
