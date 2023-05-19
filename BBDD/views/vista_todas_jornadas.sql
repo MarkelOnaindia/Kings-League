@@ -1,7 +1,7 @@
 /*Kings League equipo 2*/
-/*View para visualizar toda la informacion de la ultima jornadas*/
+/*View para visualizar toda la informacion de todas las jornadas*/
 
-CREATE OR REPLACE VIEW vista_ultima_jornada AS
+CREATE OR REPLACE VIEW vista_todas_jornadas AS
 SELECT
     t.ID_TEMP,
     j.TIPO AS Tipo_Jornada,
@@ -24,7 +24,4 @@ SELECT
 FROM
     Temporadas t
     INNER JOIN Jornadas j ON t.ID_TEMP = j.ID_TEMP
-    INNER JOIN Partidos p ON j.ID_JOR = p.ID_JOR
-WHERE
-    j.ID_JOR = (SELECT MAX(ID_JOR)
-                FROM Jornadas);
+    INNER JOIN Partidos p ON j.ID_JOR = p.ID_JOR;
