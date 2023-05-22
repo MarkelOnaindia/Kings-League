@@ -2,22 +2,22 @@
 /*Trigger que comprueba que al cerrar la temporada cada equipo deba tener
 un minimo de  8 jugadores*/
 
--- Creación del trigger trg_verif_jugadores
+-- CreaciÃ³n del trigger trg_verif_jugadores
 CREATE OR REPLACE TRIGGER trg_verif_jugadores
-BEFORE UPDATE OF ESTADO ON Temporada -- Se dispara antes de que se actualice la columna ESTADO en la tabla Temporada
+BEFORE UPDATE OF ESTADO ON Temporadas -- Se dispara antes de que se actualice la columna ESTADO en la tabla Temporadas
 FOR EACH ROW -- Se ejecuta por cada fila afectada
 
 DECLARE
-    num_jugadores INTEGER; -- Variable para almacenar el número de jugadores de cada equipo
+    num_jugadores INTEGER; -- Variable para almacenar el nÃºmero de jugadores de cada equipo
 
 BEGIN
 
     -- Verificar que todos los equipos tienen al menos 8 jugadores
-    FOR equipo IN (SELECT ID_EQUIPO FROM Equipo) -- Por cada equipo en la tabla Equipo
+    FOR equipo IN (SELECT ID_EQUIPO FROM Equipos) -- Por cada equipo en la tabla Equipo
     LOOP
-        -- Contar el número de jugadores que tiene el equipo actual
+        -- Contar el nÃºmero de jugadores que tiene el equipo actual
         SELECT COUNT(*) INTO num_jugadores
-        FROM ContratoJugador
+        FROM ContratosJugador
         WHERE ID_EQUIPO = equipo.ID_EQUIPO;
 
         -- Si el equipo actual tiene menos de 8 jugadores, lanzar un error
@@ -28,11 +28,11 @@ BEGIN
     
     -- Verificar que el estado de la temporada no se actualice a "Cerrado" si hay equipos con menos de 8 jugadores
     IF :NEW.ESTADO = 'Cerrado' THEN -- Si se intenta actualizar el estado a 'Cerrado'
-        FOR equipo IN (SELECT ID_EQUIPO FROM Equipo) -- Por cada equipo en la tabla Equipo
+        FOR equipos IN (SELECT ID_EQUIPO FROM Equipos) -- Por cada equipo en la tabla Equipos
         LOOP
-            -- Contar el número de jugadores que tiene el equipo actual
+            -- Contar el nÃºmero de jugadores que tiene el equipo actual
             SELECT COUNT(*) INTO num_jugadores
-            FROM ContratoJugador
+            FROM ContratosJugador
             WHERE ID_EQUIPO = equipo.ID_EQUIPO;
 
             -- Si el equipo actual tiene menos de 8 jugadores, lanzar un error

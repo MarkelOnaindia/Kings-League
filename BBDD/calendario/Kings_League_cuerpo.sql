@@ -15,11 +15,11 @@ CREATE OR REPLACE PACKAGE BODY calendario AS
   BEGIN
   
   --GENERAR TEMPORADAS
-  INSERT INTO TEMPORADA(TIPO,ESTADO)
+  INSERT INTO TEMPORADAS(TIPO,ESTADO)
   VALUES('VERANO','ABIERTO');
   
   SELECT ID_TEMP INTO C_ID_TEMPORADA
-  FROM TEMPORADA
+  FROM TEMPORADAS
   WHERE ROWNUM = 1
   ORDER BY ID_TEMP DESC;
   
@@ -27,7 +27,7 @@ CREATE OR REPLACE PACKAGE BODY calendario AS
   FOR NUM_JOR IN 1..11 LOOP
   
   
-  INSERT INTO  JORNADA(ID_TEMP,DIA,TIPO)
+  INSERT INTO  JORNADAS(ID_TEMP,DIA,TIPO)
   VALUES(C_ID_TEMPORADA,C_DIA_JORNADA,'FaseRegular');
   C_DIA_JORNADA:= C_DIA_JORNADA +7;
   END LOOP;
@@ -35,33 +35,33 @@ CREATE OR REPLACE PACKAGE BODY calendario AS
   --CREACION DE LOS PARTIDOS  PARA LAS JORNADAS
   
   SELECT MIN(ID_JOR) INTO C_ID_JORNADA
-  FROM JORNADA
+  FROM JORNADAS
   WHERE ID_TEMP = C_ID_TEMPORADA;
   C_ENFRENTAMIENTO:=1;
   FOR 
    ID_GANADOR IN(SELECT * FROM PARTIDO) 
    LOOP
    SELECT MIN(ID_JOR) INTO C_ID_JORNADA
-   FROM JORNADA
+   FROM JORNADAS
    WHERE ID_TEMP= C_ID_TEMPORADA;
    
    FOR ID_PERDEDOR IN (SELECT * FROM PARTIDO) 
    LOOP
  /*IF C_ID_GANADOR != C_ID_PERDEDOR THEN*/
    SELECT COUNT(ID_PARTIDO) INTO C_PARTIDOS_CREADOS
-   FROM PARTIDO
+   FROM PARTIDOS
    WHERE(ID_PARTIDO IN (SELECT ID_PARTIDO
                     FROM PARTIDO 
                     WHERE  ID_EQUIPO= PARTIDO.ID_GANADOR
                     AND ID_PARTIDO IN (SELECT ID_PARTIDO
-                                       FROM PARTIDO
+                                       FROM PARTIDOS
                                        WHERE ID_JOR=C_ID_JORNADA)))
                                        
     OR(ID_PARTIDO IN(SELECT ID_PARTIDO
-                     FROM PARTIDO
+                     FROM PARTIDOS
                      WHERE ID_EQUIPO=PARTIDO.ID_PERDEDOR
                      AND ID_PARTIDO IN(SELECT ID_PARTIDO
-                                       FROM PARTIDO
+                                       FROM PARTIDOS
                                        WHERE ID_JOR=C_ID_JORNADA)));
    
    
@@ -71,26 +71,26 @@ CREATE OR REPLACE PACKAGE BODY calendario AS
             IF C_ID_GANADOR  <> C_ID_PERDEDOR THEN
                 
                 SELECT COUNT(ID_PARTIDO) INTO C_PARTIDOS_CREADOS
-                FROM PARTIDO
+                FROM PARTIDOS
    WHERE(ID_PARTIDO IN(SELECT ID_GANADOR
-                       FROM PARTIDO
+                       FROM PARTIDOS
                        WHERE ID_EQUIPO=PARTIDO.ID_GANADOR
                        AND ID_PARTIDO IN(SELECT ID_PARTIDO
-                                         FROM PARTIDO
+                                         FROM PARTIDOS
                                          WHERE ID_EQUIPO=PARTIDO.ID_GANADOR)))
                                          
     OR (ID_PARTIDO IN (SELECT ID_PERDEDOR
-                       FROM PARTIDO
+                       FROM PARTIDOS
                        WHERE ID_EQUIPO=PARTIDO.ID_PERDEDOR
                        AND ID_PARTIDO IN (SELECT ID_PARTIDO
-                                          FROM PARTIDO
+                                          FROM PARTIDOS
                                           WHERE ID_EQUIPO=PARTIDO.ID_PERDEDOR)))
                                           
     OR (ID_PARTIDO IN (SELECT ID_PARTIDO
-                             FROM PARTIDO
+                             FROM PARTIDOS
                              WHERE ID_EQUIPO = PARTIDO.ID_GANADOR
                              AND ID_PARTIDO IN (SELECT ID_PARTIDO
-                                               FROM PARTIDO
+                                               FROM PARTIDOS
                                                WHERE ID_JOR = C_ID_JORNADA)));
    
    
@@ -98,18 +98,18 @@ CREATE OR REPLACE PACKAGE BODY calendario AS
    C_ID_GANADOR := ID_EQUIPO1;
    C_ID_PERDEDOR := ID_EQUIPO2;
    
-   INSERT INTO PARTIDO(HORA, ID_JOR) VALUES
+   INSERT INTO PARTIDOS(HORA, ID_JOR) VALUES
    (C_HORA_PARTIDO,C_ID_JORNADA);
    
     SELECT ID_PARTIDO INTO C_ID_PARTIDO
-   FROM PARTIDO
+   FROM PARTIDOS
    WHERE ROWNUM=1
    ORDER BY ID_PARTIDO DESC;
    
-   INSERT INTO PARTIDO (ID_GANADOR,ID_PARTIDO)
+   INSERT INTO PARTIDOS (ID_GANADOR,ID_PARTIDO)
    VALUES (C_ID_GANADOR,C_ID_PARTIDO);
    
-   INSERT INTO PARTIDO(ID_PERDEDOR,ID_PARTIDO)
+   INSERT INTO PARTIDOS(ID_PERDEDOR,ID_PARTIDO)
    VALUES (C_ID_PERDEDOR,C_ID_PARTIDO);
    
    C_ENFRENTAMIENTO :=0;
@@ -137,7 +137,7 @@ CREATE OR REPLACE PACKAGE BODY calendario AS
   PROCEDURE ver_enfrentamientos(C_CURSOR OUT SYS_REFCURSOR) AS
   BEGIN 
   OPEN C_CURSOR FOR 
-  SELECT * FROM PARTIDO
+  SELECT * FROM PARTIDOS
   ORDER BY ID_JOR,ID_GANADOR;
   
   END ver_enfrentamientos;

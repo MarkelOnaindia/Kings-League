@@ -1,7 +1,7 @@
 /*Kings League equipo 2*/
 /*Trigger para evitar empates en los partidos*/
 CREATE OR REPLACE TRIGGER no_empates
-BEFORE INSERT OR UPDATE ON Partido
+BEFORE INSERT OR UPDATE ON Partidos
 FOR EACH ROW
 DECLARE
 BEGIN
