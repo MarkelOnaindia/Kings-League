@@ -25,7 +25,7 @@ public class TContratoStaff {
     public static int borrar(ContratoStaff cs) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from ContratosStaff where IdConst = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from ContratosStaff where Id_Const = ?");
         ps.setInt(1, cs.getIdConst());
         int n = ps.executeUpdate();
         BaseDatos.cerrarConexion();
@@ -35,7 +35,7 @@ public class TContratoStaff {
     public static int actualizar(ContratoStaff cs) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("update ContratosStaff set IdStaff = ?, IdEquipo = ?, Sueldo = ?, FechaInicio = ?, fechaFin = ?  where IdConst = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("update ContratosStaff set Id_Staff = ?, Id_Equipo = ?, Sueldo = ?, Fecha_ini = ?, fecha_Fin = ?  where Id_Const = ?");
         ps.setFloat(3, cs.getSueldo());
         ps.setDate(4, Date.valueOf(cs.getFechaInicio()));
         ps.setDate(5, Date.valueOf(cs.getFechaFin()));
@@ -48,7 +48,7 @@ public class TContratoStaff {
     public static ContratoStaff consultarContratoStaff(ContratoStaff cs) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from ContratosStaff where IdConst = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from ContratosStaff where Id_Const = ?");
         ps.setInt(1, cs.getIdConst());
         ResultSet resultado = ps.executeQuery();
         ContratoStaff constaff = null;

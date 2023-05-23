@@ -47,5 +47,11 @@ public class vHomeAdmin {
                 System.exit(0);
             }
         });
+        bResultadosJornadas.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaVerJornadas();
+            }
+        });
     }
 }

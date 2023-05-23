@@ -27,10 +27,12 @@ import Vista.Admin.Cruds.Temporada.*;
 import Vista.Admin.Cruds.Usuario.*;
 import Vista.Admin.Cruds.vCRUD;
 import Vista.Admin.vHomeAdmin;
+import Vista.Admin.vJornadas;
 import Vista.Usuario.*;
 import Vista.vPrincipal;
 
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.awt.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -55,6 +57,9 @@ public class Main {
 
         //JFrame para ver los Partidos
         public static JFrame verPartidos;
+
+        //JFrame para ver jornadas
+        public static JFrame verJornadas;
 
     //Registrarse
     public static JFrame vRegistrarse;
@@ -307,13 +312,26 @@ public class Main {
 
     }
 
+        public static void llenarCBContratoJugador(JComboBox CB){
+        ArrayList<Jugador> lJugador = TJugador.llenarCBJugador();
+
+        CB.addItem("--Seleccione uno--");
+        try {
+            for (int x = 0; x < lJugador.size();x++){
+                CB.addItem(lJugador.get(x).getIdJug());
+            }
+        }catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+
     public static String nombreEntrenador(String ID_ENTRENADOR){
         int iden = Main.stringAInt(ID_ENTRENADOR);
         e = new Entrenador(iden);
         String e1 = TEntrenador.nombreEntrenador(e);
         return e1;
     }
-
 
 
     public static void llenarCBContratoEntrenador(JComboBox CB){
@@ -357,6 +375,33 @@ public class Main {
         return ne;
     }
 
+    public static void llenarCBTemporadas(JComboBox CB){
+        ArrayList<Temporada> lTemporada = TTemporada.llenarCBTemporada();
+
+        CB.addItem("--Seleccione uno--");
+        try {
+            for (int x = 0; x < lTemporada.size();x++){
+                CB.addItem(lTemporada.get(x).getIdTemp());
+            }
+        }catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    public static void llenarCbJornadas(JComboBox CB,int ID_TEMP){
+        ArrayList<Jornada> lJornada = TJornada.llenarCBJornadas(ID_TEMP);
+
+        CB.removeAllItems();
+        CB.addItem("--Seleccione uno--");
+        try {
+            for (int x = 0; x < lJornada.size();x++){
+                CB.addItem(lJornada.get(x).getNumero());
+            }
+        }catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
 
         //Creación de las Ventanas del ContratoDueno
 
@@ -371,7 +416,6 @@ public class Main {
 
             public static void crearVentanaBorrarContratoDueno() {
                 vBorrarContratoDueno = new vBorrarContratoDueno();
-                vBorrarContratoDueno.setLocationRelativeTo(null);
                 vBorrarContratoDueno.setSize(1000, 600);
                 vBorrarContratoDueno.setVisible(true);
             }
@@ -450,7 +494,7 @@ public class Main {
             }
 
             public static void crearVentanaBorrarContratoJugador(){
-                vBorrarContratoStaff = new vBorrarContratoJugador();
+                vBorrarContratoJugador = new vBorrarContratoJugador();
                 vBorrarContratoJugador.setContentPane(new vBorrarContratoJugador().getpPrincipal());
                 vBorrarContratoJugador.pack();
                 vBorrarContratoJugador.setVisible(true);
@@ -760,6 +804,16 @@ public class Main {
 
             }
 
+            //Ver Jornadas
+            public static void crearVentanaVerJornadas(){
+                vAdmin.setVisible(false);
+                verJornadas = new JFrame("verJornadas");
+                verJornadas.setContentPane(new vJornadas().getpPrincipal());
+                verJornadas.pack();
+                verJornadas.setExtendedState(Frame.MAXIMIZED_BOTH);
+                verJornadas.setVisible(true);
+            }
+
 
             //*******************Metodos *****************************************//
 
@@ -953,8 +1007,8 @@ public class Main {
         cj.setIdConju(IdConju);
         cj = TContratoJugador.consultarContratosJugadores(cj);
         StringBuilder infoCJ = new StringBuilder("La informacion del contrato del jugador referente al id " + cj.getIdConju() + " es: \n");
-        infoCJ.append("ID Jugador: " + cj.getID_JUG() + "\nID Equipo: " + cj.getID_EQUIPO() + "Fecha inicio: " + cj.getFechaInicio() + "\nFecha fin: "
-                + cj.getFechaFin() + "\nSueldo: " + cj.getSueldo() + "\nClausula: " + cj.getClausula() + "Dorsal: " + cj.getDorsal());
+        infoCJ.append("ID Jugador: " + cj.getID_JUG().getIdJug() + "\nID Equipo: " + cj.getID_EQUIPO().getIdEquipo() + "\nFecha inicio: " + cj.getFechaInicio() + "\nFecha fin: "
+                + cj.getFechaFin() + "\nSueldo: " + cj.getSueldo() + "\nClausula: " + cj.getClausula() + "\nDorsal: " + cj.getDorsal());
         if (cj != null)
             return infoCJ;
         else
@@ -1590,11 +1644,10 @@ public class Main {
         }
 
     public static ArrayList<Object> generarClasificacion() throws Exception {
-
+        TTemporada.crearView();
         ArrayList<Object> lArrays = TTemporada.buscarClasifi();
         return lArrays;
     }
-
 
      public static Usuario inicarSesion(String nombre, String contrasena) throws Exception {
                 u = new Usuario(nombre,contrasena);

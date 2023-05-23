@@ -11,7 +11,7 @@ public class TStaff {
     public static void insertar(Staff stf) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Staffs values (?,?,?,?,?,?,?,?)");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Staffs (ID_STAFF,DNI,NOMBRE,APELLIDO1,APELLIDO2,TELEFONO,CORREO,ROL) values (?,?,?,?,?,?,?,?)");
         ps.setInt(1, stf.getIdStaff());
         ps.setString(2, stf.getDNI());
         ps.setString(3, stf.getNombre());
@@ -27,7 +27,7 @@ public class TStaff {
     public static int borrar(Staff stf) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from Staffs where IdStaff = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from Staffs where Id_Staff = ?");
         ps.setInt(1, stf.getIdStaff());
         int n = ps.executeUpdate();
         BaseDatos.cerrarConexion();
@@ -37,7 +37,7 @@ public class TStaff {
     public static int actualizar(Staff stf) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("update Staffs set DNI = ?, Nombre = ?, Apellido1 = ?, Apellido2 = ?, Telefono = ?, Correo = ?, Rol = ?  where IdStaff = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("update Staffs set DNI = ?, Nombre = ?, Apellido1 = ?, Apellido2 = ?, Telefono = ?, Correo = ?, Rol = ?  where Id_Staff = ?");
         ps.setString(1,stf.getDNI() );
         ps.setString(2, stf.getNombre());
         ps.setString(3, stf.getApellido1());
@@ -54,7 +54,7 @@ public class TStaff {
     public static Staff consultarStaff(Staff stf) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from Staffs where IdStaff = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from Staffs where Id_Staff = ?");
         ps.setInt(1, stf.getIdStaff());
         ResultSet resultado = ps.executeQuery();
         Staff staff;

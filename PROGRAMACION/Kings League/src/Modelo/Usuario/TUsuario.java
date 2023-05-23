@@ -27,7 +27,7 @@ public class TUsuario {
     public static int borrar(Usuario u) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from Usuarios where IdUsuario = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from Usuarios where Id_Usuario = ?");
         ps.setInt(1, u.getIdUsuario());
         int n = ps.executeUpdate();
         BaseDatos.cerrarConexion();
@@ -37,7 +37,7 @@ public class TUsuario {
     public static int actualizar(Usuario u) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("update Usuarios set Nombre = ?, Contraseña = ?, Email = ?, Telefono = ?, Admin = ? where IdUsuario = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("update Usuarios set Nombre = ?, Contraseña = ?, Email = ?, Telefono = ?, Admin = ? where Id_Usuario = ?");
         ps.setString(1, u.getNombre());
         ps.setString(2, u.getContraseña());
         ps.setString(3, u.getEmail());
@@ -52,7 +52,7 @@ public class TUsuario {
     public static Usuario consultarUsuario(Usuario u) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from Usuarios where IdUsuario = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from Usuarios where Id_Usuario = ?");
         ps.setInt(1, u.getIdUsuario());
         ResultSet resultado = ps.executeQuery();
         Usuario us;

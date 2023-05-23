@@ -13,7 +13,7 @@ public class TEquipo {
     public static void insertar(Equipo eq) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Equipos values (?,?,?,?,?)");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Equipos(ID_EQUIPO,NOMBRE,COLOR_ESCUDO,EQUIPACION,PRESUPUESTO) values (?,?,?,?,?)");
         ps.setInt(1, eq.getIdEquipo());
         ps.setString(2, eq.getNombre());
         ps.setString(3, eq.getColorEscudo());
@@ -26,7 +26,7 @@ public class TEquipo {
     public static int borrar(Equipo eq) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from Equipos where IdEquipo = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from Equipos where Id_Equipo = ?");
         ps.setInt(1, eq.getIdEquipo());
         int n = ps.executeUpdate();
         BaseDatos.cerrarConexion();
@@ -36,7 +36,7 @@ public class TEquipo {
     public static int actualizar(Equipo eq) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("update Equipos set Nombre = ?, ColorEscudo = ?, ColorEquipacion = ?, Presupuesto = ? where IdEquipo = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("update Equipos set Nombre = ?, COLOR_ESCUDO = ?, EQUIPACION = ?, Presupuesto = ? where Id_Equipo = ?");
         ps.setString( 1, eq.getNombre());
         ps.setString(2, eq.getColorEscudo());
         ps.setString(3, eq.getColorEquipacion());
@@ -50,7 +50,7 @@ public class TEquipo {
     public static Equipo consultarEquipos(Equipo eq) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from Equipos where IdEquipo = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from Equipos where Id_Equipo = ?");
         ps.setInt(1, eq.getIdEquipo());
         ResultSet resultado = ps.executeQuery();
         Equipo equipo;
