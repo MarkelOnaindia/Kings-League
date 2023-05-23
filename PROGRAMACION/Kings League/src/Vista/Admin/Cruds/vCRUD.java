@@ -3,6 +3,8 @@ package Vista.Admin.Cruds;
 import Controlador.Main;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
@@ -34,52 +36,32 @@ public class vCRUD {
     public vCRUD() {
         Main.llenarCBtablas(comboBox1);
 
-
         comboBox1.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 int selectedIndex = comboBox1.getSelectedIndex();
                 switch (selectedIndex) {
-                    case 1:
-                        Main.crearVentanaContratoDueno();
-                        break;
-                    case 2:
-                        Main.crearVentanaContratoEntrena();
-                        break;
-                    case 3:
-                        Main.crearVentanaContratoJugador();
-                        break;
-                    case 4:
-                        Main.crearVentanaContratoStaff();
-                        break;
-                    case 5:
-                        Main.crearVentanaEntrenador();
-                        break;
-                    case 6:
-                        Main.crearVentanaEquipo();
-                        break;
-                    case 7:
-                        Main.crearVentanaJornada();
-                        break;
-                    case 8:
-                        Main.crearVentanaJugador();
-                        break;
-                    case 9:
-                        Main.crearVentanaPartido();
-                        break;
-                    case 10:
-                        Main.crearVentanaPropietario();
-                        break;
-                    case 11:
-                        Main.crearVentanaStaff();
-                        break;
-                    case 12:
-                        Main.crearVentanaTemporada();
-                        break;
-                    case 13:
-                        Main.crearVentanaUsuario();
-                        break;
+                    case 1 -> Main.crearVentanaContratoDueno();
+                    case 2 -> Main.crearVentanaContratoEntrena();
+                    case 3 -> Main.crearVentanaContratoJugador();
+                    case 4 -> Main.crearVentanaContratoStaff();
+                    case 5 -> Main.crearVentanaEntrenador();
+                    case 6 -> Main.crearVentanaEquipo();
+                    case 7 -> Main.crearVentanaJornada();
+                    case 8 -> Main.crearVentanaJugador();
+                    case 9 -> Main.crearVentanaPartido();
+                    case 10 -> Main.crearVentanaPropietario();
+                    case 11 -> Main.crearVentanaStaff();
+                    case 12 -> Main.crearVentanaTemporada();
+                    case 13 -> Main.crearVentanaCRUDUsuario();
                 }
+            }
+        });
+        bAtras.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.vCRUD.setVisible(false);
+                Main.vAdmin.setVisible(true);
             }
         });
     }

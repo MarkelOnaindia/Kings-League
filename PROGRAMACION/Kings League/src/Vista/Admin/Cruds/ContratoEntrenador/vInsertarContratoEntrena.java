@@ -46,8 +46,8 @@ public class vInsertarContratoEntrena {
         volverButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main.vInsertarContratoDueno.setVisible(false);
-                Main.vContratoDueno.setVisible(true);
+                Main.vInsertarContratoEntrenador.setVisible(false);
+                Main.vContratoEntrena.setVisible(true);
             }
         });
         insertarButton.addActionListener(new ActionListener() {

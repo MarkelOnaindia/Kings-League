@@ -11,30 +11,28 @@ import Modelo.Propietario.*;
 import Modelo.Staff.*;
 import Modelo.Temporada.*;
 import Modelo.Usuario.*;
-import Vista.Admin.Cruds.ContratoDueno.vActualizarContratoDueno;
-import Vista.Admin.Cruds.ContratoDueno.vBorrarContratoDueno;
-import Vista.Admin.Cruds.ContratoDueno.vContratoDueno;
-import Vista.Admin.Cruds.ContratoDueno.vInsertarContratoDueno;
-import Vista.Admin.Cruds.ContratoEntrenador.vContratoEntrena;
-import Vista.Admin.Cruds.ContratoEntrenador.vInsertarContratoEntrena;
-import Vista.Admin.Cruds.ContratoJugador.vContratoJugador;
-import Vista.Admin.Cruds.ContratoStaff.vContratoStaff;
-import Vista.Admin.Cruds.Entrenador.vEntrenador;
-import Vista.Admin.Cruds.Equipo.vEquipo;
-import Vista.Admin.Cruds.Jornada.vJornada;
-import Vista.Admin.Cruds.Jugador.vJugador;
-import Vista.Admin.Cruds.Partido.vPartido;
-import Vista.Admin.Cruds.Propietario.vPropietario;
-import Vista.Admin.Cruds.Staff.vStaff;
-import Vista.Admin.Cruds.Temporada.vTemporada;
+import Vista.Admin.Cruds.ContratoDueno.*;
+import Vista.Admin.Cruds.ContratoEntrenador.*;
+import Vista.Admin.Cruds.ContratoJugador.*;
+import Vista.Admin.Cruds.ContratoJugador.vConsultarContratoJugador;
+import Vista.Admin.Cruds.ContratoStaff.*;
+import Vista.Admin.Cruds.Entrenador.*;
+import Vista.Admin.Cruds.Equipo.*;
+import Vista.Admin.Cruds.Jornada.*;
+import Vista.Admin.Cruds.Jugador.*;
+import Vista.Admin.Cruds.Partido.*;
+import Vista.Admin.Cruds.Propietario.*;
+import Vista.Admin.Cruds.Staff.*;
+import Vista.Admin.Cruds.Temporada.*;
+import Vista.Admin.Cruds.Usuario.*;
 import Vista.Admin.Cruds.vCRUD;
 import Vista.Admin.vHomeAdmin;
-import Vista.Usuario.vHomeUsuario;
-import Vista.Usuario.vRegistrarse;
-import Vista.Usuario.vUser;
+import Vista.Admin.vJornadas;
+import Vista.Usuario.*;
 import Vista.vPrincipal;
 
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.awt.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -50,6 +48,18 @@ public class Main {
 
     //JFrame del user
     public static JFrame vUser;
+
+        //JFrame para ver los Equipos
+        public static JFrame verEquipos;
+
+        //JFrame para ver la Clasificacion
+        public static JFrame verClasificacion;
+
+        //JFrame para ver los Partidos
+        public static JFrame verPartidos;
+
+        //JFrame para ver jornadas
+        public static JFrame verJornadas;
 
     //Registrarse
     public static JFrame vRegistrarse;
@@ -69,6 +79,9 @@ public class Main {
 
                     public static JFrame vInsertarContratoEntrenador;
                     public static JFrame vActualizarContratoEntrenador;
+                    public static JDialog vConsultarContratoEntrenador;
+                    public static JDialog vBorrarContratoEntrenador;
+
 
 
 
@@ -77,6 +90,8 @@ public class Main {
 
                     public static JFrame vInsertarContratoJugador;
                     public static JFrame vActualizarContratoJugador;
+                    public static JDialog vConsultarContratoJugador;
+                    public static JDialog vBorrarContratoJugador;
 
 
                 //JFrames del ContratoStaff
@@ -84,6 +99,8 @@ public class Main {
 
                     public static JFrame vInsertarContratoStaff;
                     public static JFrame vActualizarContratoStaff;
+                    public static JDialog vConsultarContratoStaff;
+                    public static JDialog vBorrarContratoStaff;
 
 
                 //JFrames del Entrenador
@@ -91,6 +108,8 @@ public class Main {
 
                     public static JFrame vInsertarEntrenador;
                     public static JFrame vActualizarEntrenador;
+                    public static JDialog vConsultarEntrenador;
+                    public static JDialog vBorrarEntrenador;
 
 
                 //JFrames del Equipo
@@ -98,48 +117,67 @@ public class Main {
 
                     public static JFrame vInsertarEquipo;
                     public static JFrame vActualizarEquipo;
+                    public static JDialog vConsultarEquipo;
+                    public static JDialog vBorrarEquipo;
 
 
                 //JFrames de la Jornada
                 public static JFrame vJornada;
                     public static JFrame vInsertarJornada;
                     public static JFrame vActualizarJornada;
+                    public static JDialog vConsultarJornada;
+                    public static JDialog vBorrarJornada;
 
 
                 //JFrames del Jugador
                 public static JFrame vJugador;
                     public static JFrame vInsertarJugador;
                     public static JFrame vActualizarJugador;
+                    public static JDialog vConsultarJugador;
+                    public static JDialog vBorrarJugador;
 
 
                 //JFrames del Partido
                 public static JFrame vPartido;
                     public static JFrame vInsertarPartido;
                     public static JFrame vActualizarPartido;
+                    public static JDialog vConsultarPartido;
+                    public static JDialog vBorrarPartido;
 
 
                 //JFrames del Propietario
                 public static JFrame vPropietario;
                     public static JFrame vInsertarPropietario;
                     public static JFrame vActualizarPropietario;
+                    public static JDialog vConsultarPropietario;
+                    public static JDialog vBorrarPropietario;
 
 
                 //JFrames del Staff
                 public static JFrame vStaff;
                     public static JFrame vInsertarStaff;
                     public static JFrame vActualizarStaff;
+                    public static JDialog vConsultarStaff;
+                    public static JDialog vBorrarStaff;
 
 
                 //JFrames de la Temporada
                 public static JFrame vTemporada;
                     public static JFrame vInsertarTemporada;
                     public static JFrame vActualizarTemporada;
+                    public static JDialog vConsultarTemporada;
+                    public static JDialog vBorrarTemporada;
 
 
                 //JFrames del Usuario
-                public static JFrame vHomeUsuario;
+                public static JFrame vUsuario;
+
                     public static JFrame vInsertarUsuario;
                     public static JFrame vActualizarUsuario;
+                    public static JDialog vConsultarUsuario;
+                    public static JDialog vBorrarUsuario;
+
+                public static JFrame vHomeUsuario;
 
     //JFrames ventana del Usuario
 
@@ -190,7 +228,6 @@ public class Main {
         vPrincipal.setVisible(false);
         vAdmin = new JFrame("vHomeAdmin");
         vAdmin.setContentPane(new vHomeAdmin().getpPrincipal());
-        vAdmin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         vAdmin.pack();
         vAdmin.setExtendedState(Frame.MAXIMIZED_BOTH);
         vAdmin.setVisible(true);
@@ -201,7 +238,6 @@ public class Main {
             vAdmin.setVisible(false);
             vCRUD = new JFrame("vCRUD");
             vCRUD.setContentPane(new vCRUD().getpPrincipal());
-            vCRUD.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             vCRUD.pack();
             vCRUD.setExtendedState(Frame.MAXIMIZED_BOTH);
             vCRUD.setVisible(true);
@@ -276,13 +312,26 @@ public class Main {
 
     }
 
+        public static void llenarCBContratoJugador(JComboBox CB){
+        ArrayList<Jugador> lJugador = TJugador.llenarCBJugador();
+
+        CB.addItem("--Seleccione uno--");
+        try {
+            for (int x = 0; x < lJugador.size();x++){
+                CB.addItem(lJugador.get(x).getIdJug());
+            }
+        }catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+
     public static String nombreEntrenador(String ID_ENTRENADOR){
         int iden = Main.stringAInt(ID_ENTRENADOR);
         e = new Entrenador(iden);
         String e1 = TEntrenador.nombreEntrenador(e);
         return e1;
     }
-
 
 
     public static void llenarCBContratoEntrenador(JComboBox CB){
@@ -312,24 +361,54 @@ public class Main {
             return ne;
         }
 
+    public static String nenIDConen(String ID_CONEN){ //nombre entrenador id entrenador
+        int idConen = Integer.parseInt(ID_CONEN);
+        ce = new ContratoEntrena(idConen);
+        String np = TContratoEntrena.nenIDCONEN(ce);
+        return np;
+    }
 
+    public static String neIDConen(String ID_CONEN){ //nombre equipo id entrenador
+        int idConen = Integer.parseInt(ID_CONEN);
+        ce = new ContratoEntrena(idConen);
+        String ne = TContratoEntrena.neIDCONEN(ce);
+        return ne;
+    }
 
-    //Creación de las Ventanas del ContratoDueno
-        public static void crearVentanaContratoDueno(){
-                vCRUD.setVisible(false);
-                vContratoDueno = new JFrame("vContratoDueno");
-                vContratoDueno.setContentPane(new vContratoDueno().getpPrincipal());
-                vContratoDueno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                vContratoDueno.pack();
-                vContratoDueno.setExtendedState(Frame.MAXIMIZED_BOTH);
-                vContratoDueno.setVisible(true);
+    public static void llenarCBTemporadas(JComboBox CB){
+        ArrayList<Temporada> lTemporada = TTemporada.llenarCBTemporada();
+
+        CB.addItem("--Seleccione uno--");
+        try {
+            for (int x = 0; x < lTemporada.size();x++){
+                CB.addItem(lTemporada.get(x).getIdTemp());
+            }
+        }catch (Exception ex) {
+            throw new RuntimeException(ex);
         }
+    }
+
+    public static void llenarCbJornadas(JComboBox CB,int ID_TEMP){
+        ArrayList<Jornada> lJornada = TJornada.llenarCBJornadas(ID_TEMP);
+
+        CB.removeAllItems();
+        CB.addItem("--Seleccione uno--");
+        try {
+            for (int x = 0; x < lJornada.size();x++){
+                CB.addItem(lJornada.get(x).getNumero());
+            }
+        }catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+
+        //Creación de las Ventanas del ContratoDueno
 
             public static void crearVentanaInsertarContratoDueno(){
-                vContratoDueno.setVisible(false);
+                //vContratoDueno.setVisible(false);
                 vInsertarContratoDueno  = new JFrame("vInsertarContratoDueno");
                 vInsertarContratoDueno.setContentPane(new vInsertarContratoDueno().getpPrincipal());
-                vInsertarContratoDueno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vInsertarContratoDueno.pack();
                 vInsertarContratoDueno.setExtendedState(Frame.MAXIMIZED_BOTH);
                 vInsertarContratoDueno.setVisible(true);
@@ -337,56 +416,58 @@ public class Main {
 
             public static void crearVentanaBorrarContratoDueno() {
                 vBorrarContratoDueno = new vBorrarContratoDueno();
-                vBorrarContratoDueno.setLocationRelativeTo(null);
                 vBorrarContratoDueno.setSize(1000, 600);
                 vBorrarContratoDueno.setVisible(true);
             }
 
             public static void crearVentanaConsultarContratoDueno(){
-                vConsultarContratoDueno = new vBorrarContratoDueno();
-                vBorrarContratoDueno.setLocationRelativeTo(null);
+                vConsultarContratoDueno = new vConsultarContratoDueno();
+                vConsultarContratoDueno.setLocationRelativeTo(null);
                 vConsultarContratoDueno.pack();
                 vConsultarContratoDueno.setVisible(true);
             }
 
             public static void crearVentanaActualizarContratoDueno(){
+                //vContratoDueno.setVisible(false);
                 vActualizarContratoDueno  = new JFrame("vActualizarContratoDueno");
                 vActualizarContratoDueno.setContentPane(new vActualizarContratoDueno().getpPrincipal());
-                vActualizarContratoDueno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vActualizarContratoDueno.pack();
+                vInsertarContratoDueno.setExtendedState(Frame.MAXIMIZED_BOTH);
                 vActualizarContratoDueno.setVisible(true);
             }
 
+        //Creación de las Ventanas del ContratoEntrenador
 
             public static void crearVentanaInsertarContratoEntrenador(){
-                vContratoEntrena.setVisible(false);
-                vInsertarContratoEntrenador  = new JFrame("vInsertarContratoDueno");
+                //vContratoEntrena.setVisible(false);
+                vInsertarContratoEntrenador  = new JFrame("vInsertarContratoEntrenador");
                 vInsertarContratoEntrenador.setContentPane(new vInsertarContratoEntrena().getpPrincipal());
-                vInsertarContratoEntrenador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vInsertarContratoEntrenador.pack();
                 vInsertarContratoEntrenador.setExtendedState(Frame.MAXIMIZED_BOTH);
                 vInsertarContratoEntrenador.setVisible(true);
             }
 
-            /*
-
-
-            //Creación de las Ventanas del ContratoEntrenador
-
-            public static void crearVentanaInsertarContratoEntrenador(){
-                vInsertarContratoEntrenador = new JFrame("vInsertarContratoEntrenador");
-                vInsertarContratoEntrenador.setContentPane(new vInsertarContratoEntrenador().getpPrincipal());
-                vInsertarContratoEntrenador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                vInsertarContratoEntrenador.pack();
-                vInsertarContratoEntrenador.setVisible(true);
+            public static void crearVentanaConsultarContratoEntrenador(){
+                vConsultarContratoEntrenador = new vConsultarContratoEntrena();
+                vConsultarContratoEntrenador.setLocationRelativeTo(null);
+                vConsultarContratoEntrenador.pack();
+                vConsultarContratoEntrenador.setVisible(true);
             }
 
             public static void crearVentanaActualizarContratoEntrenador(){
+                //vContratoEntrena.setVisible(false);
                 vActualizarContratoEntrenador = new JFrame("vActualizarContratoEntrenador");
-                vActualizarContratoEntrenador.setContentPane(new vActualizarContratoEntrenador().getpPrincipal());
-                vActualizarContratoEntrenador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                vActualizarContratoEntrenador.setContentPane(new vActualizarContratoEntrena().getpPrincipal());
                 vActualizarContratoEntrenador.pack();
+                vActualizarContratoEntrenador.setExtendedState(Frame.MAXIMIZED_BOTH);
                 vActualizarContratoEntrenador.setVisible(true);
+            }
+
+            public static void crearVentanaBorrarContratoEntrenador() {
+                vBorrarContratoEntrenador = new vBorrarContratoEntrena();
+                vBorrarContratoEntrenador.setLocationRelativeTo(null);
+                vBorrarContratoEntrenador.setSize(1000, 600);
+                vBorrarContratoEntrenador.setVisible(true);
             }
 
             //Creación de las Ventanas del ContratoJugador
@@ -394,17 +475,29 @@ public class Main {
             public static void crearVentanaInsertarContratoJugador(){
                 vInsertarContratoJugador = new JFrame("vInsertarContratoJugador");
                 vInsertarContratoJugador.setContentPane(new vInsertarContratoJugador().getpPrincipal());
-                vInsertarContratoJugador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vInsertarContratoJugador.pack();
                 vInsertarContratoJugador.setVisible(true);
+            }
+
+            public static void crearVentanaConsultarContratoJugador() {
+                vConsultarContratoJugador = new vConsultarContratoJugador();
+                vConsultarContratoJugador.setContentPane(new vConsultarContratoJugador().getpPrincipal());
+                vConsultarContratoJugador.pack();
+                vConsultarContratoJugador.setVisible(true);
             }
 
             public static void crearVentanaActualizarContratoJugador(){
                 vActualizarContratoJugador = new JFrame("vActualizarContratoJugador");
                 vActualizarContratoJugador.setContentPane(new vActualizarContratoJugador().getpPrincipal());
-                vActualizarContratoJugador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vActualizarContratoJugador.pack();
                 vActualizarContratoJugador.setVisible(true);
+            }
+
+            public static void crearVentanaBorrarContratoJugador(){
+                vBorrarContratoJugador = new vBorrarContratoJugador();
+                vBorrarContratoJugador.setContentPane(new vBorrarContratoJugador().getpPrincipal());
+                vBorrarContratoJugador.pack();
+                vBorrarContratoJugador.setVisible(true);
             }
 
             //Creación de las Ventanas del ContratoStaff
@@ -412,17 +505,29 @@ public class Main {
             public static void crearVentanaInsertarContratoStaff(){
                 vInsertarContratoStaff = new JFrame("vInsertarContratoStaff");
                 vInsertarContratoStaff.setContentPane(new vInsertarContratoStaff().getpPrincipal());
-                vInsertarContratoStaff.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vInsertarContratoStaff.pack();
                 vInsertarContratoStaff.setVisible(true);
+            }
+
+            public static void crearVentanaConsultarContratoStaff(){
+                vConsultarContratoStaff = new vConsultarContratoStaff();
+                vConsultarContratoStaff.setContentPane(new vConsultarContratoStaff().getpPrincipal());
+                vConsultarContratoStaff.pack();
+                vConsultarContratoStaff.setVisible(true);
             }
 
             public static void crearVentanaActualizarContratoStaff(){
                 vActualizarContratoStaff = new JFrame("vActualizarContratoStaff");
                 vActualizarContratoStaff.setContentPane(new vActualizarContratoStaff().getpPrincipal());
-                vActualizarContratoStaff.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vActualizarContratoStaff.pack();
                 vActualizarContratoStaff.setVisible(true);
+            }
+
+            public static void crearVentanaBorrarContratoStaff(){
+                vBorrarContratoStaff = new vBorrarContratoStaff();
+                vBorrarContratoStaff.setContentPane(new vBorrarContratoStaff().getpPrincipal());
+                vBorrarContratoStaff.pack();
+                vBorrarContratoStaff.setVisible(true);
             }
 
             //Creación de las Ventanas del Entrenador
@@ -430,17 +535,30 @@ public class Main {
             public static void crearVentanaInsertarEntrenador(){
                 vInsertarEntrenador = new JFrame("vInsertarEntrenador");
                 vInsertarEntrenador.setContentPane(new vInsertarEntrenador().getpPrincipal());
-                vInsertarEntrenador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vInsertarEntrenador.pack();
                 vInsertarEntrenador.setVisible(true);
+            }
+
+            public static void crearVentanaConsultarEntrenador(){
+                vConsultarEntrenador = new vConsultarEntrenador();
+                vConsultarEntrenador.setContentPane(new vConsultarEntrenador().getpPrincipal());
+                vConsultarEntrenador.pack();
+                vConsultarEntrenador.setVisible(true);
+
             }
 
             public static void crearVentanaActualizarEntrenador(){
                 vActualizarEntrenador = new JFrame("vActualizarEntrenador");
                 vActualizarEntrenador.setContentPane(new vActualizarEntrenador().getpPrincipal());
-                vActualizarEntrenador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vActualizarEntrenador.pack();
                 vActualizarEntrenador.setVisible(true);
+            }
+
+            public static void crearVentanaBorrarEntrenador(){
+                vBorrarEntrenador = new vBorrarEntrenador();
+                vBorrarEntrenador.setContentPane(new vBorrarEntrenador().getpPrincipal());
+                vBorrarEntrenador.pack();
+                vBorrarEntrenador.setVisible(true);
             }
 
             //Creación de las Ventanas del Equipo
@@ -448,17 +566,29 @@ public class Main {
             public static void crearVentanaInsertarEquipo(){
                 vInsertarEquipo = new JFrame("vInsertarEquipo");
                 vInsertarEquipo.setContentPane(new vInsertarEquipo().getpPrincipal());
-                vInsertarEquipo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vInsertarEquipo.pack();
                 vInsertarEquipo.setVisible(true);
+            }
+
+            public static void crearVentanaConsultarEquipo(){
+                vConsultarEquipo = new vConsultarEquipo();
+                vConsultarEquipo.setContentPane(new vConsultarEquipo().getpPrincipal());
+                vConsultarEquipo.pack();
+                vConsultarEquipo.setVisible(true);
             }
 
             public static void crearVentanaActualizarEquipo(){
                 vActualizarEquipo = new JFrame("vActualizarEquipo");
                 vActualizarEquipo.setContentPane(new vActualizarEquipo().getpPrincipal());
-                vActualizarEquipo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vActualizarEquipo.pack();
                 vActualizarEquipo.setVisible(true);
+            }
+
+            public static void crearVentanaBorrarEquipo(){
+                vBorrarEquipo = new vBorrarEquipo();
+                vBorrarEquipo.setContentPane(new vBorrarEquipo().getpPrincipal());
+                vBorrarEquipo.pack();
+                vBorrarEquipo.setVisible(true);
             }
 
             //Creación de las Ventanas de la Jornada
@@ -466,17 +596,29 @@ public class Main {
             public static void crearVentanaInsertarJornada(){
                 vInsertarJornada = new JFrame("vInsertarJornada");
                 vInsertarJornada.setContentPane(new vInsertarJornada().getpPrincipal());
-                vInsertarJornada.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vInsertarJornada.pack();
                 vInsertarJornada.setVisible(true);
+            }
+
+            public static void crearVentanaConsultarJornada(){
+                vConsultarJornada = new vConsultarJornada();
+                vConsultarJornada.setContentPane(new vConsultarJornada().getpPrincipal());
+                vConsultarJornada.pack();
+                vConsultarJornada.setVisible(true);
             }
 
             public static void crearVentanaActualizarJornada(){
                 vActualizarJornada = new JFrame("vActualizarJornada");
                 vActualizarJornada.setContentPane(new vActualizarJornada().getpPrincipal());
-                vActualizarJornada.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vActualizarJornada.pack();
                 vActualizarJornada.setVisible(true);
+            }
+
+            public static void crearVentanaBorrarJornada(){
+                vBorrarJornada = new vBorrarJornada();
+                vBorrarJornada.setContentPane(new vBorrarJornada().getpPrincipal());
+                vBorrarJornada.pack();
+                vBorrarJornada.setVisible(true);
             }
 
             //Creación de las Ventanas del Jugador
@@ -484,17 +626,29 @@ public class Main {
             public static void crearVentanaInsertarJugador(){
                 vInsertarJugador = new JFrame("vInsertarJugador");
                 vInsertarJugador.setContentPane(new vInsertarJugador().getpPrincipal());
-                vInsertarJugador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vInsertarJugador.pack();
                 vInsertarJugador.setVisible(true);
+            }
+
+            public static void crearVentanaConsultarJugador(){
+                vConsultarJugador = new vConsultarJugador();
+                vConsultarJugador.setContentPane(new vConsultarJugador().getpPrincipal());
+                vConsultarJugador.pack();
+                vConsultarJugador.setVisible(true);
             }
 
             public static void crearVentanaActualizarJugador(){
                 vActualizarJugador = new JFrame("vActualizarJugador");
                 vActualizarJugador.setContentPane(new vActualizarJugador().getpPrincipal());
-                vActualizarJugador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vActualizarJugador.pack();
                 vActualizarJugador.setVisible(true);
+            }
+
+            public static void crearVentanaBorrarJugador(){
+                vBorrarJugador = new vBorrarJugador();
+                vBorrarJugador.setContentPane(new vBorrarJugador().getpPrincipal());
+                vBorrarJugador.pack();
+                vBorrarJugador.setVisible(true);
             }
 
             //Creación de las Ventanas del Partido
@@ -507,12 +661,25 @@ public class Main {
                 vInsertarPartido.setVisible(true);
             }
 
+            public static void crearVentanaConsultarPartido(){
+                vConsultarPartido = new vConsultarPartido();
+                vConsultarPartido.setContentPane(new vConsultarPartido().getpPrincipal());
+                vConsultarPartido.pack();
+                vConsultarPartido.setVisible(true);
+            }
+
             public static void crearVentanaActualizarPartido(){
                 vActualizarPartido = new JFrame("vActualizarPartido");
                 vActualizarPartido.setContentPane(new vActualizarPartido().getpPrincipal());
-                vActualizarPartido.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vActualizarPartido.pack();
                 vActualizarPartido.setVisible(true);
+            }
+
+            public static void crearVentanaBorrarPartido(){
+                vBorrarPartido = new vBorrarPartido();
+                vBorrarPartido.setContentPane(new vBorrarPartido().getpPrincipal());
+                vBorrarPartido.pack();
+                vBorrarPartido.setVisible(true);
             }
 
             //Creación de las Ventanas del Propietario
@@ -520,17 +687,29 @@ public class Main {
             public static void crearVentanaInsertarPropietario(){
                 vInsertarPropietario = new JFrame("vInsertarPropietario");
                 vInsertarPropietario.setContentPane(new vInsertarPropietario().getpPrincipal());
-                vInsertarPropietario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vInsertarPropietario.pack();
                 vInsertarPropietario.setVisible(true);
+            }
+
+            public static void crearVentanaConsultarPropietario(){
+                vConsultarPropietario = new vConsultarPropietario();
+                vConsultarPropietario.setContentPane(new vConsultarPropietario().getpPrincipal());
+                vConsultarPropietario.pack();
+                vConsultarPropietario.setVisible(true);
             }
 
             public static void crearVentanaActualizarPropietario(){
                 vActualizarPropietario = new JFrame("vActualizarPropietario");
                 vActualizarPropietario.setContentPane(new vActualizarPropietario().getpPrincipal());
-                vActualizarPropietario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vActualizarPropietario.pack();
                 vActualizarPropietario.setVisible(true);
+            }
+
+            public static void crearVentanaBorrarPropietario(){
+                vBorrarPropietario = new vBorrarPropietario();
+                vBorrarPropietario.setContentPane(new vBorrarPropietario().getpPrincipal());
+                vBorrarPropietario.pack();
+                vBorrarPropietario.setVisible(true);
             }
 
             //Creación de las Ventanas del Staff
@@ -538,17 +717,29 @@ public class Main {
             public static void crearVentanaInsertarStaff(){
                 vInsertarStaff = new JFrame("vInsertarStaff");
                 vInsertarStaff.setContentPane(new vInsertarStaff().getpPrincipal());
-                vInsertarStaff.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vInsertarStaff.pack();
                 vInsertarStaff.setVisible(true);
+            }
+
+            public static void crearVentanaConsultarStaff(){
+                vConsultarStaff = new vConsultarStaff();
+                vConsultarStaff.setContentPane(new vConsultarStaff().getpPrincipal());
+                vConsultarStaff.pack();
+                vConsultarStaff.setVisible(true);
             }
 
             public static void crearVentanaActualizarStaff(){
                 vActualizarStaff = new JFrame("vActualizarStaff");
                 vActualizarStaff.setContentPane(new vActualizarStaff().getpPrincipal());
-                vActualizarStaff.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vActualizarStaff.pack();
                 vActualizarStaff.setVisible(true);
+            }
+
+            public static void crearVentanaBorrarStaff(){
+                vBorrarStaff = new vBorrarStaff();
+                vBorrarStaff.setContentPane(new vBorrarStaff().getpPrincipal());
+                vBorrarStaff.pack();
+                vBorrarStaff.setVisible(true);
             }
 
             //Creación de las Ventanas de la Temporada
@@ -556,17 +747,29 @@ public class Main {
             public static void crearVentanaInsertarTemporada(){
                 vInsertarTemporada = new JFrame("vInsertarTemporada");
                 vInsertarTemporada.setContentPane(new vInsertarTemporada().getpPrincipal());
-                vInsertarTemporada.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vInsertarTemporada.pack();
                 vInsertarTemporada.setVisible(true);
+            }
+
+            public static void crearVentanaConsultarTemporada(){
+                vConsultarTemporada = new vConsultarTemporada();
+                vConsultarTemporada.setContentPane(new vConsultarTemporada().getpPrincipal());
+                vConsultarTemporada.pack();
+                vConsultarTemporada.setVisible(true);
             }
 
             public static void crearVentanaActualizarTemporada(){
                 vActualizarTemporada = new JFrame("vActualizarTemporada");
                 vActualizarTemporada.setContentPane(new vActualizarTemporada().getpPrincipal());
-                vActualizarTemporada.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vActualizarTemporada.pack();
                 vActualizarTemporada.setVisible(true);
+            }
+
+            public static void crearVentanaBorrarTemporada(){
+                vBorrarTemporada = new vBorrarTemporada();
+                vBorrarTemporada.setContentPane(new vBorrarTemporada().getpPrincipal());
+                vBorrarTemporada.pack();
+                vBorrarTemporada.setVisible(true);
             }
 
             //Creación de las Ventanas del Usuario
@@ -574,21 +777,57 @@ public class Main {
             public static void crearVentanaInsertarUsuario(){
                 vInsertarUsuario = new JFrame("vInsertarUsuario");
                 vInsertarUsuario.setContentPane(new vInsertarUsuario().getpPrincipal());
-                vInsertarUsuario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vInsertarUsuario.pack();
+                vInsertarUsuario.setExtendedState(Frame.MAXIMIZED_BOTH);
                 vInsertarUsuario.setVisible(true);
+            }
+
+            public static void crearVentanaConsultarUsuario(){
+                vConsultarUsuario = new vConsultarUsuario();
+                vConsultarUsuario.setContentPane(new vConsultarUsuario().getpPrincipal());
+                vConsultarUsuario.pack();
+                vConsultarUsuario.setVisible(true);
             }
 
             public static void crearVentanaActualizarUsuario(){
                 vActualizarUsuario = new JFrame("vActualizarUsuario");
                 vActualizarUsuario.setContentPane(new vActualizarUsuario().getpPrincipal());
-                vActualizarUsuario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 vActualizarUsuario.pack();
                 vActualizarUsuario.setVisible(true);
             }
-        */
+
+            public static void crearVentanaBorrarUsuario(){
+                vBorrarUsuario = new vBorrarUsuario();
+                vBorrarUsuario.setContentPane(new vBorrarUsuario().getpPrincipal());
+                vBorrarUsuario.pack();
+                vBorrarUsuario.setVisible(true);
+
+            }
+
+            //Ver Jornadas
+            public static void crearVentanaVerJornadas(){
+                vAdmin.setVisible(false);
+                verJornadas = new JFrame("verJornadas");
+                verJornadas.setContentPane(new vJornadas().getpPrincipal());
+                verJornadas.pack();
+                verJornadas.setExtendedState(Frame.MAXIMIZED_BOTH);
+                verJornadas.setVisible(true);
+            }
+
 
             //*******************Metodos *****************************************//
+
+
+        //Creación de las Ventanas del ContratoEntrena
+        public static void crearVentanaContratoDueno() {
+            vCRUD.setVisible(false);
+            vContratoDueno = new JFrame("vContratoDueno");
+            vContratoDueno.setContentPane(new vContratoDueno().getpPrincipal());
+            vContratoDueno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            vContratoDueno.pack();
+            vContratoDueno.setExtendedState(Frame.MAXIMIZED_BOTH);
+            vContratoDueno.setVisible(true);
+        }
 
             //Crud del ContratoDueno
             public static void crearContratoDueno(String ID_PRO, String ID_EQUIPO, String sueldo, String FechaInicio, String FechaFin) throws Exception
@@ -650,6 +889,7 @@ public class Main {
 
                 return cd1;
             }
+
         //Creación de las Ventanas del ContratoEntrena
         public static void crearVentanaContratoEntrena(){
                 vCRUD.setVisible(false);
@@ -702,7 +942,15 @@ public class Main {
                     return null;
             }
 
-            public static void actualizarContratoEntrena(int IdConen, int sueldo, LocalDate FechaInicio, LocalDate FechaFin) throws Exception
+            public static ContratoEntrena consultarDatosContratoEntrenador(int IdConen) throws Exception
+            {
+                ce = new ContratoEntrena(IdConen);
+                ContratoEntrena ce1 = TContratoEntrena.consultarContratosEntrena(ce);
+
+                return ce1;
+            }
+
+            public static void actualizarContratoEntrena(int IdConen, int sueldo, String FechaInicio, String FechaFin) throws Exception
             {
                 ce.setIdConen(IdConen);
                 ce.setSueldo(sueldo);
@@ -723,48 +971,64 @@ public class Main {
             vContratoJugador.setVisible(true);
         }
 
-            //Crud del ContratoJugador
+    //Crud del ContratoJugador
 
-            public static void crearContratoJugador(int IdConju, int sueldo, LocalDate FechaInicio, LocalDate FechaFin, int Clausula, String dorsal) throws Exception
-            {
-                //Inserción de datos
-                cj = new ContratoJugador(IdConju, sueldo, FechaInicio, FechaFin, Clausula, dorsal);
-                TContratoJugador.insertar(cj);
-                vInsertarContratoJugador.dispose();
-            }
+    public static void crearContratoJugador(String ID_JUG, String ID_EQUIPO, String sueldo, String FechaInicio, String FechaFin, String Clausula, String dorsal) throws Exception
+    {
+        //Inserción de datos
+        int idJugador = Integer.parseInt(ID_JUG);
+        j = new Jugador(idJugador);
 
-            public static int borrarContratoJugador(int IdConju) throws Exception
-            {
-                cj = new ContratoJugador();
-                cj.setIdConju(IdConju);
-                return TContratoJugador.borrar(cj);
-            }
+        int idEquipo = Integer.parseInt(ID_EQUIPO);
+        eq = new Equipo(idEquipo);
 
-            public static StringBuilder consultarContratoJugador(int IdConju) throws Exception
-            {
-                cj = new ContratoJugador();
-                cj.setIdConju(IdConju);
-                cj = TContratoJugador.consultarContratosJugadores(cj);
-                StringBuilder infoCJ = new StringBuilder("La informacion del contrato del jugador referente al id " + cj.getIdConju() + " es: \n");
-                infoCJ.append("Fecha inicio: " + cj.getFechaInicio() + "\nFecha fin: " + cj.getFechaFin() + "\nSueldo: " + cj.getSueldo() +
-                        "\nClausula: " + cj.getClausula() + "Dorsal: " + cj.getDorsal());
-                if (cj != null)
-                    return infoCJ;
-                else
-                    return null;
-            }
+        float fsueldo = Float.parseFloat(sueldo);
 
-            public static void actualizarContratoJugador(int IdConju, int sueldo, LocalDate FechaInicio, LocalDate FechaFin, int Clausula, String dorsal) throws Exception
-            {
-                cj.setIdConju(IdConju);
-                cj.setSueldo(sueldo);
-                cj.setFechaInicio(FechaInicio);
-                cj.setFechaFin(FechaFin);
-                cj.setClausula(Clausula);
-                cj.setDorsal(dorsal);
-                TContratoJugador.actualizar(cj);
-                vActualizarContratoJugador.dispose();
-            }
+        int fClausula = Integer.parseInt(Clausula);
+
+        //Inserción de datos
+        j = new Jugador(idJugador);
+        eq = new Equipo(idEquipo);
+        cj = new ContratoJugador(j,eq,fsueldo, FechaInicio,FechaFin, fClausula, dorsal);
+        TContratoJugador.insertar(cj);
+        vInsertarContratoJugador.dispose();
+    }
+
+    public static int borrarContratoJugador(int IdConju) throws Exception
+    {
+        cj = new ContratoJugador();
+        cj.setIdConju(IdConju);
+        return TContratoJugador.borrar(cj);
+    }
+
+    public static StringBuilder consultarContratoJugador(int IdConju) throws Exception
+    {
+        cj = new ContratoJugador();
+        cj.setIdConju(IdConju);
+        cj = TContratoJugador.consultarContratosJugadores(cj);
+        StringBuilder infoCJ = new StringBuilder("La informacion del contrato del jugador referente al id " + cj.getIdConju() + " es: \n");
+        infoCJ.append("ID Jugador: " + cj.getID_JUG().getIdJug() + "\nID Equipo: " + cj.getID_EQUIPO().getIdEquipo() + "\nFecha inicio: " + cj.getFechaInicio() + "\nFecha fin: "
+                + cj.getFechaFin() + "\nSueldo: " + cj.getSueldo() + "\nClausula: " + cj.getClausula() + "\nDorsal: " + cj.getDorsal());
+        if (cj != null)
+            return infoCJ;
+        else
+            return null;
+    }
+
+    public static void actualizarContratoJugador(int ID_CONJU, int ID_JUG, int ID_EQUIPO, float sueldo, String FechaInicio, String FechaFin, int Clausula, String dorsal) throws Exception
+    {
+        j = new Jugador(ID_JUG);
+        eq = new Equipo(ID_EQUIPO);
+
+        cj.setIdConju(ID_CONJU);
+        cj.setSueldo(sueldo);
+        cj.setFechaInicio(FechaInicio);
+        cj.setFechaFin(FechaFin);
+        cj.setClausula(Clausula);
+        cj.setDorsal(dorsal);
+        TContratoJugador.actualizar(cj);
+        vActualizarContratoJugador.dispose();
+    }
 
         //Creación de las Ventanas del ContratoStaff
         public static void crearVentanaContratoStaff(){
@@ -779,10 +1043,21 @@ public class Main {
 
             //Crud del ContratoStaff
 
-            public static void crearContratoStaff(int IdConst, int sueldo, LocalDate FechaInicio, LocalDate FechaFin) throws Exception
+            public static void crearContratoStaff(String ID_STAFF, String ID_EQUIPO, String sueldo, String FechaInicio, String FechaFin) throws Exception
             {
                 //Inserción de datos
-                cs = new ContratoStaff(IdConst, sueldo, FechaInicio, FechaFin);
+                int idStaff = Integer.parseInt(ID_STAFF);
+                stf = new Staff(idStaff);
+
+                int idEquipo = Integer.parseInt(ID_EQUIPO);
+                eq = new Equipo(idEquipo);
+
+                float fsueldo = Float.parseFloat(sueldo);
+
+                //Inserción de datos
+                stf = new Staff(idStaff);
+                eq = new Equipo(idEquipo);
+                cs = new ContratoStaff(stf,eq,fsueldo, FechaInicio,FechaFin);
                 TContratoStaff.insertar(cs);
                 vInsertarContratoStaff.dispose();
             }
@@ -807,9 +1082,14 @@ public class Main {
                     return null;
             }
 
-            public static void actualizarContratoStaff(int IdConst, int sueldo, LocalDate FechaInicio, LocalDate FechaFin) throws Exception
+            public static void actualizarContratoStaff(int ID_CONST, int ID_STAFF, int ID_EQUIPO, float sueldo, String FechaInicio, String FechaFin) throws Exception
             {
-                cs.setIdConst(IdConst);
+                stf = new Staff(ID_STAFF);
+                eq = new Equipo(ID_EQUIPO);
+
+                cs.setIdConst(ID_CONST);
+                cs.setID_STAFF(stf);
+                cs.setID_EQUIPO(eq);
                 cs.setSueldo(sueldo);
                 cs.setFechaInicio(FechaInicio);
                 cs.setFechaFin(FechaFin);
@@ -1263,25 +1543,35 @@ public class Main {
 
 
         //Creación de las Ventanas del Usuario
-        public static void crearVentanaUsuario(){
+        public static void crearVentanaCRUDUsuario(){
             vCRUD.setVisible(false);
-            vHomeUsuario = new JFrame("vHomeUsuario");
-            vHomeUsuario.setContentPane(new vHomeUsuario().getpPrincipal());
-            vHomeUsuario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            vHomeUsuario.pack();
-            vHomeUsuario.setExtendedState(Frame.MAXIMIZED_BOTH);
-            vHomeUsuario.setVisible(true);
+            vUsuario = new JFrame("vUsuario");
+            vUsuario.setContentPane(new vUsuario().getpPrincipal());
+            vUsuario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            vUsuario.pack();
+            vUsuario.setExtendedState(Frame.MAXIMIZED_BOTH);
+            vUsuario.setVisible(true);
     }
+    
 
             //Crud de los usuarios
 
-            public static void crearUsuario(int IdUsuario, String Nombre, String Contraseña, String Email, String Telefono, String Admin) throws Exception
+            public static void crearUsuario( String Nombre, String Contraseña, String Email, String Telefono, String Admin) throws Exception
             {
                 //Inserción de datos
-                u = new Usuario (IdUsuario, Nombre, Contraseña, Email, Telefono, Admin);
+                u = new Usuario (Nombre, Contraseña, Email, Telefono, Admin);
                 TUsuario.insertar(u);
                 vInsertarUsuario.dispose();
             }
+
+
+            public static void registrarUsuario( String Nombre, String Contraseña, String Email, String Telefono, String Admin) throws Exception
+            {
+                //Inserción de datos
+                u = new Usuario (Nombre, Contraseña, Email, Telefono, Admin);
+                TUsuario.insertar(u);
+            }
+
 
             public static int borrarUsuario(int IdUsuario) throws Exception
             {
@@ -1318,19 +1608,46 @@ public class Main {
 
      //Registro
      public static void crearVentanaRegistrarse(){
-         vPrincipal.setVisible(false);
-         vRegistrarse = new JFrame("vRegistrarse");
-         vRegistrarse.setContentPane(new vRegistrarse().getpPrincipal());
+         vRegistrarse = new JFrame("vRegistarUsuario");
+         vRegistrarse.setContentPane(new vRegistarUsuario().getpPrincipal());
          vRegistrarse.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          vRegistrarse.pack();
          vRegistrarse.setExtendedState(Frame.MAXIMIZED_BOTH);
          vRegistrarse.setVisible(true);
      }
 
+     //Crear ventana del User
      public static void crearVentanaUser(){
+         vPrincipal.setVisible(false);
          Vista.Usuario.vHomeUsuario.main();
      }
 
+        //Creacion de ventanas referentes al usuario NO admin
+        public static void verEquipos(){
+            verEquipos = new JFrame("vEquipos");
+            verEquipos.setContentPane(new vEquipos().getpPrincipal());
+            verEquipos.pack();
+            verEquipos.setExtendedState(Frame.MAXIMIZED_BOTH);
+            verEquipos.setVisible(true);
+        }
+
+        public static void verClasificacion(){
+            verClasificacion = new JFrame("vClasificacion");
+            verClasificacion.setContentPane(new vClasificacion().getpPrincipal());
+            verClasificacion.pack();
+            verClasificacion.setExtendedState(Frame.MAXIMIZED_BOTH);
+            verClasificacion.setVisible(true);
+        }
+
+        public static void verPartidos(){
+
+        }
+
+    public static ArrayList<Object> generarClasificacion() throws Exception {
+        TTemporada.crearView();
+        ArrayList<Object> lArrays = TTemporada.buscarClasifi();
+        return lArrays;
+    }
 
      public static Usuario inicarSesion(String nombre, String contrasena) throws Exception {
                 u = new Usuario(nombre,contrasena);

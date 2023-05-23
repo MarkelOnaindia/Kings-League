@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 
 public class vEntrenador {
     private JPanel pPrincipal;
-    private JPanel panelAbajo;
     private JPanel panelArriba;
     private JButton volverButton;
     private JPanel panelCentrado;
@@ -39,6 +38,34 @@ public class vEntrenador {
             public void actionPerformed(ActionEvent e) {
                 Main.vEntrenador.setVisible(false);
                 Main.vCRUD.setVisible(true);
+            }
+        });
+
+        insertarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaInsertarEntrenador();
+            }
+        });
+
+        borrarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaBorrarEntrenador();
+            }
+        });
+
+        consultarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaConsultarEntrenador();
+            }
+        });
+
+        actualizarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaActualizarEntrenador();
             }
         });
     }

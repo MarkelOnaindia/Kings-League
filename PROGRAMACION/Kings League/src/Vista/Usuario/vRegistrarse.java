@@ -20,7 +20,6 @@ public class vRegistrarse {
     private JTextField tfTelefono;
 
     //Getter
-
     public JPanel getpPrincipal() {
         return pPrincipal;
     }

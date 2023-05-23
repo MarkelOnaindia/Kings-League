@@ -62,6 +62,12 @@ public class vPrincipal {
                     JOptionPane.showMessageDialog(null,"Usuario o clave incorrecto");               }
             }
         });
+        bRegistrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {Main.crearVentanaRegistrarse();
+
+            }
+        });
     }
 
 

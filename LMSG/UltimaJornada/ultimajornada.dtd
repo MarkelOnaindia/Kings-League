@@ -1,17 +1,20 @@
-        <!ELEMENT jornada (ID_JOR|ID_TEMP|Dia|TIPO|Partido)*>
-        <!ATTLIST jornada
-                NUMERO CDATA #REQUIRED
-                xmlns:xsi CDATA #REQUIRED
-                xsi:noNamespaceSchemaLocation CDATA #REQUIRED>
-        <!ELEMENT ID_JOR (#PCDATA)>
-        <!ELEMENT ID_TEMP (#PCDATA)>
-        <!ELEMENT Dia (#PCDATA)>
-        <!ELEMENT TIPO (#PCDATA)>
-        <!ELEMENT Partido (HORA|GOLES_EQ1|GOLES_EQ2|ID_Ganador)*>
-        <!ATTLIST Partido
-                ID_PARTIDO CDATA #REQUIRED>
-        <!ELEMENT HORA (#PCDATA)>
-        <!ELEMENT GOLES_EQ1 (#PCDATA)>
-        <!ELEMENT GOLES_EQ2 (#PCDATA)>
-        <!ELEMENT ID_Ganador (#PCDATA)>
-  
+<!ELEMENT tabla_jornada (jornada)>
+<!ELEMENT jornada (ID_SPLIT, TIPO_JOR, Partido*)>
+<!ATTLIST jornada
+          NUMERO CDATA #REQUIRED>
+<!ELEMENT ID_SPLIT (#PCDATA)>
+<!ELEMENT TIPO_JOR (#PCDATA)>
+
+
+<!ELEMENT Partido (FECHA_PARTIDO,HORA,EQ1,GOLES_EQ1,EQ2,GOLES_EQ2,ID_GANADOR)>
+<!ATTLIST Partido
+          ID_PARTIDO CDATA #REQUIRED>
+<!ELEMENT FECHA_PARTIDO (#PCDATA)>
+<!ELEMENT HORA (#PCDATA)>
+<!ELEMENT EQ1 (#PCDATA)>
+<!ELEMENT GOLES_EQ1 (#PCDATA)>
+<!ELEMENT EQ2 (#PCDATA)>
+<!ELEMENT GOLES_EQ2 (#PCDATA)>
+<!ELEMENT ID_GANADOR (#PCDATA)>
+
+

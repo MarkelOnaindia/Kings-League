@@ -1,26 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
-  <xs:element name="Clasificaciones" type="ClasificacionesType"/>
-  <xs:complexType name="ClasificacionType">
-    <xs:sequence>
-          <xs:element name="fecha"  type="xs:date"/>
-          <xs:element name="equipo" maxOccurs="12" type="equipo_type"/>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Clasificaciones">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="fecha" type="xs:string"/>
+        <xs:element name="Equipo" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="POSICION" type="xs:int"/>
+              <xs:element name="NOMBRE_EQUIPO" type="xs:string"/>
+              <xs:element name="VICTORIAS" type="xs:int"/>
+              <xs:element name="GOLES_A_FAVOR" type="xs:int"/>
+              <xs:element name="GOLES_EN_CONTRA" type="xs:int"/>
+              <xs:element name="DIFERENCIA_GOLES" type="xs:int"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:sequence>
-      <xs:attribute name="split" type="xs:int" use="required"/>
-      </xs:complexType>
-    <xs:complexType name="equipo_type">
-    <xs:sequence>
-      <xs:element type="xs:string" name="POSICION"/>
-      <xs:element type="xs:string" name="NOMBRE_EQUIPO"/>
-      <xs:element type="xs:int" name="VICTORIAS"/>
-      <xs:element type="xs:int" name="GOLES_A_FAVOR"/>
-      <xs:element type="xs:int" name="GOLES_EN_CONTRA"/>
-      <xs:element type="xs:int" name="DIFERENCIA_GOLES"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="ClasificacionesType">
-    <xs:sequence>
-      <xs:element type="ClasificacionType" name="Clasificacion" maxOccurs="1" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
