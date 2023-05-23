@@ -1,18 +1,23 @@
 package Modelo.Jugadores;
 
+import Modelo.Equipos.Equipo;
+
 import java.time.LocalDate;
 
 public class ContratoJugador {
 
     public int IdConju;
-    public int Sueldo;
-    public LocalDate FechaInicio;
-    public LocalDate FechaFin;
+    public Jugador ID_JUG;
+    public Equipo ID_EQUIPO;
+    public float Sueldo;
+    public String FechaInicio;
+    public String FechaFin;
     public int Clausula;
     public String Dorsal;
 
-    public ContratoJugador(int idConju, int sueldo, LocalDate fechaInicio, LocalDate fechaFin, int clausula, String dorsal) {
-        IdConju = idConju;
+    public ContratoJugador(Jugador ID_JUG, Equipo ID_EQUIPO, float sueldo, String fechaInicio, String fechaFin, int clausula, String dorsal) {
+        this.ID_JUG = ID_JUG;
+        this.ID_EQUIPO = ID_EQUIPO;
         Sueldo = sueldo;
         FechaInicio = fechaInicio;
         FechaFin = fechaFin;
@@ -20,9 +25,10 @@ public class ContratoJugador {
         Dorsal = dorsal;
     }
 
-    public ContratoJugador() {
-
+    public ContratoJugador(){
     }
+
+
 
     public int getIdConju() {
         return IdConju;
@@ -32,27 +38,43 @@ public class ContratoJugador {
         IdConju = idConju;
     }
 
-    public int getSueldo() {
+    public Jugador getID_JUG() {
+        return ID_JUG;
+    }
+
+    public void setID_JUG(Jugador ID_JUG) {
+        this.ID_JUG = ID_JUG;
+    }
+
+    public Equipo getID_EQUIPO() {
+        return ID_EQUIPO;
+    }
+
+    public void setID_EQUIPO(Equipo ID_EQUIPO) {
+        this.ID_EQUIPO = ID_EQUIPO;
+    }
+
+    public float getSueldo() {
         return Sueldo;
     }
 
-    public void setSueldo(int sueldo) {
+    public void setSueldo(float sueldo) {
         Sueldo = sueldo;
     }
 
-    public LocalDate getFechaInicio() {
+    public String getFechaInicio() {
         return FechaInicio;
     }
 
-    public void setFechaInicio(LocalDate fechaInicio) {
+    public void setFechaInicio(String fechaInicio) {
         FechaInicio = fechaInicio;
     }
 
-    public LocalDate getFechaFin() {
+    public String getFechaFin() {
         return FechaFin;
     }
 
-    public void setFechaFin(LocalDate fechaFin) {
+    public void setFechaFin(String fechaFin) {
         FechaFin = fechaFin;
     }
 

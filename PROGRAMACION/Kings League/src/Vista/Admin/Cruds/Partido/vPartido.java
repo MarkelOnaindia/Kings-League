@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 
 public class vPartido {
     private JPanel pPrincipal;
-    private JPanel panelAbajo;
     private JPanel panelArriba;
     private JButton volverButton;
     private JPanel panelCentrado;
@@ -39,6 +38,34 @@ public class vPartido {
             public void actionPerformed(ActionEvent e) {
                 Main.vPartido.setVisible(false);
                 Main.vCRUD.setVisible(true);
+            }
+        });
+
+        insertarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaInsertarPartido();
+            }
+        });
+
+        borrarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaBorrarPartido();
+            }
+        });
+
+        consultarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaConsultarPartido();
+            }
+        });
+
+        actualizarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaActualizarPartido();
             }
         });
     }

@@ -23,7 +23,9 @@ public class Staff {
     }
 
     public Staff() {
+    }
 
+    public Staff(int id_staff){
     }
 
     public int getIdStaff() {

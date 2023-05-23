@@ -1,6 +1,7 @@
 package Vista.Admin.Cruds.Usuario;
 
 import Controlador.Main;
+import Vista.Admin.Cruds.ContratoEntrenador.vContratoEntrena;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -8,7 +9,6 @@ import java.awt.event.ActionListener;
 
 public class vUsuario {
     private JPanel pPrincipal;
-    private JPanel panelAbajo;
     private JPanel panelArriba;
     private JButton volverButton;
     private JPanel panelCentrado;
@@ -24,6 +24,8 @@ public class vUsuario {
     }
 
     //Main
+
+
     public static void main(String[] args) {
         JFrame frame = new JFrame("vUsuario");
         frame.setContentPane(new vUsuario().pPrincipal);
@@ -37,10 +39,33 @@ public class vUsuario {
         volverButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main.vHomeUsuario.setVisible(false);
+                Main.vContratoEntrena.setVisible(false);
                 Main.vCRUD.setVisible(true);
             }
         });
+        insertarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaInsertarUsuario();
+            }
+        });
+        borrarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaBorrarContratoEntrenador();
+            }
+        });
+        consultarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaConsultarContratoEntrenador();
+            }
+        });
+        actualizarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaActualizarContratoEntrenador();
+            }
+        });
     }
-
 }

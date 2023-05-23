@@ -1,6 +1,7 @@
 package Vista.Admin.Cruds.ContratoJugador;
 
 import Controlador.Main;
+import Vista.Admin.Cruds.ContratoEntrenador.vContratoEntrena;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -37,8 +38,32 @@ public class vContratoJugador {
         volverButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main.vContratoJugador.setVisible(false);
+                Main.vContratoEntrena.setVisible(false);
                 Main.vCRUD.setVisible(true);
+            }
+        });
+        insertarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaInsertarContratoJugador();
+            }
+        });
+        borrarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaBorrarContratoJugador();
+            }
+        });
+        consultarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaConsultarContratoJugador();
+            }
+        });
+        actualizarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.crearVentanaActualizarContratoJugador();
             }
         });
     }

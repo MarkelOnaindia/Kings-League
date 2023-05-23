@@ -23,6 +23,14 @@ public class Usuario {
         Contraseña = contraseña;
     }
 
+    public Usuario(String nombre, String contraseña, String email, String telefono, String admin) {
+        Nombre = nombre;
+        Contraseña = contraseña;
+        Email = email;
+        Telefono = telefono;
+        Admin = admin;
+    }
+
     public Usuario() {
 
     }
@@ -74,4 +82,6 @@ public class Usuario {
     public void setAdmin(String admin) {
         Admin = admin;
     }
+
+
 }

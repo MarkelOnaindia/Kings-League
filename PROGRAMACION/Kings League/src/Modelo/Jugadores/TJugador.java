@@ -11,7 +11,7 @@ public class TJugador {
     public static void insertar(Jugador j) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into ContratoJugador values (?,?,?,?,?,?,?,?,?,?,?,?)");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Jugadores values (?,?,?,?,?,?,?,?,?,?,?,?)");
         ps.setInt(1, j.getIdJug());
         ps.setString(2, j.getPieManoDominante());
         ps.setString(3, j.getTamañoCalzado());
@@ -31,7 +31,7 @@ public class TJugador {
     public static int borrar(Jugador j) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from Jugador where IdJug = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from Jugadores where IdJug = ?");
         ps.setInt(1,j.getIdJug());
         int n = ps.executeUpdate();
         BaseDatos.cerrarConexion();
@@ -41,7 +41,7 @@ public class TJugador {
     public static int actualizar(Jugador j) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("update Jugador set PieDominante = ?, TamañoCalzado = ?, PosicionDraft = ?, Posicion = ?, TipoJugador = ? " +
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("update Jugadores set PieDominante = ?, TamañoCalzado = ?, PosicionDraft = ?, Posicion = ?, TipoJugador = ?, " +
                 " DNI = ?, Nombre = ?, Apellido1 = ?, Apellido2 = ?, Telefono = ?, Correo = ?  where IdJug = ?");
         ps.setString(1, j.getPieManoDominante());
         ps.setString(2, j.getTamañoCalzado());
@@ -63,7 +63,7 @@ public class TJugador {
     public static Jugador consultarJugadores(Jugador j) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from Jugador where IdJug = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from Jugadores where IdJug = ?");
         ps.setInt(1, j.getIdJug());
         ResultSet resultado = ps.executeQuery();
         Jugador jug;

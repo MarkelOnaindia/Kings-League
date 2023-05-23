@@ -151,6 +151,7 @@
                 </constraints>
                 <properties>
                   <font name="Nirmala UI" size="28"/>
+                  <foreground color="-4"/>
                   <text value="Selecciona una tabla"/>
                 </properties>
               </component>
@@ -159,6 +160,8 @@
                   <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <background color="-10076854"/>
+                  <foreground color="-4"/>
                   <model/>
                 </properties>
               </component>
@@ -177,6 +180,8 @@
                   <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <background color="-10076854"/>
+                  <foreground color="-4"/>
                   <text value="Atras"/>
                 </properties>
               </component>

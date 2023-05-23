@@ -1,23 +1,25 @@
 package Modelo.Staff;
 
-import java.time.LocalDate;
+import Modelo.Equipos.Equipo;
 
 public class ContratoStaff {
 
     public int IdConst;
-    public  int Sueldo;
-    public LocalDate FechaInicio;
-    public  LocalDate FechaFin;
+    public Staff ID_STAFF;
+    public Equipo ID_EQUIPO;
+    public  float Sueldo;
+    public String FechaInicio;
+    public  String FechaFin;
 
-    public ContratoStaff(int idConst, int sueldo, LocalDate fechaInicio, LocalDate fechaFin) {
-        IdConst = idConst;
+    public ContratoStaff(Staff ID_STAFF, Equipo ID_EQUIPO, float sueldo, String fechaInicio, String fechaFin) {
+        this.ID_STAFF = ID_STAFF;
+        this.ID_EQUIPO = ID_EQUIPO;
         Sueldo = sueldo;
         FechaInicio = fechaInicio;
         FechaFin = fechaFin;
     }
 
     public ContratoStaff() {
-
     }
 
     public int getIdConst() {
@@ -28,27 +30,43 @@ public class ContratoStaff {
         IdConst = idConst;
     }
 
-    public int getSueldo() {
+    public Staff getID_STAFF() {
+        return ID_STAFF;
+    }
+
+    public void setID_STAFF(Staff ID_STAFF) {
+        this.ID_STAFF = ID_STAFF;
+    }
+
+    public Equipo getID_EQUIPO() {
+        return ID_EQUIPO;
+    }
+
+    public void setID_EQUIPO(Equipo ID_EQUIPO) {
+        this.ID_EQUIPO = ID_EQUIPO;
+    }
+
+    public float getSueldo() {
         return Sueldo;
     }
 
-    public void setSueldo(int sueldo) {
+    public void setSueldo(float sueldo) {
         Sueldo = sueldo;
     }
 
-    public LocalDate getFechaInicio() {
+    public String getFechaInicio() {
         return FechaInicio;
     }
 
-    public void setFechaInicio(LocalDate fechaInicio) {
+    public void setFechaInicio(String fechaInicio) {
         FechaInicio = fechaInicio;
     }
 
-    public LocalDate getFechaFin() {
+    public String getFechaFin() {
         return FechaFin;
     }
 
-    public void setFechaFin(LocalDate fechaFin) {
+    public void setFechaFin(String fechaFin) {
         FechaFin = fechaFin;
     }
 }
