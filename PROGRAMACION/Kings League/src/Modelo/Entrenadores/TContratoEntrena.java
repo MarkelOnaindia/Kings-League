@@ -25,7 +25,7 @@ public class TContratoEntrena {
     public static int borrar(ContratoEntrena ce) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from ContratosEntrena where IdConen = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from ContratosEntrena where Id_Conen = ?");
         ps.setInt(1, ce.getIdConen());
         int n = ps.executeUpdate();
         BaseDatos.cerrarConexion();
@@ -35,7 +35,7 @@ public class TContratoEntrena {
     public static int actualizar(ContratoEntrena ce) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("update ContratosEntrena set IdEnt = ?, IdEquipo = ?, Sueldo = ?, Fechainicio = ?, Fechafin = ? where IdConen = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("update ContratosEntrena set IdEnt = ?, IdEquipo = ?, Sueldo = ?, Fechainicio = ?, Fechafin = ? where Id_Conen = ?");
         ps.setFloat(3, ce.getSueldo());
         ps.setDate(4, Date.valueOf(ce.getFechaInicio()));
         ps.setDate(5, Date.valueOf(ce.getFechaFin()));
@@ -48,7 +48,7 @@ public class TContratoEntrena {
     public static ContratoEntrena consultarContratosEntrena(ContratoEntrena ce) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from ContratosEntrena where IdConen = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from ContratosEntrena where Id_Conen = ?");
         ps.setInt(1, ce.getIdConen());
         ResultSet resultado = ps.executeQuery();
         ContratoEntrena conen = null;
@@ -60,12 +60,12 @@ public class TContratoEntrena {
             eq1 = new Equipo(resultado.getInt("ID_EQUIPO"));
             e1 = new Entrenador(resultado.getInt("ID_ENT"));
 
-            conen.setIdConen(resultado.getInt("IdConen"));
+            conen.setIdConen(resultado.getInt("Id_Conen"));
             conen.setID_ENT(e1);
             conen.setID_EQUIPO(eq1);
             conen.setSueldo(resultado.getInt("Sueldo"));
-            conen.setFechaInicio(resultado.getString("FechaInicio"));
-            conen.setFechaFin(resultado.getString("FechaFin"));
+            conen.setFechaInicio(resultado.getString("Fecha_ini"));
+            conen.setFechaFin(resultado.getString("Fecha_Fin"));
         }
         else
             conen = null;

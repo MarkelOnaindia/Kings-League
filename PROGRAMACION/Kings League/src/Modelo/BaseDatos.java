@@ -44,7 +44,7 @@ public class BaseDatos {
         BaseDatos.abrirConexion();
         PreparedStatement ps = null;
         try {
-            ps = BaseDatos.getCon().prepareStatement("SELECT table_name FROM all_tables WHERE upper(owner) = 'EQDAW02' AND upper(table_name) <> 'CAL_XML_RESULTADOS'");
+            ps = BaseDatos.getCon().prepareStatement("SELECT table_name FROM all_tables WHERE upper(owner) = 'EQDAW02' AND upper(table_name) <> 'CAL_XML_RESULTADOS' order by table_name");
             ResultSet rs = ps.executeQuery();
             ArrayList <String> lTablas  = new ArrayList();
             while (rs.next())

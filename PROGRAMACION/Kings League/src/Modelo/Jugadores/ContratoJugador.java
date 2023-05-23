@@ -25,6 +25,10 @@ public class ContratoJugador {
         Dorsal = dorsal;
     }
 
+    public ContratoJugador(int idConju) {
+        IdConju = idConju;
+    }
+
     public ContratoJugador(){
     }
 

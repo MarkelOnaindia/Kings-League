@@ -17,7 +17,7 @@ public class TPropietario {
     public static void insertar(Propietario pro) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Propietarios values (?,?,?,?,?,?,?)");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("insert into Propietarios (ID_PRO,DNI,NOMBRE,APELLIDO1,APELLIDO2,TELEFONO,CORREO) values (?,?,?,?,?,?,?)");
         ps.setInt(1,pro.getIdPro());
         ps.setString(2,pro.getDNI() );
         ps.setString(3, pro.getNombre());
@@ -32,7 +32,7 @@ public class TPropietario {
     public static int borrar(Propietario pro) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from Propietarios where IdPro = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("delete from Propietarios where Id_Pro = ?");
         ps.setInt(1, pro.getIdPro());
         int n = ps.executeUpdate();
         BaseDatos.cerrarConexion();
@@ -43,7 +43,7 @@ public class TPropietario {
     {
         BaseDatos.abrirConexion();
         PreparedStatement ps = BaseDatos.getCon().prepareStatement("update Propietarios set DNI = ?, Nombre = ?, Apellido1 = ?, Apellido2 = ?, Telefono = ?, " +
-                " Correo = ?  where IdPro = ?");
+                " Correo = ?  where Id_Pro = ?");
         ps.setString(1, pro.getDNI());
         ps.setString(2, pro.getNombre());
         ps.setString(3, pro.getApellido1());
@@ -59,7 +59,7 @@ public class TPropietario {
     public static Propietario consultarPropietarios(Propietario pro) throws Exception
     {
         BaseDatos.abrirConexion();
-        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from Propietarios where IdPro = ?");
+        PreparedStatement ps = BaseDatos.getCon().prepareStatement("select * from Propietarios where Id_Pro = ?");
         ps.setInt(1, pro.getIdPro());
         ResultSet resultado = ps.executeQuery();
         Propietario prop;
