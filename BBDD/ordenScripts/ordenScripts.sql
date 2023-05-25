@@ -11,7 +11,7 @@
     @\Kings-League\BBDD\triggers\triggers.sql
         
     /*Creacion de views*/
-    @\Kings-League\BBDD\views\wiews.sql
+    @\Kings-League\BBDD\views\views.sql
 
     /*Procedimientos almacenados*/
     @"\Kings-League\BBDD\procedimientos almacenados\procedimientosAlmacenados.sql"
